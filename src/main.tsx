@@ -1,8 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore/lite";
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+import App from "./App";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAUACBOAZWjflsM3oXygj2hexLO9zdjKdA",

@@ -1,5 +1,7 @@
-import { HashRouter } from "react-router-dom";
 import "./App.css";
+
+import { HashRouter } from "react-router-dom";
+
 import AppRouter from "./routers/AppRouter/AppRouter";
 
 function App() {

@@ -1,6 +1,7 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Route,Routes } from "react-router-dom";
+
 import HomeLayout from "../../pages/HomeLayout/HomeLayout";
 import { privateRoutes, publicRoutes } from "../routes";
 
