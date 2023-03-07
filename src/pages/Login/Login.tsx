@@ -1,11 +1,10 @@
-import LoginForm from "../../components/LoginForm/LoginForm"
+import LoginForm from "../../components/LoginForm/LoginForm";
 
-type Props = {}
 
-const Login = (props: Props) => {
-  return (
-    <LoginForm />
-  )
-}
+const Login = () => {
+    return (
+        <LoginForm />
+    );
+};
 
-export default Login
+export default Login;
