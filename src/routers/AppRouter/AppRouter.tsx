@@ -1,19 +1,17 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
-import { Route,Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
+import { auth } from "../../firebase/firebase";
 import HomeLayout from "../../pages/HomeLayout/HomeLayout";
 import { privateRoutes, publicRoutes } from "../routes";
 
 const AppRouter = () => {
     const [isLogined, setIsLogined] = useState<boolean>();
-    const auth = getAuth();
+
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/firebase.User
             setIsLogined(true);
-            // ...
         } else {
             setIsLogined(false);
         }

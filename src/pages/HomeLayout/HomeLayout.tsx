@@ -9,7 +9,8 @@ function HomeLayout() {
     const navigate = useNavigate();
 
     return (
-        <><div>HomeLayout</div>
+        <>
+            <div>HomeLayout</div>
             <Button onClick={() => navigate(LOGIN_ROUTE)}>Login</Button>
         </>
     );

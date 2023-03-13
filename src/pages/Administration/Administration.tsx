@@ -1,17 +1,16 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
-import { getAuth, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
+import { auth } from "../../firebase/firebase";
 import { HOME_ROUTE } from "../../routers/consts";
 
 function Administration() {
     const navigate = useNavigate();
-  
-    const auth = getAuth();
 
     const handleSignOutClick = () => {
         signOut(auth).then(() => {
-            //TODO скорее всего можно будет выпилить когда настрою редиректы к роутерам с недоступных путей на главную.
+            // TODO скорее всего можно будет выпилить когда настрою редиректы к роутерам с недоступных путей на главную.
             navigate(HOME_ROUTE);
         }).catch((error) => {
             console.log(error);

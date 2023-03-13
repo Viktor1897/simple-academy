@@ -2,17 +2,16 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Button, Grid, IconButton, InputAdornment, TextField } from "@mui/material";
 import { lightBlue } from "@mui/material/colors";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { auth } from "../../firebase/firebase";
 import { ADMINISTRATION_ROUTE } from "../../routers/consts";
 
 const LoginForm = () => {
 
     const navigate = useNavigate();
-    const auth = getAuth();
-
 
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -20,8 +19,8 @@ const LoginForm = () => {
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-    const login = () => {
-        signInWithEmailAndPassword(auth, email, password)
+    const login = async () => {
+        await signInWithEmailAndPassword(auth, email, password)
             .then(() => {
                 navigate(ADMINISTRATION_ROUTE);
             })
