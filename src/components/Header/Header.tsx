@@ -6,7 +6,6 @@ import Navbar from "../Navbar/Navbar";
 
 
 const Header = () => {
-    console.log("img", headerBg);
     return (
         //todo изучить вопрос семантики вместе с MUI
         <header>
