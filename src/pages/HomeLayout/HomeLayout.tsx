@@ -1,4 +1,5 @@
 import { Box, Button } from "@mui/material";
+import AboutUsSection from "components/AboutUsSection/AboutUsSection";
 import InfoIconsSection from "components/InfoIconsSection/InfoIconsSection";
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +15,7 @@ function HomeLayout() {
         <Box>
             <Header />
             <InfoIconsSection />
+            <AboutUsSection />
             <Button onClick={() => navigate(LOGIN_ROUTE)}>Login</Button>
         </Box>
     );
