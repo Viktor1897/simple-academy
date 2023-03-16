@@ -1,6 +1,6 @@
 import PhoneIcon from "@mui/icons-material/Phone";
 import { Button, Grid, SxProps, Typography } from "@mui/material";
-import { ReactComponent as AcademyLogo } from "assets/logo.svg";
+import AcademyLogo from "assets/logo.svg";
 import Navigation from "components/Navigation/Navigation";
 
 type NavBarProps = {
@@ -10,7 +10,7 @@ type NavBarProps = {
 const Navbar = ({ sx }: NavBarProps) => {
     return (
         <Grid color="#FFFFFF" justifyContent="space-between" container py={5} direction="row" sx={sx}>
-            <AcademyLogo />
+            <img src={AcademyLogo} alt="simple academy"/>
             <Grid item spacing={0.25}>
                 <Grid container>
                     <PhoneIcon sx={{ mr: 1 }}/>
