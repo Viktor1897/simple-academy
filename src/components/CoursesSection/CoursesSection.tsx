@@ -4,11 +4,12 @@ import { MAX_CONTENT_WIDTH } from "consts";
 
 
 const Section = styled.section`
-    padding: 60px 0 100px 0;
+    padding: 60px 0 80px 0;
     background-color: #262626;
 `;
 
 const courses = [
+    //если вдруг firebase будет не будет создавать айдишники, то добавить uuid и генерить их самому чтобы было понятно на какой курс откликнулись.
     {
         title: "BARBER OD ZERA",
         chip: "Popularne",
