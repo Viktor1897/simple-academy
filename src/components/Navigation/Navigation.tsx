@@ -1,5 +1,26 @@
 import styled from "@emotion/styled";
-import { Link } from "@mui/material";
+import { COLORS } from "consts";
+
+const Navigation = () => {
+    
+    return (
+        <nav>
+            <Ul>
+                <Li>
+                    <A href="#">O NAS</A>
+                </Li>
+                <Li>
+                    <A href="#">SZKOLIENIA</A>
+                </Li>
+                <Li>
+                    <A href="#">KONTAKT</A>
+                </Li>
+            </Ul>
+        </nav>
+    );
+};
+
+export default Navigation;
 
 const Ul = styled.ul`
     display: flex;
@@ -8,28 +29,13 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-    margin-right: 45px;
+    margin-left: 45px;
     list-style-type: none;
 `;
 
-
-const Navigation = () => {
-    
-    return (
-        <nav>
-            <Ul>
-                <Li>
-                    <Link href="#">O NAS</Link>
-                </Li>
-                <Li>
-                    <Link href="#">SZKOLIENIA</Link>
-                </Li>
-                <Li>
-                    <Link href="#">KONTAKT</Link>
-                </Li>
-            </Ul>
-        </nav>
-    );
-};
-
-export default Navigation;
+const A = styled.a`
+    font-weight: 500;
+    font-size: 22px;
+    color: ${COLORS.white};
+    text-decoration: none;
+`;
