@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Grid, Typography } from "@mui/material";
-import { MAX_CONTENT_WIDTH } from "consts";
+import { H3 } from "components/StyledHtml/StyledHtml";
+import { COLORS, MAX_CONTENT_WIDTH } from "consts";
 
 const Section = styled.section`
     padding: 60px 0 100px 0;
@@ -9,7 +10,7 @@ const Section = styled.section`
 const AboutUsSection = () => {
     return (
         <Section>
-            <Typography variant="h3" mb={5} textAlign="center">O NAS</Typography>
+            <H3 color={COLORS.black} marginBottom="45px">O NAS</H3>
             <Grid container direction="row" maxWidth={MAX_CONTENT_WIDTH} width="100%" margin="0 auto">
                 <Grid xs={6}>
                     <Typography>

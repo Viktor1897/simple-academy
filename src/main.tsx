@@ -3,9 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import App from "./App";
 
-
-
-// const db = getFirestore(app);
+//TODO move theme to anothe file
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
