@@ -43,20 +43,27 @@ export const Section = styled.section<SectionProps>`
     padding: ${props => props.padding};
     background-color: ${props => props.backgroundColor};
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 `;
 
 type WrapperProps = {
     flexDirection?: "row" | "column";
-    alignItems?: "center" | "start" | "end";
+    alignItems?: "center" | "start" | "end" | "stretch";
+    gap?: string;
 }
 
 export const ContentWrapper = styled.div<WrapperProps>`
     max-width: ${MAX_CONTENT_WIDTH};
     width: 100%;
     display: flex;
-    flex-direction: ${props => props.flexDirection || "column"};
-    align-items: ${props => props.alignItems || "center"};
+    flex-direction: ${props => props.flexDirection || "row"};
+    align-items: ${props => props.alignItems || "start"};
+    gap: ${props => props.gap || "30px"};
+`;
+
+export const FlexItem = styled.div`
+    flex: 1;
 `;
 
 type HeadingProps = {

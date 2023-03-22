@@ -36,7 +36,7 @@ const InfoIconsSection = () => {
 export default InfoIconsSection;
 
 const VerticalFlexItem = styled.div`
-    max-width: 270px;
+    // max-width: 270px;
     display: flex;
     flex-direction: column;
     align-items: center;

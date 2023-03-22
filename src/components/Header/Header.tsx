@@ -7,7 +7,7 @@ import Navbar from "../Navbar/Navbar";
 const Header = () => {
     return (
         <HeaderElement>
-            <ContentWrapper>
+            <ContentWrapper gap="none" flexDirection="column" alignItems="center">
                 <Navbar/>
                 <H2 marginBottom="67px">ZOSTAŃ BARBEREM ZA 30 DNI I ZARABIAJ OD 5000 ZŁ/MES</H2>
                 <Button maxWidth="422px" padding="23px 0" fontSize="35px">SKONTAKTUJ SIĘ</Button>
