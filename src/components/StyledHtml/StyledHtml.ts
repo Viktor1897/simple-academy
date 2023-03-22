@@ -48,6 +48,7 @@ export const Section = styled.section<SectionProps>`
 
 type WrapperProps = {
     flexDirection?: "row" | "column";
+    alignItems?: "center" | "start" | "end";
 }
 
 export const ContentWrapper = styled.div<WrapperProps>`
@@ -55,7 +56,7 @@ export const ContentWrapper = styled.div<WrapperProps>`
     width: 100%;
     display: flex;
     flex-direction: ${props => props.flexDirection || "column"};
-    align-items: center;
+    align-items: ${props => props.alignItems || "center"};
 `;
 
 type HeadingProps = {
