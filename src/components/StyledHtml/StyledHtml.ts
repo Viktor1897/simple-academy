@@ -31,6 +31,7 @@ export const Button = styled.button<ButtonProps>`
     color: ${COLORS.black};
     font-size: ${props => props.fontSize || "27px"};
     font-weight: 600;
+    text-transform: uppercase;
     cursor: pointer;
 `;
 
@@ -60,6 +61,15 @@ export const ContentWrapper = styled.div<WrapperProps>`
     flex-direction: ${props => props.flexDirection || "row"};
     align-items: ${props => props.alignItems || "start"};
     gap: ${props => props.gap || "30px"};
+`;
+
+export const VerticalFlexContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    flex: 1;
 `;
 
 export const FlexItem = styled.div`
