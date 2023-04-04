@@ -30,7 +30,7 @@ export const Button = styled.button<ButtonProps>`
     box-shadow: ${props => props.variant !== "outlined" && `4px 4px 18px ${COLORS.gold}`};
     color: ${COLORS.black};
     font-size: ${props => props.fontSize || "27px"};
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
     cursor: pointer;
 `;
@@ -63,17 +63,46 @@ export const ContentWrapper = styled.div<WrapperProps>`
     gap: ${props => props.gap || "30px"};
 `;
 
-export const VerticalFlexContainer = styled.div`
+type VerticalFlexContainer = {
+  alignItems?: "center" | "start" | "end" | "stretch";
+  textAlign?: "center" | "left" | "right";
+};
+
+export const VerticalFlexContainer = styled.div<VerticalFlexContainer>`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: ${props => props.alignItems || "center"};
+    text-align: ${props => props.textAlign || "center"};
     gap: 16px;
     flex: 1;
 `;
 
 export const FlexItem = styled.div`
     flex: 1;
+`;
+
+type ListProps = {
+    /**
+     * @default "21px"
+     */
+    fontSize?: string;
+}
+
+export const List = styled.ul<ListProps>`
+    list-style: none;
+    padding-left: 35px;
+    & li {
+        font-size: ${props => props.fontSize || "21px"};
+        margin-bottom: 12px;
+        &::before {
+            content: "•";  
+            color: ${COLORS.gold}; 
+            font-weight: bold; 
+            display: inline-block; 
+            width: 1.3em; 
+            margin-left: -1.3em;
+        };
+    }
 `;
 
 type HeadingProps = {
