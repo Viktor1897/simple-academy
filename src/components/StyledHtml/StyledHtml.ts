@@ -18,17 +18,18 @@ type ButtonProps = {
      * @default "27px"
      */
     fontSize?: string;
+    color?: string;
 }
 
 export const Button = styled.button<ButtonProps>`
     width: ${props => props.width || "100%"};
     max-width: ${props => props.maxWidth};
     padding: ${props => props.padding || "15px 0"};
-    background-color: ${props => props.variant === "outlined" ? COLORS.white : COLORS.gold};
-    border: ${props => props.variant === "outlined" ? `${COLORS.black} solid 1px` : "none"};
+    background-color: ${props => props.variant === "outlined" ? "transparent" : COLORS.gold};
+    border: ${props => props.variant === "outlined" ? `${props.color || COLORS.black} solid 1px` : "none"};
     border-radius: 10px;
     box-shadow: ${props => props.variant !== "outlined" && `4px 4px 18px ${COLORS.gold}`};
-    color: ${COLORS.black};
+    color: ${props => props.color || COLORS.black};
     font-size: ${props => props.fontSize || "27px"};
     font-weight: 500;
     text-transform: uppercase;

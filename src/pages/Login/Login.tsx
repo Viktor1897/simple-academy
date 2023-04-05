@@ -1,17 +1,18 @@
 import styled from "@emotion/styled";
+import { COLORS } from "consts";
 
 import LoginForm from "../../components/LoginForm/LoginForm";
 
-const Section = styled.section`
-    background-color: #262626;
+const LoginSection = styled.section`
+    background-color: ${COLORS.bgDark};
     height: 100vh;
 `;
 
 const Login = () => {
     return (
-        <Section>
+        <LoginSection>
             <LoginForm />
-        </Section>
+        </LoginSection>
     );
 };
 
