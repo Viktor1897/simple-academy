@@ -1,10 +1,9 @@
 import { ContentWrapper, FlexItem, H3, Section, Text } from "components/StyledHtml/StyledHtml";
-import { COLORS } from "consts";
 
 const AboutUsSection = () => {
     return (
         <Section padding="60px 0 100px 0">
-            <H3 color={COLORS.black} marginBottom="45px">O NAS</H3>
+            <H3 marginBottom="45px">O NAS</H3>
             <ContentWrapper flexDirection="row" alignItems="stretch">
                 <FlexItem>
                     <Text>

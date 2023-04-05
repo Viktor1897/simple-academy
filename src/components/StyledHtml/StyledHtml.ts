@@ -81,6 +81,17 @@ export const FlexItem = styled.div`
     flex: 1;
 `;
 
+export const Paper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding: 50px 45px;
+    position: relative;
+    border-radius: 24px;
+    background-color: ${COLORS.white};
+`;
+
 type ListProps = {
     /**
      * @default "21px"
@@ -107,7 +118,7 @@ export const List = styled.ul<ListProps>`
 
 type HeadingProps = {
     /**
-     * @default "white"
+     * @default "black"
      */
     color?: string;
     marginBottom?: string;
@@ -118,26 +129,26 @@ type HeadingProps = {
 };
 
 export const H2 = styled.h2<HeadingProps>`
-    color: ${props => props.color || COLORS.white};
+    color: ${props => props.color || COLORS.black};
     margin-bottom: ${props => props.marginBottom};
     text-align: ${props => props.textAlign || "center"};
     font-size: 60px;
 `;
 
 export const H3 = styled.h3<HeadingProps>`
-    color: ${props => props.color || COLORS.white};
+    color: ${props => props.color || COLORS.black};
     margin-bottom: ${props => props.marginBottom};
     text-align: ${props => props.textAlign || "center"};
     font-size: 48px;
 `;
 export const H4 = styled.h4<HeadingProps>`
-    color: ${props => props.color || "white"};
+    color: ${props => props.color || COLORS.black};
     margin-bottom: ${props => props.marginBottom};
     text-align: ${props => props.textAlign || "center"};
     font-size: 35px;
 `;
 
-type ParagraphProps = {
+type TextProps = {
     /**
      * @default "black"
      */
@@ -150,7 +161,7 @@ type ParagraphProps = {
     textDecoration?: "underline" | "line-through";
 }
 
-export const Text = styled.p<ParagraphProps>`
+export const Text = styled.p<TextProps>`
     color: ${props => props.color || COLORS.black};
     font-size: ${props => props.fontSize || "22px"};
     margin-bottom: ${props => props.marginBottom};

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button, ContentWrapper, H3, H4, List, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
+import { Button, ContentWrapper, H3, H4, List, Paper, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
 import { COLORS } from "consts";
 
 const courses = [
@@ -24,12 +24,12 @@ const courses = [
 const CoursesSection = () => {
     return (
         <Section padding="60px 0 80px 0" backgroundColor={COLORS.bgDark}>
-            <H3 marginBottom="40px">SZKOLIENIA</H3>
+            <H3 marginBottom="40px" color={COLORS.white}>SZKOLIENIA</H3>
             <ContentWrapper alignItems="stretch">
                 {courses.map((course) => <VerticalFlexContainer textAlign="left" key={course.title}>
                     <Paper>
                         {course.chip && <Chip>{course.chip}</Chip>}
-                        <H4 color={COLORS.black} textAlign="left" marginBottom="30px">{course.title}</H4>
+                        <H4 textAlign="left" marginBottom="30px">{course.title}</H4>
                         <List fontSize="28px">
                             {course.descriptionList.map((listItem) => <li key={listItem}>{listItem}</li>)}
                         </List>
@@ -57,17 +57,6 @@ const Chip = styled.div`
     font-size: 15px;
     text-transform: uppercase;
     color: ${COLORS.green};
-`;
-
-const Paper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-    padding: 50px 45px;
-    position: relative;
-    border-radius: 24px;
-    background-color: ${COLORS.white};
 `;
 
 const PriceContainer = styled.div`
