@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import PhoneIcon from "@mui/icons-material/Phone";
 import AcademyLogo from "assets/logo.svg";
+import PhoneIcon from "assets/phone_filled.svg";
 import Navigation from "components/Navigation/Navigation";
 import { Text } from "components/StyledHtml/StyledHtml";
 import { COLORS } from "consts";
@@ -11,7 +11,7 @@ const Navbar = () => {
             <img src={AcademyLogo} alt="simple academy"/>
             <CallMeBlock>
                 <CallMeItem>
-                    <PhoneIcon sx={{ fontSize: "35px", mr: 1, color: COLORS.white }}/>
+                    <img src={PhoneIcon} />
                     <Text color={COLORS.white}>+ 48 786 677 659</Text>
                 </CallMeItem>
                 <CallMeItem>
@@ -48,6 +48,7 @@ const CallMeItem = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: 10px;
 `;
 
 const LangAndMenuWrapper = styled.div`
