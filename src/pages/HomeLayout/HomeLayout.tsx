@@ -1,4 +1,5 @@
 import AboutUsSection from "components/AboutUsSection/AboutUsSection";
+import CopyrightSection from "components/CopyrightSection/CopyrightSection";
 import CoursesSection from "components/CoursesSection/CoursesSection";
 import { Footer } from "components/Footer/Footer";
 import GraduatesSection from "components/GraduatesSection/GraduatesSection";
@@ -20,6 +21,7 @@ function HomeLayout() {
             <TutorsSection />
             <GraduatesSection />
             <Footer />
+            <CopyrightSection />
         </>
     );
 }

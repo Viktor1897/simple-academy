@@ -13,14 +13,12 @@ export const Footer = () => {
             <ContentWrapper flexDirection="column">
                 <H3 color={COLORS.white}>Masz pytania? Zapytaj!</H3>
                 <GridLayout>
-                    <FeedbackFormContainer>
-                        <FeedbackForm>
-                            <Input type="text" placeholder="Imię" />
-                            <Input type="text" placeholder="Telefon" />
-                            <Textarea placeholder="Wiadomość" rows={3} />
-                            <Button type="submit">WYSŁAĆ</Button>
-                        </FeedbackForm>
-                    </FeedbackFormContainer>
+                    <FeedbackForm>
+                        <Input type="text" placeholder="Imię" />
+                        <Input type="text" placeholder="Telefon" />
+                        <Textarea placeholder="Wiadomość" rows={3} />
+                        <Button type="submit">WYSŁAĆ</Button>
+                    </FeedbackForm>
                     <ContactsContainer>
                         <Text marginBottom="20px" fontSize="15px" color={COLORS.textGray}>
                             Jeśli masz jakieś pytania, chcesz o coś porozmawiać lub o coś 
@@ -55,9 +53,6 @@ const GridLayout = styled.div`
     grid-template-columns: repeat(2, 1fr);
     row-gap: 100px;
     column-gap: 230px;
-`;
-
-const FeedbackFormContainer = styled.div`
 `;
 
 const FeedbackForm = styled.form`
