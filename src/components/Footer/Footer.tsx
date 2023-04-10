@@ -31,9 +31,9 @@ export const Footer = () => {
                             Możesz również skontaktować się z nami przez telefon.
                         </Text>
                         <Contacts>
-                            <li><ContactsIcon src={Location} />Mieścimy się pod adresem: Poznań, ul. Swierzawska 4</li>
-                            <li><ContactsIcon src={Phone} />+48 786 677 659</li>
-                            <li><ContactsIcon src={Instagram} />@simple_academy_poznan</li>
+                            <li><ContactsIcon src={Location} /><Text fontSize="13px" color={COLORS.white}>Mieścimy się pod adresem: Poznań, ul. Swierzawska 4</Text></li>
+                            <li><ContactsIcon src={Phone} /><Text fontSize="13px" color={COLORS.white}>+48 786 677 659</Text></li>
+                            <li><ContactsIcon src={Instagram} /><Text fontSize="13px" color={COLORS.white}>@simple_academy_poznan</Text></li>
                         </Contacts>
                         <img width="285px" src={AcademyLogo} alt="simple academy logo" style={{ opacity: 0.6 }}/>
                     </ContactsContainer>
@@ -71,10 +71,11 @@ const Contacts = styled.ul`
     flex-direction: column;
     list-style: none;
     color: ${COLORS.white};
-    margin-bottom: 55px;
+    margin-bottom: 25px;
         & li {
             display: flex;
             align-items: center;
+            margin-bottom: 5px;
         }
         & img {
             margin-right: 10px;

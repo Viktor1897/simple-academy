@@ -24,10 +24,12 @@ const TutorsSection = () => {
                             </List>
                         </AlignmentWrapper>
                         <PaperWithTriangle>
-                            Zależy mi na tym, aby moje kursy były skuteczne w każdym formacie i dla każdego: 
-                            początkujących i doświadczonych studentów. Podczas kursów analizujemy nie tylko 
-                            teoretyczne i praktyczne podstawy strzyżenia, golenia i brody, ale także psychologię 
-                            mężczyzny i usługi. Dużo mówię o psychologii barberów i zasadach rozwoju barbera.
+                            <Text fontSize="20px">
+                                Zależy mi na tym, aby moje kursy były skuteczne w każdym formacie i dla każdego: 
+                                początkujących i doświadczonych studentów. Podczas kursów analizujemy nie tylko 
+                                teoretyczne i praktyczne podstawy strzyżenia, golenia i brody, ale także psychologię 
+                                mężczyzny i usługi. Dużo mówię o psychologii barberów i zasadach rozwoju barbera.
+                            </Text>
                         </PaperWithTriangle>
                     </VerticalFlexContainer>
                 </HorizontalFlexContainer>
