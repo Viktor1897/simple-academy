@@ -8,7 +8,7 @@ import { COLORS } from "consts";
 const Navbar = () => {
     return (
         <NavBarContainer>
-            <img src={AcademyLogo} alt="simple academy"/>
+            <LogoImage src={AcademyLogo} alt="simple academy"/>
             <CallMeBlock>
                 <CallMeItem>
                     <img src={PhoneIcon} />
@@ -18,22 +18,22 @@ const Navbar = () => {
                     <Text fontSize="1.6rem" textDecoration="underline" color={COLORS.white}>Oddzwoń do mnie</Text>
                 </CallMeItem>
             </CallMeBlock>
-            <LangAndMenuWrapper>
-                <Text color="white">RU PL</Text>
-                <Navigation />
-            </LangAndMenuWrapper>
-
+            <Text color="white">RU PL</Text>
+            <Navigation />
         </NavBarContainer>
     );
 };
 
 export default Navbar;
 
+const LogoImage = styled.img`
+    width: 26.5rem;
+`;
+
 const NavBarContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-
     padding: 4rem 0;
     margin-bottom: 18.6rem;
 `;
@@ -42,6 +42,9 @@ const CallMeBlock = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
+    @media (max-width: 1100px) {
+        display: none;
+    };
 `;
 
 const CallMeItem = styled.div`
@@ -49,9 +52,4 @@ const CallMeItem = styled.div`
     align-items: center;
     justify-content: flex-end;
     gap: 1rem;
-`;
-
-const LangAndMenuWrapper = styled.div`
-    padding-top: 0.4rem;
-    display: flex;
 `;

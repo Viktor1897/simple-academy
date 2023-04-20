@@ -4,7 +4,7 @@ import { COLORS } from "consts";
 const Navigation = () => {
     
     return (
-        <nav>
+        <Nav>
             <Ul>
                 <Li>
                     <A href="#">O NAS</A>
@@ -16,20 +16,26 @@ const Navigation = () => {
                     <A href="#">KONTAKT</A>
                 </Li>
             </Ul>
-        </nav>
+        </Nav>
     );
 };
 
 export default Navigation;
 
+const Nav = styled.nav`
+    width: 100%;
+    max-width: 40rem;
+`;
+
 const Ul = styled.ul`
+    width: 100%;
+    justify-content: space-between;
     display: flex;
     margin: 0;
     padding: 0;
 `;
 
 const Li = styled.li`
-    margin-left: 4.5rem;
     list-style-type: none;
 `;
 

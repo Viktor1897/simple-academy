@@ -24,4 +24,6 @@ const HeaderElement = styled.header`
     display: flex;
     justify-content: center;
     padding-bottom: 31.7rem;
+    padding-right:7%;
+    padding-left: 7%;
 `;
