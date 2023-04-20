@@ -29,13 +29,13 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-    margin-left: 45px;
+    margin-left: 4.5rem;
     list-style-type: none;
 `;
 
 const A = styled.a`
     font-weight: 500;
-    font-size: 22px;
+    font-size: 2.2rem;
     color: ${COLORS.white};
     text-decoration: none;
 `;

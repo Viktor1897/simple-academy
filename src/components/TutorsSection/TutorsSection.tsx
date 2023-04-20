@@ -4,15 +4,15 @@ import { COLORS } from "consts";
 
 const TutorsSection = () => {
     return (
-        <Section padding="60px 0 100px 0" backgroundColor={COLORS.bgGray}>
-            <H3 marginBottom="40px">SZKOLIENIOWCY</H3>
+        <Section padding="6rem 0 10rem 0" backgroundColor={COLORS.bgGray}>
+            <H3 marginBottom="4rem">SZKOLIENIOWCY</H3>
             <ContentWrapper gap="0" flexDirection="column">
-                <H4 marginBottom="12px" textAlign="left">ANTON ISAKOU</H4>
+                <H4 marginBottom="1.2rem" textAlign="left">ANTON ISAKOU</H4>
                 <HorizontalFlexContainer>
                     <DummyImage/>
                     <VerticalFlexContainer alignItems="start" textAlign="left">
                         <AlignmentWrapper>
-                            <Text fontSize="27px" marginBottom="24px">
+                            <Text fontSize="2.7rem" marginBottom="2.4rem">
                             Mam imię Anton, jestem jednym z pierwszych barberów w mieście Mińsk (Białoruś). Barber i szkolieniwiec od 2016 roku.
                             </Text>
                             <List>
@@ -24,7 +24,7 @@ const TutorsSection = () => {
                             </List>
                         </AlignmentWrapper>
                         <PaperWithTriangle>
-                            <Text fontSize="20px">
+                            <Text fontSize="2rem">
                                 Zależy mi na tym, aby moje kursy były skuteczne w każdym formacie i dla każdego: 
                                 początkujących i doświadczonych studentów. Podczas kursów analizujemy nie tylko 
                                 teoretyczne i praktyczne podstawy strzyżenia, golenia i brody, ale także psychologię 
@@ -42,14 +42,14 @@ export default TutorsSection;
 
 const DummyImage = styled.div`
     background-color: ${COLORS.white};
-    border-radius: 20px;
-    width: 470px;
-    height: 667px;
+    border-radius: 2rem;
+    width: 47rem;
+    height: 66.7rem;
 `;
 
 const HorizontalFlexContainer = styled.div`
     display: flex;
-    gap: 30px;
+    gap: 3rem;
 `;
 
 const AlignmentWrapper = styled.div`
@@ -57,16 +57,16 @@ const AlignmentWrapper = styled.div`
 `;
 
 const PaperWithTriangle = styled(Paper)`
-    padding: 20px;
-    border-radius: 20px;
+    padding: 2rem;
+    border-radius: 2rem;
     position: relative;
     &::before {
         content: '';
         position: absolute;
-        border-top: 18px solid transparent;
-        border-bottom: 18px solid transparent;
-        border-right: 18px solid #FFFFFF;
-        left: -18px;
-        bottom: 40px;
+        border-top: 1.8rem solid transparent;
+        border-bottom: 1.8rem solid transparent;
+        border-right: 1.8rem solid #FFFFFF;
+        left: -1.8rem;
+        bottom: 4rem;
     },
 `;

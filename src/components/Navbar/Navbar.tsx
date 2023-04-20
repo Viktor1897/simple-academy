@@ -15,7 +15,7 @@ const Navbar = () => {
                     <Text color={COLORS.white}>+ 48 786 677 659</Text>
                 </CallMeItem>
                 <CallMeItem>
-                    <Text fontSize="16px" textDecoration="underline" color={COLORS.white}>Oddzwoń do mnie</Text>
+                    <Text fontSize="1.6rem" textDecoration="underline" color={COLORS.white}>Oddzwoń do mnie</Text>
                 </CallMeItem>
             </CallMeBlock>
             <LangAndMenuWrapper>
@@ -34,24 +34,24 @@ const NavBarContainer = styled.div`
     display: flex;
     justify-content: space-between;
 
-    padding: 40px 0;
-    margin-bottom: 186px;
+    padding: 4rem 0;
+    margin-bottom: 18.6rem;
 `;
 
 const CallMeBlock = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 0.2rem;
 `;
 
 const CallMeItem = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 10px;
+    gap: 1rem;
 `;
 
 const LangAndMenuWrapper = styled.div`
-    padding-top: 4px;
+    padding-top: 0.4rem;
     display: flex;
 `;

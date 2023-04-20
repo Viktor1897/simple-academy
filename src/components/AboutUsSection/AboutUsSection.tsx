@@ -2,8 +2,8 @@ import { ContentWrapper, FlexItem, H3, Section, Text } from "components/StyledHt
 
 const AboutUsSection = () => {
     return (
-        <Section padding="60px 0 100px 0">
-            <H3 marginBottom="45px">O NAS</H3>
+        <Section padding="6rem 0 10rem 0">
+            <H3 marginBottom="4.5rem">O NAS</H3>
             <ContentWrapper flexDirection="row" alignItems="stretch">
                 <FlexItem>
                     <Text>
@@ -15,7 +15,7 @@ const AboutUsSection = () => {
                     <Text>                    Jedni chcą spełnić stare marzenie, inni chcą zdobyć nowy zawód, ale co najważniejsze — każdy przychodzi po wynik!
                     Dlatego nasi studenci uczą się pod ścisłym okiem profesjonalistów i otrzymują należytą uwagę na każdym etapie, aby doprowadzić sprawę do końca — zostać barberem!</Text>
                 </FlexItem>
-                <FlexItem style={{ backgroundColor: "#D9D9D9", borderRadius: "20px", width: "570px"}}></FlexItem>
+                <FlexItem style={{ backgroundColor: "#D9D9D9", borderRadius: "2rem", width: "57rem"}}></FlexItem>
             </ContentWrapper>
         </Section>
     );

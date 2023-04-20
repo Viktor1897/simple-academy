@@ -24,13 +24,13 @@ type ButtonProps = {
 export const Button = styled.button<ButtonProps>`
     width: ${props => props.width || "100%"};
     max-width: ${props => props.maxWidth};
-    padding: ${props => props.padding || "15px 0"};
+    padding: ${props => props.padding || "1.5rem 0"};
     background-color: ${props => props.variant === "outlined" ? "transparent" : COLORS.gold};
     border: ${props => props.variant === "outlined" ? `${props.color || COLORS.black} solid 1px` : "none"};
     border-radius: 10px;
     box-shadow: ${props => props.variant !== "outlined" && `4px 4px 18px ${COLORS.gold}`};
     color: ${props => props.color || COLORS.black};
-    font-size: ${props => props.fontSize || "27px"};
+    font-size: ${props => props.fontSize || "2.7rem"};
     font-weight: 500;
     text-transform: uppercase;
     cursor: pointer;
@@ -104,7 +104,7 @@ export const List = styled.ul<ListProps>`
     list-style: none;
     padding-left: 35px;
     & li {
-        font-size: ${props => props.fontSize || "21px"};
+        font-size: ${props => props.fontSize || "2.1rem"};
         margin-bottom: 12px;
         &::before {
             content: "•";  
@@ -133,20 +133,20 @@ export const H2 = styled.h2<HeadingProps>`
     color: ${props => props.color || COLORS.black};
     margin-bottom: ${props => props.marginBottom};
     text-align: ${props => props.textAlign || "center"};
-    font-size: 60px;
+    font-size: 6rem;
 `;
 
 export const H3 = styled.h3<HeadingProps>`
     color: ${props => props.color || COLORS.black};
     margin-bottom: ${props => props.marginBottom};
     text-align: ${props => props.textAlign || "center"};
-    font-size: 48px;
+    font-size: 4.8rem;
 `;
 export const H4 = styled.h4<HeadingProps>`
     color: ${props => props.color || COLORS.black};
     margin-bottom: ${props => props.marginBottom};
     text-align: ${props => props.textAlign || "center"};
-    font-size: 35px;
+    font-size: 3.5rem;
 `;
 
 type TextProps = {
@@ -164,7 +164,7 @@ type TextProps = {
 
 export const Text = styled.p<TextProps>`
     color: ${props => props.color || COLORS.black};
-    font-size: ${props => props.fontSize || "22px"};
+    font-size: ${props => props.fontSize || "2.2rem"};
     margin-bottom: ${props => props.marginBottom};
     text-decoration: ${props => props.textDecoration};
 `;

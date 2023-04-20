@@ -25,7 +25,7 @@ function Administration() {
             <Text color={COLORS.white}>Administrative panel</Text>
             <UserContainer>
                 <Text color={COLORS.white}>{auth.currentUser?.email}</Text>
-                <Button variant='outlined' padding="5px 10px" fontSize="18px" color={COLORS.white} onClick={handleSignOutClick}>Logout</Button>
+                <Button variant='outlined' padding="0.5rem 1rem" fontSize="1.8rem" color={COLORS.white} onClick={handleSignOutClick}>Logout</Button>
             </UserContainer>
         </AppBar>
     );
@@ -34,17 +34,17 @@ function Administration() {
 export default Administration;
 
 const AppBar = styled.div`
-    padding: 10px 30px;
+    padding: 1rem 3rem;
     display: flex;
     align-items: center;
     background-color: ${COLORS.bgDark};
     color: ${COLORS.white};
-    box-shadow: 0 0 5px ${COLORS.bgDark};
+    box-shadow: 0 0 0.5rem ${COLORS.bgDark};
 `;
 
 const UserContainer = styled.div`
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 2rem;
     margin-left: auto;
 `;

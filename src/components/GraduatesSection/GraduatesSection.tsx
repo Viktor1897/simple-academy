@@ -4,7 +4,7 @@ import { COLORS } from "consts";
 
 const GraduatesSection = () => {
     return (
-        <Section padding="60px 0 75px 0">
+        <Section padding="6rem 0 7.5rem 0">
             <ContentWrapper flexDirection="column" alignItems="center">
                 <H3 color={COLORS.black}>ABSOLWENCI</H3>
                 <FlexContainer>
@@ -32,20 +32,20 @@ export default GraduatesSection;
 const FlexContainer = styled.div`
     display: flex;
     width: 100%;
-    gap: 30px;
+    gap: 3rem;
 `;
 
 
 const DummyPhotoSm = styled.div`
     background-color: #979797;
-    border-radius: 20px;
+    border-radius: 2rem;
     width: 100%;
-    height: 184px;
+    height: 18.4rem;
 `;
 
 const DummyPhotoLg = styled.div`
     background-color: #979797;
-    border-radius: 20px;
+    border-radius: 2rem;
     width: 100%;
-    height: 476px;
+    height: 47.6rem;
 `;

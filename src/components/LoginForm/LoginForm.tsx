@@ -8,17 +8,17 @@ import { auth } from "../../firebase/firebase";
 import { ADMINISTRATION_ROUTE } from "../../routers/consts";
 
 const Form = styled.form`
-    width: 400px;
+    width: 40rem;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
     transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
-    border-radius: 10px;
+    border-radius: 1rem;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
+    box-shadow: 0 0 4rem rgba(8,7,16,0.6);
+    padding: 5rem 3.5rem;
 
     *{
         font-family: 'Poppins',sans-serif;
@@ -30,21 +30,21 @@ const Form = styled.form`
 
     label {
         display: block;
-        font-size: 16px;
+        font-size: 1.6rem;
         font-weight: 500;
     }
 
     input {
         display: block;
-        height: 50px;
+        height: 5rem;
         width: 100%;
         background-color: rgba(255,255,255,0.07);
-        border-radius: 3px;
-        padding: 0 10px;
-        margin-top: 8px;
-        font-size: 14px;
+        border-radius: 0.3rem;
+        padding: 0 1rem;
+        margin-top: 0.8rem;
+        font-size: 1.4rem;
         font-weight: 300;
-        margin-bottom: 30px;
+        margin-bottom: 3rem;
 
         ::placeholder{
             color: #e5e5e5;
@@ -80,7 +80,7 @@ const LoginForm = () => {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <H4 marginBottom="30px">Login Here</H4>
+            <H4 marginBottom="3rem">Login Here</H4>
             <label htmlFor="username">Email</label>
             <input value={email} onChange={handleEmailInput} type="email" placeholder="Email" id="username"/>
             <label htmlFor="password">Password</label>

@@ -23,14 +23,14 @@ const courses = [
 
 const CoursesSection = () => {
     return (
-        <Section padding="60px 0 80px 0" backgroundColor={COLORS.bgDark}>
-            <H3 marginBottom="40px" color={COLORS.white}>SZKOLIENIA</H3>
+        <Section padding="6rem 0 8rem 0" backgroundColor={COLORS.bgDark}>
+            <H3 marginBottom="4rem" color={COLORS.white}>SZKOLIENIA</H3>
             <ContentWrapper alignItems="stretch">
                 {courses.map((course) => <VerticalFlexContainer textAlign="left" key={course.title}>
                     <Paper>
                         {course.chip && <Chip>{course.chip}</Chip>}
-                        <H4 textAlign="left" marginBottom="30px">{course.title}</H4>
-                        <List fontSize="28px">
+                        <H4 textAlign="left" marginBottom="3rem">{course.title}</H4>
+                        <List fontSize="2.8rem">
                             {course.descriptionList.map((listItem) => <li key={listItem}>{listItem}</li>)}
                         </List>
                         <PriceContainer>
@@ -49,12 +49,12 @@ export default CoursesSection;
 
 const Chip = styled.div`
     border: 1px solid ${COLORS.green};
-    border-radius: 40px;
+    border-radius: 4rem;
     position: absolute;
-    top: 16px;
-    right: 24px;
-    padding: 7px 17px;
-    font-size: 15px;
+    top: 1.6rem;
+    right: 2.4rem;
+    padding: 0.7rem 1.7rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
     color: ${COLORS.green};
 `;
@@ -63,17 +63,17 @@ const PriceContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px 0 25px;
+    padding: 1.5rem 0 2.5rem;
 `;
 
 const OldPrice = styled.span`
-    font-size: 50px;
+    font-size: 5rem;
     font-weight: 500;
     text-decoration: line-through;
 `;
 
 const CurrentPrice = styled.span`
-    font-size: 50px;
+    font-size: 5rem;
     font-weight: 500;
     color: ${COLORS.green};
 `;

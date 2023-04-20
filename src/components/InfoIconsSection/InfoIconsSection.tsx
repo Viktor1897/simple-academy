@@ -9,7 +9,7 @@ import { COLORS } from "consts";
 
 const InfoIconsSection = () => {
     return (
-        <Section backgroundColor={COLORS.bgGray} padding="65px 0">
+        <Section backgroundColor={COLORS.bgGray} padding="6.5rem 0">
             <ContentWrapper flexDirection="row" alignItems="start">
                 <VerticalFlexContainer>
                     <img src={barber} alt="barber"/>
