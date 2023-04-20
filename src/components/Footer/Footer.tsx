@@ -10,9 +10,9 @@ import { COLORS } from "consts";
 export const Footer = () => {
     return (
         <FooterElement backgroundColor={COLORS.bgDark} padding="8rem 0">
-            <ContentWrapper flexDirection="column">
+            <ContentWrapper gap="9.5rem" flexDirection="column">
                 <H3 color={COLORS.white}>Masz pytania? Zapytaj!</H3>
-                <GridLayout>
+                <FlexLayout>
                     <FeedbackForm>
                         <Input type="text" placeholder="Imię" />
                         <Input type="text" placeholder="Telefon" />
@@ -37,10 +37,8 @@ export const Footer = () => {
                         </Contacts>
                         <LogoImage src={AcademyLogo} alt="simple academy logo" />
                     </ContactsContainer>
-                    <MapContainer>
-                        <MapIframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.8439710850994!2d16.88505231580336!3d52.40950397979346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704452d7295cfaf%3A0x433fc023d049866d!2sSIMPLE%20Barbershop!5e0!3m2!1sru!2spl!4v1645479330364!5m2!1sru!2spl" loading="lazy"/>
-                    </MapContainer>
-                </GridLayout>
+                </FlexLayout>
+                <MapIframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.8439710850994!2d16.88505231580336!3d52.40950397979346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704452d7295cfaf%3A0x433fc023d049866d!2sSIMPLE%20Barbershop!5e0!3m2!1sru!2spl!4v1645479330364!5m2!1sru!2spl" loading="lazy"/>
             </ContentWrapper>
         </FooterElement>
     );
@@ -48,22 +46,36 @@ export const Footer = () => {
 
 const FooterElement = Section.withComponent("footer");
 
-const GridLayout = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 10rem;
-    column-gap: 23rem;
-`;
-
 const FeedbackForm = styled.form`
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 100%;
+    max-width: 47rem;
+    @media (max-width: 670px) {
+        max-width: none;
+    }
 `;
 
 const ContactsContainer = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 47rem;
+    @media (max-width: 670px) {
+        max-width: none;
+    }
+`;
+
+const FlexLayout = styled.div`
+    width: 100%;
+    display: flex;
+    column-gap: 8rem;
+    justify-content: space-between;
+    @media (max-width: 670px) {
+        flex-wrap: wrap;
+        row-gap: 8rem;
+    }
 `;
 
 const Contacts = styled.ul`
@@ -88,11 +100,7 @@ const ContactsIcon = styled.img`
 
 const LogoImage = styled.img`
     width: 28.5rem;
-    opacity: 0.6
-`;
-
-const MapContainer = styled.div`
-    grid-column: 1/3;
+    opacity: 0.6;
 `;
 
 const MapIframe = styled.iframe`

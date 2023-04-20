@@ -43,6 +43,8 @@ type SectionProps = {
 
 export const Section = styled.section<SectionProps>`
     padding: ${props => props.padding};
+    padding-right:7%;
+    padding-left: 7%;
     background-color: ${props => props.backgroundColor};
     display: flex;
     flex-direction: column;
