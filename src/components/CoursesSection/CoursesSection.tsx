@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button, ContentWrapper, ContentWrapperResponsive, H3, H4, List, Paper, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
+import { Button, ContentWrapperResponsive, H3, H4, List, Paper, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
 import { COLORS } from "consts";
 
 const courses = [
