@@ -68,6 +68,12 @@ export const ContentWrapper = styled.div<WrapperProps>`
     gap: ${props => props.gap || "3rem"};
 `;
 
+export const ContentWrapperResponsive = styled(ContentWrapper)`
+    @media (max-width: 800px) {
+        flex-direction: column;
+    };
+`;
+
 type VerticalFlexContainer = {
   alignItems?: "center" | "start" | "end" | "stretch";
   textAlign?: "center" | "left" | "right";

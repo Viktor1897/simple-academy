@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button, ContentWrapper, H3, H4, List, Paper, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
+import { Button, ContentWrapper, ContentWrapperResponsive, H3, H4, List, Paper, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
 import { COLORS } from "consts";
 
 const courses = [
@@ -25,7 +25,7 @@ const CoursesSection = () => {
     return (
         <Section padding="6rem 0 8rem 0" backgroundColor={COLORS.bgDark}>
             <H3 marginBottom="4rem" color={COLORS.white}>SZKOLIENIA</H3>
-            <ContentWrapper alignItems="stretch">
+            <ContentWrapperResponsive alignItems="stretch">
                 {courses.map((course) => <VerticalFlexContainer textAlign="left" key={course.title}>
                     <Paper>
                         {course.chip && <Chip>{course.chip}</Chip>}
@@ -40,7 +40,7 @@ const CoursesSection = () => {
                         <Button variant="contained">ZAPISAĆ SIĘ</Button>
                     </Paper>
                 </VerticalFlexContainer>)}
-            </ContentWrapper>
+            </ContentWrapperResponsive>
         </Section>
     );
 };

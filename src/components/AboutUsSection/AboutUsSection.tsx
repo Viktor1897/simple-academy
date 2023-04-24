@@ -1,5 +1,4 @@
-import styled from "@emotion/styled";
-import { ContentWrapper, FlexItem, H3, Section, Text } from "components/StyledHtml/StyledHtml";
+import { ContentWrapperResponsive, FlexItem, H3, Section, Text } from "components/StyledHtml/StyledHtml";
 
 const AboutUsSection = () => {
     return (
@@ -23,9 +22,3 @@ const AboutUsSection = () => {
 };
 
 export default AboutUsSection;
-
-const ContentWrapperResponsive = styled(ContentWrapper)`
-    @media (max-width: 800px) {
-        flex-direction: column;
-    };
-`;
