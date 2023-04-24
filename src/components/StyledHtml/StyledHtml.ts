@@ -27,8 +27,8 @@ export const Button = styled.button<ButtonProps>`
     padding: ${props => props.padding || "1.5rem 0"};
     background-color: ${props => props.variant === "outlined" ? "transparent" : COLORS.gold};
     border: ${props => props.variant === "outlined" ? `${props.color || COLORS.black} solid 1px` : "none"};
-    border-radius: 10px;
-    box-shadow: ${props => props.variant !== "outlined" && `4px 4px 18px ${COLORS.gold}`};
+    border-radius: 1rem;
+    box-shadow: ${props => props.variant !== "outlined" && `0.4rem 0.4rem 1.8rem ${COLORS.gold}`};
     color: ${props => props.color || COLORS.black};
     font-size: ${props => props.fontSize || "2.7rem"};
     font-weight: 500;
@@ -65,7 +65,7 @@ export const ContentWrapper = styled.div<WrapperProps>`
     flex-direction: ${props => props.flexDirection || "row"};
     align-items: ${props => props.alignItems || "start"};
     flex-wrap: ${props => props.flexWrap};
-    gap: ${props => props.gap || "30px"};
+    gap: ${props => props.gap || "3rem"};
 `;
 
 type VerticalFlexContainer = {
@@ -78,7 +78,7 @@ export const VerticalFlexContainer = styled.div<VerticalFlexContainer>`
     flex-direction: column;
     align-items: ${props => props.alignItems || "center"};
     text-align: ${props => props.textAlign || "center"};
-    gap: 16px;
+    gap: 1.6rem;
     flex: 1;
 `;
 
@@ -91,9 +91,9 @@ export const Paper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     flex: 1;
-    padding: 50px 45px;
+    padding: 5rem 4.5rem;
     position: relative;
-    border-radius: 24px;
+    border-radius: 2.4rem;
     background-color: ${COLORS.white};
 `;
 
@@ -106,10 +106,10 @@ type ListProps = {
 
 export const List = styled.ul<ListProps>`
     list-style: none;
-    padding-left: 35px;
+    padding-left: 3.5rem;
     & li {
         font-size: ${props => props.fontSize || "2.1rem"};
-        margin-bottom: 12px;
+        margin-bottom: 1.2rem;
         &::before {
             content: "•";  
             color: ${COLORS.gold}; 
