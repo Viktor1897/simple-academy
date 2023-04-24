@@ -54,6 +54,7 @@ export const Section = styled.section<SectionProps>`
 type WrapperProps = {
     flexDirection?: "row" | "column";
     alignItems?: "center" | "start" | "end" | "stretch";
+    flexWrap?: "wrap" | "nowrap"
     gap?: string;
 }
 
@@ -63,6 +64,7 @@ export const ContentWrapper = styled.div<WrapperProps>`
     display: flex;
     flex-direction: ${props => props.flexDirection || "row"};
     align-items: ${props => props.alignItems || "start"};
+    flex-wrap: ${props => props.flexWrap};
     gap: ${props => props.gap || "30px"};
 `;
 

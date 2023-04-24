@@ -11,7 +11,7 @@ import { COLORS } from "consts";
 const InfoIconsSection = () => {
     return (
         <Section backgroundColor={COLORS.bgGray} padding="6.5rem 0">
-            <ContentWrapper flexDirection="row" alignItems="start">
+            <ContentWrapper flexWrap="wrap" flexDirection="row" alignItems="start">
                 <VerticalFlexContainer>
                     <InfoIcon src={barber} alt="barber"/>
                     <Text>Szkoleniowcy - barberzy z 6+ letnim doświadczeniem</Text>
