@@ -1,3 +1,4 @@
+import aboutUs from "assets/simple_forest.jpg";
 import { ContentWrapperResponsive, FlexItem, H3, Section, Text } from "components/StyledHtml/StyledHtml";
 
 const AboutUsSection = () => {
@@ -15,7 +16,7 @@ const AboutUsSection = () => {
                     <Text>                    Jedni chcą spełnić stare marzenie, inni chcą zdobyć nowy zawód, ale co najważniejsze — każdy przychodzi po wynik!
                     Dlatego nasi studenci uczą się pod ścisłym okiem profesjonalistów i otrzymują należytą uwagę na każdym etapie, aby doprowadzić sprawę do końca — zostać barberem!</Text>
                 </FlexItem>
-                <FlexItem style={{ backgroundColor: "#D9D9D9", borderRadius: "2rem", minHeight: "300px" }}></FlexItem>
+                <FlexItem style={{ background: `80% 0 url(${aboutUs})`, borderRadius: "2rem", backgroundSize: "130%", minHeight: "300px" }} />
             </ContentWrapperResponsive>
         </Section>
     );
