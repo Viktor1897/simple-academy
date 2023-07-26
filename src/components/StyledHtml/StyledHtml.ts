@@ -77,6 +77,10 @@ export const ContentWrapperResponsive = styled(ContentWrapper)`
 type VerticalFlexContainer = {
   alignItems?: "center" | "start" | "end" | "stretch";
   textAlign?: "center" | "left" | "right";
+  /**
+   * @default "1.6rem"
+   */
+  gap?: string;
 };
 
 export const VerticalFlexContainer = styled.div<VerticalFlexContainer>`
@@ -84,7 +88,7 @@ export const VerticalFlexContainer = styled.div<VerticalFlexContainer>`
     flex-direction: column;
     align-items: ${props => props.alignItems || "center"};
     text-align: ${props => props.textAlign || "center"};
-    gap: 1.6rem;
+    gap: ${props => props.gap || "1.6rem"};
     flex: 1;
 `;
 
@@ -168,6 +172,7 @@ type TextProps = {
      * @default "22px"
      */
     fontSize?: string;
+    fontWeight?: string;
     marginBottom?: string;
     textDecoration?: "underline" | "line-through";
 }
@@ -175,6 +180,7 @@ type TextProps = {
 export const Text = styled.p<TextProps>`
     color: ${props => props.color || COLORS.black};
     font-size: ${props => props.fontSize || "2.2rem"};
+    font-weight: ${props => props.fontWeight};
     margin-bottom: ${props => props.marginBottom};
     text-decoration: ${props => props.textDecoration};
 `;
