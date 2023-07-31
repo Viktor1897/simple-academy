@@ -1,4 +1,10 @@
 import styled from "@emotion/styled";
+import IMG_1 from "assets/gallery/IMG_1.jpg";
+import IMG_2 from "assets/gallery/IMG_2.jpg";
+import IMG_3 from "assets/gallery/IMG_3.jpg";
+import IMG_4 from "assets/gallery/IMG_4.jpg";
+import IMG_5 from "assets/gallery/IMG_5.jpg";
+import IMG_6 from "assets/gallery/IMG_6.jpg";
 import { Button, ContentWrapper, H3, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
 import { COLORS } from "consts";
 
@@ -8,17 +14,17 @@ const GraduatesSection = () => {
             <ContentWrapper flexDirection="column" alignItems="center">
                 <H3 color={COLORS.black}>ABSOLWENCI</H3>
                 <FlexContainer>
-                    <VerticalFlexContainer>
-                        <DummyPhotoSm/>
-                        <DummyPhotoLg/>
+                    <VerticalFlexContainer gap="2.5rem">
+                        <PhotoSm style={{ background: `80% 85% url(${IMG_1})`,  backgroundSize: "cover" }} />
+                        <PhotoLg style={{ background: `80% 0 url(${IMG_2})`,  backgroundSize: "cover" }} />
                     </VerticalFlexContainer>
-                    <VerticalFlexContainer>
-                        <DummyPhotoLg/>
-                        <DummyPhotoSm/>
+                    <VerticalFlexContainer gap="2.5rem">
+                        <PhotoLg style={{ background: `80% 0 url(${IMG_3})`, backgroundSize: "cover" }} />
+                        <PhotoSm style={{ background: `80% 45% url(${IMG_4})`, backgroundSize: "cover" }} />
                     </VerticalFlexContainer>
-                    <VerticalFlexContainer>
-                        <DummyPhotoSm/>
-                        <DummyPhotoLg/>
+                    <VerticalFlexContainer gap="2.5rem">
+                        <PhotoSm style={{ background: `80% 45% url(${IMG_5})`, backgroundSize: "cover" }} />
+                        <PhotoLg style={{ background: `80% 0 url(${IMG_6})`, backgroundSize: "cover" }} />
                     </VerticalFlexContainer>
                 </FlexContainer>
                 <Button variant="outlined">Więcej zdjęć na instagramie</Button>
@@ -32,20 +38,41 @@ export default GraduatesSection;
 const FlexContainer = styled.div`
     display: flex;
     width: 100%;
-    gap: 3rem;
+    height: 80rem;
+    gap: 3.5rem;
+    @media (max-width: 1000px) {
+        flex-wrap: wrap;
+        height: 120rem;
+        & > div:last-of-type {
+            display: none;
+        }
+    };
+    @media (max-width: 660px) {
+        height: 100rem;
+        & > div:not(:first-of-type) {
+            display: none;
+        }
+    };
 `;
 
-
-const DummyPhotoSm = styled.div`
-    background-color: #979797;
+const PhotoSm = styled.div`
     border-radius: 2rem;
     width: 100%;
-    height: 18.4rem;
+    height: 30%;
+    min-width: 260px;
+    @media (max-width: 1000px) {
+        height: 70%;
+        background-position: center;
+    };
 `;
 
-const DummyPhotoLg = styled.div`
-    background-color: #979797;
+const PhotoLg = styled.div`
     border-radius: 2rem;
     width: 100%;
-    height: 47.6rem;
+    height: 70%;
+    min-width: 260px;
+    @media (max-width: 1000px) {
+        height: 70%;
+        background-position: center;
+    };
 `;
