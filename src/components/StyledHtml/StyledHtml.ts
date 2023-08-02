@@ -8,6 +8,7 @@ type ButtonProps = {
      *  @default "contained"
      */
     variant?: "contained" | "outlined";
+    backgroundColor?: string;
     /**
      *  @default "100%"
      */
@@ -25,10 +26,10 @@ export const Button = styled.button<ButtonProps>`
     width: ${props => props.width || "100%"};
     max-width: ${props => props.maxWidth};
     padding: ${props => props.padding || "1.5rem 0"};
-    background-color: ${props => props.variant === "outlined" ? "transparent" : COLORS.gold};
+    background-color: ${props => props.variant === "outlined" ? "transparent" : props.backgroundColor || COLORS.gold};
     border: ${props => props.variant === "outlined" ? `${props.color || COLORS.black} solid 1px` : "none"};
     border-radius: 1rem;
-    box-shadow: ${props => props.variant !== "outlined" && `0.4rem 0.4rem 1.8rem ${COLORS.gold}`};
+    box-shadow: ${props => props.variant !== "outlined" && `0.4rem 0.4rem 1.8rem ${props.backgroundColor || COLORS.gold}`};
     color: ${props => props.color || COLORS.black};
     font-size: ${props => props.fontSize || "2.7rem"};
     font-weight: 500;
