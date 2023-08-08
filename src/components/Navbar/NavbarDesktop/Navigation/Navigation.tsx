@@ -1,19 +1,25 @@
 import styled from "@emotion/styled";
-import { COLORS } from "consts";
+import { COLORS, LINKS } from "consts";
 
 const Navigation = () => {
     
+    const goTo = (href: string): void => {
+        document.querySelector(`#${href}`)?.scrollIntoView({
+            behavior: "smooth",
+        });
+    };
+
     return (
         <Nav>
             <Ul>
                 <Li>
-                    <A href="#">O NAS</A>
+                    <Link onClick={() => goTo(LINKS.ABOUT_US)}>O NAS</Link>
                 </Li>
                 <Li>
-                    <A href="#">SZKOLIENIA</A>
+                    <Link onClick={() => goTo(LINKS.COURSES)}>SZKOLIENIA</Link>
                 </Li>
                 <Li>
-                    <A href="#">KONTAKT</A>
+                    <Link  onClick={() => goTo(LINKS.CONTACT)}>KONTAKT</Link>
                 </Li>
             </Ul>
         </Nav>
@@ -39,9 +45,11 @@ const Li = styled.li`
     list-style-type: none;
 `;
 
-const A = styled.a`
+const Link = styled.button`
+    background: none;
+    border: none;
+    cursor: pointer;
     font-weight: 500;
     font-size: 2.2rem;
     color: ${COLORS.white};
-    text-decoration: none;
 `;

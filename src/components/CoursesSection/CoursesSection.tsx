@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Button, ContentWrapperResponsive, H3, H4, List, Paper, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
-import { COLORS } from "consts";
+import { COLORS, LINKS } from "consts";
 
 const courses = [
     //если вдруг firebase будет не будет создавать айдишники, то добавить uuid и генерить их самому чтобы было понятно на какой курс откликнулись.
@@ -23,7 +23,7 @@ const courses = [
 
 const CoursesSection = () => {
     return (
-        <Section padding="6rem 0 8rem 0" backgroundColor={COLORS.bgDark}>
+        <Section id={LINKS.COURSES} padding="6rem 0 8rem 0" backgroundColor={COLORS.bgDark}>
             <H3 marginBottom="4rem" color={COLORS.white}>SZKOLIENIA</H3>
             <ContentWrapperResponsive alignItems="stretch">
                 {courses.map((course) => <VerticalFlexContainer textAlign="left" key={course.title}>

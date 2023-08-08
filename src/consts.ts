@@ -10,3 +10,8 @@ export const COLORS = {
     textGray: "#7D7D7D",
 };
   
+export const LINKS = {
+    ABOUT_US: "about-us",
+    COURSES: "courses",
+    CONTACT: "contact",
+};

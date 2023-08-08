@@ -5,11 +5,11 @@ import AcademyLogo from "assets/logo.svg";
 import Phone from "assets/phone.svg";
 import { Button, H3, Section, Text } from "components/StyledHtml/StyledHtml";
 import { ContentWrapper } from "components/StyledHtml/StyledHtml";
-import { COLORS } from "consts";
+import { COLORS, LINKS } from "consts";
 
 export const Footer = () => {
     return (
-        <FooterElement backgroundColor={COLORS.bgDark} padding="8rem 0">
+        <FooterElement id={LINKS.CONTACT} backgroundColor={COLORS.bgDark} padding="8rem 0">
             <ContentWrapper gap="9.5rem" flexDirection="column">
                 <H3 color={COLORS.white}>Masz pytania? Zapytaj!</H3>
                 <FlexLayout>

@@ -1,9 +1,10 @@
 import aboutUs from "assets/simple_forest.jpg";
 import { ContentWrapperResponsive, FlexItem, H3, Section, Text } from "components/StyledHtml/StyledHtml";
+import { LINKS } from "consts";
 
 const AboutUsSection = () => {
     return (
-        <Section padding="6rem 0 10rem 0">
+        <Section id={LINKS.ABOUT_US} padding="6rem 0 10rem 0">
             <H3 marginBottom="4.5rem">O NAS</H3>
             <ContentWrapperResponsive flexDirection="row" alignItems="stretch">
                 <FlexItem>

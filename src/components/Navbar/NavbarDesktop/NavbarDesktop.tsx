@@ -26,16 +26,15 @@ const NavbarDesktop = () => {
 
 export default NavbarDesktop;
 
-const LogoImage = styled.img`
+export const LogoImage = styled.img`
     width: 26.5rem;
 `;
 
-const NavBarContainer = styled.div`
+export const NavBarContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 4rem 0;
-    margin-bottom: 18.6rem;
 `;
 
 const CallMeBlock = styled.div`
