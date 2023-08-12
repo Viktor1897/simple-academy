@@ -12,19 +12,19 @@ const InfoIconsSection = () => {
     return (
         <Section backgroundColor={COLORS.bgGray} padding="6.5rem 0">
             <ContentWrapper flexWrap="wrap" flexDirection="row" alignItems="start">
-                <VerticalFlexContainer>
+                <VerticalFlexContainer style={{ minWidth: "17rem" }}>
                     <InfoIcon src={barber} alt="barber"/>
                     <Text>Szkoleniowcy - barberzy z 6+ letnim doświadczeniem</Text>
                 </VerticalFlexContainer>
-                <VerticalFlexContainer>
+                <VerticalFlexContainer style={{ minWidth: "17rem" }}>
                     <InfoIcon src={razor} alt="razor"/>
                     <Text>Narzędzie, modele, kosmetyka - wszystko jest wliczone w koszt szkolenia</Text>
                 </VerticalFlexContainer>
-                <VerticalFlexContainer>
+                <VerticalFlexContainer style={{ minWidth: "17rem" }}>
                     <InfoIcon src={handshake} alt="handshake"/>
                     <Text>Elastyczne warunki płatności. Możliwość rozłożenia ceny szkolenia na raty</Text>
                 </VerticalFlexContainer>
-                <VerticalFlexContainer>
+                <VerticalFlexContainer style={{ minWidth: "17rem" }}>
                     <InfoIcon src={recruitment} alt="recruitment"/>
                     <Text>Wszysci studenci mają szansę dolączyć się do ekipy SIMPLE Barbershop</Text>
                 </VerticalFlexContainer>
