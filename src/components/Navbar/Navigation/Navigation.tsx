@@ -76,7 +76,7 @@ const Ul = styled.ul<NavigationProps>`
             color: ${COLORS.white};
             &:hover {
                 color: ${COLORS.gold};
-                background-color: #00000095;
+                background-color: ${props => props.variant === "mobile" && (COLORS.black + "95")};
             };
          }
      }

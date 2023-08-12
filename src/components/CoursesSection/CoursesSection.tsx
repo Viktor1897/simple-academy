@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Button, ContentWrapperResponsive, H3, H4, List, Paper, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
 import { COLORS, LINKS } from "consts";
+import { goTo } from "utils/goTo";
 
 const courses = [
     //если вдруг firebase будет не будет создавать айдишники, то добавить uuid и генерить их самому чтобы было понятно на какой курс откликнулись.
@@ -37,7 +38,7 @@ const CoursesSection = () => {
                             { course.price.old && <OldPrice>{course.price.old}</OldPrice>}
                             <CurrentPrice>{course.price.current}</CurrentPrice>
                         </PriceContainer>
-                        <Button variant="contained">ZAPISAĆ SIĘ</Button>
+                        <Button variant="contained" onClick={() => goTo(LINKS.CONTACT)}>ZAPISAĆ SIĘ</Button>
                     </Paper>
                 </VerticalFlexContainer>)}
             </ContentWrapperResponsive>

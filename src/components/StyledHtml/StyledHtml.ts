@@ -1,8 +1,6 @@
 import styled from "@emotion/styled";
 import { COLORS, MAX_CONTENT_WIDTH } from "consts";
 
-//TODO replace all font sizes with REM to configure responsivness easyly
-
 type ButtonProps = {
     /**
      *  @default "contained"
