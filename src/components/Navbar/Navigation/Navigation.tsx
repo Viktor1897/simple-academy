@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { COLORS, LINKS } from "consts";
+import { goTo } from "utils/goTo";
 
 type NavigationProps = {
     /**
@@ -10,11 +11,9 @@ type NavigationProps = {
 }
 
 const Navigation = ({ variant, onNavigationClick }: NavigationProps) => {
-    
-    const goTo = (href: string): void => {
-        document.querySelector(`#${href}`)?.scrollIntoView({
-            behavior: "smooth",
-        });
+
+    const goToAnchor = (href: string) => {
+        goTo(href);
         onNavigationClick && onNavigationClick();
     };
 
@@ -22,23 +21,23 @@ const Navigation = ({ variant, onNavigationClick }: NavigationProps) => {
         <Nav variant={variant}>
             <Ul variant={variant}>
                 <li>
-                    <a onClick={() => goTo(LINKS.ABOUT_US)}>O NAS</a>
+                    <a onClick={() => goToAnchor(LINKS.ABOUT_US)}>O NAS</a>
                 </li>
                 <li>
-                    <a onClick={() => goTo(LINKS.COURSES)}>SZKOLIENIA</a>
+                    <a onClick={() => goToAnchor(LINKS.COURSES)}>SZKOLIENIA</a>
                 </li>
                 <li>
-                    <a  onClick={() => goTo(LINKS.CONTACT)}>KONTAKT</a>
+                    <a  onClick={() => goToAnchor(LINKS.CONTACT)}>KONTAKT</a>
                 </li>
                 { variant === "mobile" && <>
                     <li>
-                        <a  onClick={() => goTo(LINKS.TUTORS)}>WYKŁADOWCY</a>
+                        <a  onClick={() => goToAnchor(LINKS.TUTORS)}>WYKŁADOWCY</a>
                     </li>
                     <li>
-                        <a  onClick={() => goTo(LINKS.GRADUATES)}>ABSOLWENCI</a>
+                        <a  onClick={() => goToAnchor(LINKS.GRADUATES)}>ABSOLWENCI</a>
                     </li>
                     <li>
-                        <a  onClick={() => goTo(LINKS.BARBERSHOP)}>BARBERSHOP</a>
+                        <a  onClick={() => goToAnchor(LINKS.BARBERSHOP)}>BARBERSHOP</a>
                     </li>
                 </>}
             </Ul>

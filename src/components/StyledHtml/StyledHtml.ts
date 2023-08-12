@@ -35,6 +35,12 @@ export const Button = styled.button<ButtonProps>`
     font-weight: 500;
     text-transform: uppercase;
     cursor: pointer;
+    transition: all .5s;
+     &:hover {
+        opacity: 0.8;
+        background-color: ${props => props.variant === "contained" ? COLORS.gold2 : COLORS.black};
+        color: ${props => props.variant === "outlined" && COLORS.white};
+     }
 `;
 
 type SectionProps = {

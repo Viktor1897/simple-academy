@@ -17,7 +17,7 @@ export const Footer = () => {
                         <Input type="text" placeholder="Imię" />
                         <Input type="text" placeholder="Telefon" />
                         <Textarea placeholder="Wiadomość" rows={3} />
-                        <Button type="submit">WYSŁAĆ</Button>
+                        <Button variant="contained" type="submit">WYSŁAĆ</Button>
                     </FeedbackForm>
                     <ContactsContainer>
                         <Text marginBottom="2rem" fontSize="1.5rem" color={COLORS.textGray}>
