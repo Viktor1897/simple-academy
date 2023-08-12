@@ -14,4 +14,7 @@ export const LINKS = {
     ABOUT_US: "about-us",
     COURSES: "courses",
     CONTACT: "contact",
+    TUTORS: "tutors",
+    GRADUATES: "graduates",
+    BARBERSHOP: "barbershop"
 };

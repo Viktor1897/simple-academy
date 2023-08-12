@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
+import Navigation from "components/Navbar/Navigation/Navigation";
 import { COLORS } from "consts";
 
-function Menu() {
+function Menu({ onNavigationClick }: { onNavigationClick?: () => void} ) {
     return (
         <MenuContainer>
-            12
+            <Navigation variant="mobile" onNavigationClick={onNavigationClick} />
         </MenuContainer>
     );
 }
@@ -12,7 +13,6 @@ function Menu() {
 export default Menu;
 
 const MenuContainer = styled.div`
-    background-color: red;
     width: 100%;
     height: 100%;
     top: 80px;
@@ -22,8 +22,7 @@ const MenuContainer = styled.div`
     position: fixed;
     pointer-events: auto;
     overflow: hidden;
-    opacity: 0.85;
-    background-color: ${COLORS.black};
+    background-color: ${COLORS.black}eb;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;

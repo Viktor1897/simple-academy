@@ -6,11 +6,11 @@ import IMG_4 from "assets/gallery/IMG_4.jpg";
 import IMG_5 from "assets/gallery/IMG_5.jpg";
 import IMG_6 from "assets/gallery/IMG_6.jpg";
 import { Button, ContentWrapper, H3, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
-import { COLORS } from "consts";
+import { COLORS, LINKS } from "consts";
 
 const GraduatesSection = () => {
     return (
-        <Section padding="6rem 0 7.5rem 0">
+        <Section id={LINKS.GRADUATES} padding="6rem 0 7.5rem 0">
             <ContentWrapper flexDirection="column" alignItems="center">
                 <H3 color={COLORS.black}>ABSOLWENCI</H3>
                 <FlexContainer>

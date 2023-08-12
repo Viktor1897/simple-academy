@@ -25,6 +25,7 @@ export default Header;
 
 const HeaderElement = styled.header`
     background: no-repeat center top url(${headerBg});
+    background-size: cover;
     display: flex;
     justify-content: center;
     padding-bottom: 31.7rem;

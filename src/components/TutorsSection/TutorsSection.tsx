@@ -2,11 +2,11 @@ import styled from "@emotion/styled";
 import Anastazja from "assets/ANASTAZJA.jpg";
 import Anton from "assets/ANTON.jpg";
 import { ContentWrapperResponsive, H3, Section, Text, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
-import { COLORS } from "consts";
+import { COLORS, LINKS } from "consts";
 
 const TutorsSection = () => {
     return (
-        <Section padding="6rem 0 10rem 0" backgroundColor={COLORS.bgGray}>
+        <Section id={LINKS.TUTORS} padding="6rem 0 10rem 0" backgroundColor={COLORS.bgGray}>
             <H3 marginBottom="10rem">WYKŁADOWCY</H3>
             <ContentWrapperResponsive gap="4rem" flexDirection="row" alignItems="center">
                 <VerticalFlexContainer gap="initial">

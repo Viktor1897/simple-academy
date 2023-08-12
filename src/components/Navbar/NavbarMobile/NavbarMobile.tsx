@@ -16,7 +16,7 @@ const NavbarMobile = () => {
             </MenuBtn>
             <LogoImage src={AcademyLogo} alt="simple academy"/>
             <Text color={COLORS.white}>EN</Text>
-            {isMenuActive && <Menu />}
+            {isMenuActive && <Menu onNavigationClick={() => setMenuActive(false)} />}
         </MobileNavBar>
     );
 };

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import AcademyLogo from "assets/logo.svg";
 import PhoneIcon from "assets/phone_filled.svg";
-import Navigation from "components/Navbar/NavbarDesktop/Navigation/Navigation";
+import Navigation from "components/Navbar/Navigation/Navigation";
 import { Text } from "components/StyledHtml/StyledHtml";
 import { COLORS } from "consts";
 
