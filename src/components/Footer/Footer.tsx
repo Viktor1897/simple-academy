@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import styled from "@emotion/styled";
 import Instagram from "assets/instagram.svg";
 import Location from "assets/location.svg";
@@ -6,17 +7,32 @@ import Phone from "assets/phone.svg";
 import { Button, H3, Section, Text } from "components/StyledHtml/StyledHtml";
 import { ContentWrapper } from "components/StyledHtml/StyledHtml";
 import { COLORS, LINKS } from "consts";
+import { FormEventHandler, useRef } from "react";
 
 export const Footer = () => {
+
+    const form = useRef<HTMLFormElement>(null);
+
+    const sendEmail: FormEventHandler<HTMLFormElement> = (event) => {
+        event.preventDefault();
+  
+        form.current && emailjs.sendForm("service_kwj9xcf", "template_03cj5r3", form.current, "d05s9DHz_SqrcB64Z")
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+
     return (
         <FooterElement id={LINKS.CONTACT} backgroundColor={COLORS.bgDark} padding="8rem 0">
             <ContentWrapper gap="9.5rem" flexDirection="column">
                 <H3 color={COLORS.white}>Masz pytania? Zapytaj!</H3>
                 <FlexLayout>
-                    <FeedbackForm>
-                        <Input type="text" placeholder="Imię" />
-                        <Input type="text" placeholder="Telefon" />
-                        <Textarea placeholder="Wiadomość" rows={3} />
+                    <FeedbackForm ref={form} onSubmit={sendEmail}>
+                        <Input type="text" placeholder="Imię" name="user_name" />
+                        <Input type="text" placeholder="Telefon" name="user_phone" />
+                        <Textarea placeholder="Wiadomość" rows={3} name="message" />
                         <Button variant="contained" type="submit">WYSŁAĆ</Button>
                     </FeedbackForm>
                     <ContactsContainer>
