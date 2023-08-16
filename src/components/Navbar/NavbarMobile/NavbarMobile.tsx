@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import AcademyLogo from "assets/logo.svg";
-import { Text } from "components/StyledHtml/StyledHtml";
 import { COLORS } from "consts";
 import { useState } from "react";
 
