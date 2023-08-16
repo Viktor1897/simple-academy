@@ -19,3 +19,8 @@ export const LINKS = {
     GRADUATES: "graduates",
     BARBERSHOP: "barbershop"
 };
+
+export const LANGUAGES = [
+    { label: "RU", code: "ru" },
+    { label: "PL", code: "pl" },
+];  

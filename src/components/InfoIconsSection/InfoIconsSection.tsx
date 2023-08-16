@@ -6,27 +6,29 @@ import razor from "assets/razor.png";
 import recruitment from "assets/recruitment.png";
 import { ContentWrapper, Section, Text, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
 import { COLORS } from "consts";
+import { useTranslation } from "react-i18next";
 
 
 const InfoIconsSection = () => {
+    const { t } = useTranslation();
     return (
         <Section backgroundColor={COLORS.bgGray} padding="6.5rem 0">
             <ContentWrapper flexWrap="wrap" flexDirection="row" alignItems="start">
                 <VerticalFlexContainer style={{ minWidth: "17rem" }}>
                     <InfoIcon src={barber} alt="barber"/>
-                    <Text>Szkoleniowcy - barberzy z 6+ letnim doświadczeniem</Text>
+                    <Text>{t("infoIcon.experience")}</Text>
                 </VerticalFlexContainer>
                 <VerticalFlexContainer style={{ minWidth: "17rem" }}>
                     <InfoIcon src={razor} alt="razor"/>
-                    <Text>Narzędzie, modele, kosmetyka - wszystko jest wliczone w koszt szkolenia</Text>
+                    <Text>{t("infoIcon.equipment")}</Text>
                 </VerticalFlexContainer>
                 <VerticalFlexContainer style={{ minWidth: "17rem" }}>
                     <InfoIcon src={handshake} alt="handshake"/>
-                    <Text>Elastyczne warunki płatności. Możliwość rozłożenia ceny szkolenia na raty</Text>
+                    <Text>{t("infoIcon.payments")}</Text>
                 </VerticalFlexContainer>
                 <VerticalFlexContainer style={{ minWidth: "17rem" }}>
                     <InfoIcon src={recruitment} alt="recruitment"/>
-                    <Text>Wszysci studenci mają szansę dolączyć się do ekipy SIMPLE Barbershop</Text>
+                    <Text>{t("infoIcon.recruitment")}</Text>
                 </VerticalFlexContainer>
             </ContentWrapper>
         </Section>

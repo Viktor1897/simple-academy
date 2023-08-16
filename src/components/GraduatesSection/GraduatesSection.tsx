@@ -7,12 +7,15 @@ import IMG_5 from "assets/gallery/IMG_5.jpg";
 import IMG_6 from "assets/gallery/IMG_6.jpg";
 import { Button, ContentWrapper, H3, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
 import { COLORS, LINKS } from "consts";
+import { useTranslation } from "react-i18next";
 
 const GraduatesSection = () => {
+    const { t } = useTranslation();
+    
     return (
         <Section id={LINKS.GRADUATES} padding="6rem 0 7.5rem 0">
             <ContentWrapper flexDirection="column" alignItems="center">
-                <H3 color={COLORS.black}>ABSOLWENCI</H3>
+                <H3 color={COLORS.black}>{t("graduates.title")}</H3>
                 <FlexContainer>
                     <VerticalFlexContainer gap="2.5rem">
                         <PhotoSm style={{ background: `80% 85% url(${IMG_1})`,  backgroundSize: "cover" }} />
@@ -27,7 +30,7 @@ const GraduatesSection = () => {
                         <PhotoLg style={{ background: `80% 0 url(${IMG_6})`, backgroundSize: "cover" }} />
                     </VerticalFlexContainer>
                 </FlexContainer>
-                <Button variant="outlined">Więcej zdjęć na instagramie</Button>
+                <Button variant="outlined">{t("graduates.link")}</Button>
             </ContentWrapper>
         </Section>
     );

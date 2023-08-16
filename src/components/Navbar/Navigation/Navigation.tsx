@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { COLORS, LINKS } from "consts";
+import { useTranslation } from "react-i18next";
 import { goTo } from "utils/goTo";
 
 type NavigationProps = {
@@ -12,6 +13,8 @@ type NavigationProps = {
 
 const Navigation = ({ variant, onNavigationClick }: NavigationProps) => {
 
+    const { t } = useTranslation();
+
     const goToAnchor = (href: string) => {
         goTo(href);
         onNavigationClick && onNavigationClick();
@@ -21,25 +24,17 @@ const Navigation = ({ variant, onNavigationClick }: NavigationProps) => {
         <Nav variant={variant}>
             <Ul variant={variant}>
                 <li>
-                    <a onClick={() => goToAnchor(LINKS.ABOUT_US)}>O NAS</a>
+                    <a onClick={() => goToAnchor(LINKS.ABOUT_US)}>{t("menu.about")}</a>
                 </li>
                 <li>
-                    <a onClick={() => goToAnchor(LINKS.COURSES)}>SZKOLIENIA</a>
+                    <a onClick={() => goToAnchor(LINKS.COURSES)}>{t("menu.courses")}</a>
                 </li>
                 <li>
-                    <a  onClick={() => goToAnchor(LINKS.CONTACT)}>KONTAKT</a>
+                    <a  onClick={() => goToAnchor(LINKS.BARBERSHOP)}>{t("menu.barbershop")}</a>
                 </li>
-                { variant === "mobile" && <>
-                    <li>
-                        <a  onClick={() => goToAnchor(LINKS.TUTORS)}>WYKŁADOWCY</a>
-                    </li>
-                    <li>
-                        <a  onClick={() => goToAnchor(LINKS.GRADUATES)}>ABSOLWENCI</a>
-                    </li>
-                    <li>
-                        <a  onClick={() => goToAnchor(LINKS.BARBERSHOP)}>BARBERSHOP</a>
-                    </li>
-                </>}
+                <li>
+                    <a  onClick={() => goToAnchor(LINKS.CONTACT)}>{t("menu.contacts")}</a>
+                </li>
             </Ul>
         </Nav>
     );

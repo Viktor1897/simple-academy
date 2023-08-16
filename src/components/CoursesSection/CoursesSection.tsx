@@ -1,44 +1,47 @@
 import styled from "@emotion/styled";
 import { Button, ContentWrapperResponsive, H3, H4, List, Paper, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
 import { COLORS, LINKS } from "consts";
+import { useTranslation } from "react-i18next";
 import { goTo } from "utils/goTo";
 
 const courses = [
     //если вдруг firebase будет не будет создавать айдишники, то добавить uuid и генерить их самому чтобы было понятно на какой курс откликнулись.
     {
-        title: "BARBER OD ZERA",
-        chip: "Popularne",
-        descriptionList: ["30 dni szkolienia", "Modele i narzędzia od nas", 
-            "Grupy do 4 osób", "Międzynarodowe świadectwo ukończenia szkolienia", 
-            "Możliwość dołoczyć się do ekipy SIMPLE Barbershop"],
-        price: { old: "5000 zl", current: "4000 zl" }
+        title: "course1.title",
+        chip: "course1.chip",
+        descriptionList: ["course1.option1", "course1.option2", 
+            "course1.option3", "course1.option4", 
+            "course1.option5"],
+        price: { old: "course1.oldPrice", current: "course1.currentPrice" }
     },
     {
-        title: "BARBER OD ZERA (INDYWIDUALNIE)",
+        title: "course2.title",
         chip: null,
-        descriptionList: ["Harmonogram zajęć piersonalnie dla ciebie", "Modele i narzędzia od nas",
-            "Międzynarodowe świadectwo ukończenia szkolienia", "Możliwość dołoczyć się do ekipy SIMPLE Barbershop"],
-        price: { old: "7000 zl", current: "6000 zl" }
+        descriptionList: ["course2.option1", "course2.option2",
+            "course2.option3", "course2.option4"],
+        price: { old: "course2.oldPrice", current: "course2.currentPrice" }
     }
 ];
 
 const CoursesSection = () => {
+    const { t } = useTranslation();
+
     return (
         <Section id={LINKS.COURSES} padding="6rem 0 8rem 0" backgroundColor={COLORS.bgDark}>
-            <H3 marginBottom="4rem" color={COLORS.white}>SZKOLIENIA</H3>
+            <H3 marginBottom="4rem" color={COLORS.white}>{t("courses.title")}</H3>
             <ContentWrapperResponsive alignItems="stretch">
                 {courses.map((course) => <VerticalFlexContainer textAlign="left" key={course.title}>
                     <Paper>
-                        {course.chip && <Chip>{course.chip}</Chip>}
-                        <H4 textAlign="left" marginBottom="3rem">{course.title}</H4>
+                        {course.chip && <Chip>{t(course.chip)}</Chip>}
+                        <H4 textAlign="left" marginBottom="3rem">{t(course.title)}</H4>
                         <List fontSize="2.8rem">
-                            {course.descriptionList.map((listItem) => <li key={listItem}>{listItem}</li>)}
+                            {course.descriptionList.map((listItem) => <li key={listItem}>{t(listItem)}</li>)}
                         </List>
                         <PriceContainer>
-                            { course.price.old && <OldPrice>{course.price.old}</OldPrice>}
-                            <CurrentPrice>{course.price.current}</CurrentPrice>
+                            { course.price.old && <OldPrice>{t(course.price.old)}</OldPrice>}
+                            <CurrentPrice>{t(course.price.current)}</CurrentPrice>
                         </PriceContainer>
-                        <Button variant="contained" onClick={() => goTo(LINKS.CONTACT)}>ZAPISAĆ SIĘ</Button>
+                        <Button variant="contained" onClick={() => goTo(LINKS.CONTACT)}>{t("courses.signUpButton")}</Button>
                     </Paper>
                 </VerticalFlexContainer>)}
             </ContentWrapperResponsive>

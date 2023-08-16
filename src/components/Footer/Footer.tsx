@@ -8,9 +8,12 @@ import { Button, H3, Section, Text } from "components/StyledHtml/StyledHtml";
 import { ContentWrapper } from "components/StyledHtml/StyledHtml";
 import { COLORS, LINKS } from "consts";
 import { FormEventHandler, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 export const Footer = () => {
 
+    const { t } = useTranslation();
+    
     const form = useRef<HTMLFormElement>(null);
 
     const sendEmail: FormEventHandler<HTMLFormElement> = (event) => {
@@ -27,27 +30,21 @@ export const Footer = () => {
     return (
         <FooterElement id={LINKS.CONTACT} backgroundColor={COLORS.bgDark} padding="8rem 0">
             <ContentWrapper gap="9.5rem" flexDirection="column">
-                <H3 color={COLORS.white}>Masz pytania? Zapytaj!</H3>
+                <H3 color={COLORS.white}>{t("footer.contactForm.title")}</H3>
                 <FlexLayout>
                     <FeedbackForm ref={form} onSubmit={sendEmail}>
-                        <Input type="text" placeholder="Imię" name="user_name" />
-                        <Input type="text" placeholder="Telefon" name="user_phone" />
-                        <Textarea placeholder="Wiadomość" rows={3} name="message" />
-                        <Button variant="contained" type="submit">WYSŁAĆ</Button>
+                        <Input type="text" placeholder={t("footer.contactForm.name")} name="user_name" />
+                        <Input type="text" placeholder={t("footer.contactForm.phone")} name="user_phone" />
+                        <Textarea placeholder={t("footer.contactForm.message")} rows={3} name="message" />
+                        <Button variant="contained" type="submit">{t("footer.contactForm.button")}</Button>
                     </FeedbackForm>
                     <ContactsContainer>
+                        <Text marginBottom="2rem" fontSize="1.5rem" color={COLORS.textGray}>{t("footer.contacts.text1")}</Text>
                         <Text marginBottom="2rem" fontSize="1.5rem" color={COLORS.textGray}>
-                            Jeśli masz jakieś pytania, chcesz o coś porozmawiać lub o coś 
-                            zapytać, zapraszamy.
-                            Wypełnij formularz, a my skontaktujemy się z tobą w ciągu 
-                            godziny. Jesteśmy zawsze
-                            chętni odpowiedzieć na wszystkie pytania.
-                        </Text>
-                        <Text marginBottom="2rem" fontSize="1.5rem" color={COLORS.textGray}>
-                            Możesz również skontaktować się z nami przez telefon.
+                            {t("footer.contacts.text2")}
                         </Text>
                         <Contacts>
-                            <li><ContactsIcon src={Location} /><Text fontSize="1.3rem" color={COLORS.white}>Mieścimy się pod adresem: Poznań, ul. Swierzawska 4</Text></li>
+                            <li><ContactsIcon src={Location} /><Text fontSize="1.3rem" color={COLORS.white}>{t("footer.contacts.address")}</Text></li>
                             <li><ContactsIcon src={Phone} /><Text fontSize="1.3rem" color={COLORS.white}>+48 786 677 659</Text></li>
                             <li><ContactsIcon src={Instagram} /><Text fontSize="1.3rem" color={COLORS.white}>@simple_academy_poznan</Text></li>
                         </Contacts>
