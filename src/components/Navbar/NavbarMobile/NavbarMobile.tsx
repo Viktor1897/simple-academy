@@ -4,6 +4,7 @@ import { Text } from "components/StyledHtml/StyledHtml";
 import { COLORS } from "consts";
 import { useState } from "react";
 
+import LanguageSelect from "../LanguageSelect/LanguageSelect";
 import { LogoImage, NavBarContainer } from "../NavbarDesktop/NavbarDesktop";
 import Menu from "./Menu/Menu";
 
@@ -15,7 +16,7 @@ const NavbarMobile = () => {
                 <MenuIcon isActive={isMenuActive} />
             </MenuBtn>
             <LogoImage src={AcademyLogo} alt="simple academy"/>
-            <Text color={COLORS.white}>EN</Text>
+            <LanguageSelect />
             {isMenuActive && <Menu onNavigationClick={() => setMenuActive(false)} />}
         </MobileNavBar>
     );
