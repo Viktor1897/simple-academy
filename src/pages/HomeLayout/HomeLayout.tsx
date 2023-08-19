@@ -28,7 +28,7 @@ function HomeLayout() {
             <BarbershopSection />   
             <Footer />
             <CopyrightSection />
-            {matches && <CallUsBtn>
+            {matches && <CallUsBtn href="tel: +48 786-677-659">
                 <img src={Phone} alt="call us" style={{ width: "6rem" }} />
             </CallUsBtn>}
         </>
