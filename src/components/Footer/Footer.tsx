@@ -36,7 +36,7 @@ export const Footer = () => {
                         <Input type="text" placeholder={t("footer.contactForm.name")} name="user_name" />
                         <Input type="text" placeholder={t("footer.contactForm.phone")} name="user_phone" />
                         <Textarea placeholder={t("footer.contactForm.message")} rows={3} name="message" />
-                        <Button variant="contained" type="submit">{t("footer.contactForm.button")}</Button>
+                        <Button type="submit">{t("footer.contactForm.button")}</Button>
                     </FeedbackForm>
                     <ContactsContainer>
                         <Text marginBottom="2rem" fontSize="1.5rem" color={COLORS.textGray}>{t("footer.contacts.text1")}</Text>

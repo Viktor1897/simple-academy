@@ -85,7 +85,7 @@ const LoginForm = () => {
             <input value={email} onChange={handleEmailInput} type="email" placeholder="Email" id="username"/>
             <label htmlFor="password">Password</label>
             <input value={password} onChange={handlePasswordInput} type="password" placeholder="Password" id="password"/>
-            <Button variant="contained">Log In</Button>
+            <Button>Log In</Button>
         </Form>
     );
 };

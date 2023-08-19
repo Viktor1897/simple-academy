@@ -41,7 +41,7 @@ const CoursesSection = () => {
                             { course.price.old && <OldPrice>{t(course.price.old)}</OldPrice>}
                             <CurrentPrice>{t(course.price.current)}</CurrentPrice>
                         </PriceContainer>
-                        <Button variant="contained" onClick={() => goTo(LINKS.CONTACT)}>{t("courses.signUpButton")}</Button>
+                        <Button onClick={() => goTo(LINKS.CONTACT)}>{t("courses.signUpButton")}</Button>
                     </Paper>
                 </VerticalFlexContainer>)}
             </ContentWrapperResponsive>

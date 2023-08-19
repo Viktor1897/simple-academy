@@ -3,11 +3,6 @@ import { COLORS, MAX_CONTENT_WIDTH } from "consts";
 
 type ButtonProps = {
     /**
-     *  @default "contained"
-     */
-    variant?: "contained" | "outlined";
-    backgroundColor?: string;
-    /**
      *  @default "100%"
      */
     width?: string;
@@ -17,18 +12,16 @@ type ButtonProps = {
      * @default "27px"
      */
     fontSize?: string;
-    color?: string;
 }
 
 export const Button = styled.button<ButtonProps>`
     width: ${props => props.width || "100%"};
     max-width: ${props => props.maxWidth};
     padding: ${props => props.padding || "1.5rem 0"};
-    background-color: ${props => props.variant === "outlined" ? "transparent" : props.backgroundColor || COLORS.gold};
-    border: ${props => props.variant === "outlined" ? `${props.color || COLORS.black} solid 1px` : "none"};
+    background-color: ${COLORS.gold};
+    border: none;
     border-radius: 1rem;
-    box-shadow: ${props => props.variant !== "outlined" && `0.4rem 0.4rem 1.8rem ${props.backgroundColor || COLORS.gold}`};
-    color: ${props => props.color || COLORS.black};
+    color: ${COLORS.black};
     font-size: ${props => props.fontSize || "2.7rem"};
     font-weight: 500;
     text-transform: uppercase;
@@ -36,9 +29,34 @@ export const Button = styled.button<ButtonProps>`
     transition: all .5s;
      &:hover {
         opacity: 0.8;
-        background-color: ${props => props.variant === "contained" ? COLORS.gold2 : COLORS.black};
-        color: ${props => props.variant === "outlined" && COLORS.white};
+        background-color: ${COLORS.gold2};
      }
+`;
+
+type LinkButtonProps = {
+       /**
+     *  @default "contained"
+     */
+       variant?: "contained" | "outlined";
+};
+
+export const LinkButton = styled.a<LinkButtonProps>`
+    background-color: ${props => props.variant === "outlined" ? "transparent" : COLORS.black};
+    color: ${props => props.variant === "outlined" ? COLORS.black : COLORS.white};
+    box-shadow: ${props => props.variant !== "outlined" && `0.4rem 0.4rem 1.8rem ${COLORS.black}`};
+    border: ${COLORS.black} solid 1px;
+    border-radius: 1rem;
+    font-size: 2.7rem;
+    padding: 2.6rem 5.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .5s;
+    &:hover {
+       background-color: ${props => props.variant === "outlined" ? COLORS.black : "transparent"};
+       color: ${props => props.variant === "outlined" ? COLORS.white : COLORS.black};
+       box-shadow: ${props => props.variant !== "outlined" && "none"};
+    }
 `;
 
 type SectionProps = {

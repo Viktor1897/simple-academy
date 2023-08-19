@@ -25,7 +25,7 @@ function Administration() {
             <Text color={COLORS.white}>Administrative panel</Text>
             <UserContainer>
                 <Text color={COLORS.white}>{auth.currentUser?.email}</Text>
-                <Button variant='outlined' padding="0.5rem 1rem" fontSize="1.8rem" color={COLORS.white} onClick={handleSignOutClick}>Logout</Button>
+                <Button padding="0.5rem 1rem" fontSize="1.8rem" color={COLORS.white} onClick={handleSignOutClick}>Logout</Button>
             </UserContainer>
         </AppBar>
     );

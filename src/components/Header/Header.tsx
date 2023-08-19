@@ -17,7 +17,7 @@ const Header = () => {
             <ContentWrapper gap="none" flexDirection="column" alignItems="center">
                 {matches ? <NavbarDesktop/> : <NavbarMobile />}
                 <H2 marginBottom="6.7rem" color={COLORS.white} style={{ marginTop: matches ? "18.6rem" : "32rem" }}>{t("header.title")}</H2>
-                <Button variant="contained" onClick={() => goTo(LINKS.CONTACT)} maxWidth="42.2rem" padding="2.3rem 0" fontSize="3.5rem">{t("header.contactBtn")}</Button>
+                <Button onClick={() => goTo(LINKS.CONTACT)} maxWidth="42.2rem" padding="2.3rem 0" fontSize="3.5rem">{t("header.contactBtn")}</Button>
             </ContentWrapper>
         </HeaderElement>
     );

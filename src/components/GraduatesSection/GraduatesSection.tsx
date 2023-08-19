@@ -5,7 +5,7 @@ import IMG_3 from "assets/gallery/IMG_3.jpg";
 import IMG_4 from "assets/gallery/IMG_4.jpg";
 import IMG_5 from "assets/gallery/IMG_5.jpg";
 import IMG_6 from "assets/gallery/IMG_6.jpg";
-import { Button, ContentWrapper, H3, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
+import { ContentWrapper, H3, LinkButton, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
 import { COLORS, LINKS } from "consts";
 import { useTranslation } from "react-i18next";
 
@@ -30,7 +30,7 @@ const GraduatesSection = () => {
                         <PhotoLg style={{ background: `80% 0 url(${IMG_6})`, backgroundSize: "cover" }} />
                     </VerticalFlexContainer>
                 </FlexContainer>
-                <Button variant="outlined">{t("graduates.link")}</Button>
+                <LinkButton variant="outlined">{t("graduates.link")}</LinkButton>
             </ContentWrapper>
         </Section>
     );
