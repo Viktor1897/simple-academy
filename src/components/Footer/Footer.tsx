@@ -44,9 +44,30 @@ export const Footer = () => {
                             {t("footer.contacts.text2")}
                         </Text>
                         <Contacts>
-                            <li><ContactsIcon src={Location} /><Text fontSize="1.3rem" color={COLORS.white}>{t("footer.contacts.address")}</Text></li>
-                            <li><ContactsIcon src={Phone} /><Text fontSize="1.3rem" color={COLORS.white}>+48 786 677 659</Text></li>
-                            <li><ContactsIcon src={Instagram} /><Text fontSize="1.3rem" color={COLORS.white}>@simple_academy_poznan</Text></li>
+                            <li>
+                                <ContactLink target="_blank" href="https://goo.gl/maps/6S7ZXY7TtGXkbbhk6">
+                                    <ContactsIcon src={Location} />
+                                    <Text fontSize="1.3rem" color={COLORS.white}>
+                                        {t("footer.contacts.address")}
+                                    </Text>
+                                </ContactLink>
+                            </li>
+                            <li>
+                                <ContactLink href="tel: +48 786-677-659">
+                                    <ContactsIcon src={Phone} />
+                                    <Text fontSize="1.3rem" color={COLORS.white}>
+                                    +48 786 677 659
+                                    </Text>
+                                </ContactLink>
+                            </li>
+                            <li>
+                                <ContactLink target="_blank" href="https://www.instagram.com/simple_academy_poznan/">
+                                    <ContactsIcon src={Instagram} />
+                                    <Text fontSize="1.3rem" color={COLORS.white}>
+                                    @simple_academy_poznan
+                                    </Text>
+                                </ContactLink>
+                            </li>
                         </Contacts>
                         <LogoImage src={AcademyLogo} alt="simple academy logo" />
                     </ContactsContainer>
@@ -98,11 +119,6 @@ const Contacts = styled.ul`
     list-style: none;
     color: ${COLORS.white};
     margin-bottom: 2.5rem;
-        & li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
         & img {
             margin-right: 1rem;
         }
@@ -110,6 +126,14 @@ const Contacts = styled.ul`
 
 const ContactsIcon = styled.img`
     width: 3.2rem;
+`;
+
+const ContactLink = styled.a`
+    text-decoration: none;
+    color: ${COLORS.white};
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
 `;
 
 const LogoImage = styled.img`
