@@ -59,7 +59,6 @@ const Ul = styled.ul<NavigationProps>`
     padding: 0;
      & li {
         list-style-type: none;
-
         & a {
             display: block;
             text-align: center;
