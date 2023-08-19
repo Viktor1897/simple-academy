@@ -10,7 +10,7 @@ import { goTo } from "utils/goTo";
 import NavbarDesktop from "../Navbar/NavbarDesktop/NavbarDesktop";
 
 const Header = () => {
-    const matches = useMediaQuery("(min-width: 800px)");
+    const matches = useMediaQuery("(min-width: 850px)");
     const { t } = useTranslation();
     return (
         <HeaderElement>

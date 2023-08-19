@@ -1,8 +1,6 @@
 import styled from "@emotion/styled";
 import AcademyLogo from "assets/logo.svg";
 import Navigation from "components/Navbar/Navigation/Navigation";
-import { Text } from "components/StyledHtml/StyledHtml";
-import { COLORS } from "consts";
 
 import LanguageSelect from "../LanguageSelect/LanguageSelect";
 
@@ -10,9 +8,8 @@ const NavbarDesktop = () => {
     return (
         <NavBarContainer>
             <LogoImage src={AcademyLogo} alt="simple academy"/>
-            <Text color={COLORS.white}>+ 48 786 677 659</Text>
-            <LanguageSelect />
             <Navigation />
+            <LanguageSelect />
         </NavBarContainer>
     );
 };

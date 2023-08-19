@@ -76,7 +76,7 @@ i18n.use(initReactI18next).init({
                 "menu.about": "O NAS",
                 "menu.courses": "SZKOLIENIA",
                 "menu.barbershop": "BARBERSHOP",
-                "menu.conacts": "KONTAKT",
+                "menu.contacts": "KONTAKT",
                 
                 "header.title": "ZOSTAŃ BARBEREM ZA 30 DNI I ZARABIAJ OD 6000 ZŁ/MES",
                 "header.contactBtn": "SKONTAKTUJ SIĘ",

@@ -44,7 +44,8 @@ export default Navigation;
 
 const Nav = styled.nav<NavigationProps>`
     width: 100%;
-    max-width: ${props => props.variant !== "mobile" && "40rem"};
+    max-width: ${props => props.variant !== "mobile" && "55rem"};
+    padding: 0 2rem;
     padding-top: ${props => props.variant === "mobile" && "5rem"};
 `;
 
@@ -58,7 +59,6 @@ const Ul = styled.ul<NavigationProps>`
     padding: 0;
      & li {
         list-style-type: none;
-        width: 100%;
 
         & a {
             display: block;
