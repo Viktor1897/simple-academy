@@ -21,6 +21,6 @@ export const LINKS = {
 };
 
 export const LANGUAGES = [
-    { label: "RU", code: "ru" },
     { label: "PL", code: "pl" },
+    { label: "RU", code: "ru" },
 ];  
