@@ -30,7 +30,7 @@ const GraduatesSection = () => {
                         <PhotoLg style={{ background: `80% 0 url(${IMG_6})`, backgroundSize: "cover" }} />
                     </VerticalFlexContainer>
                 </FlexContainer>
-                <LinkButton variant="outlined">{t("graduates.link")}</LinkButton>
+                <LinkButton variant="outlined" target="_blank" href="https://www.instagram.com/simple_academy_poznan/">{t("graduates.link")}</LinkButton>
             </ContentWrapper>
         </Section>
     );

@@ -11,7 +11,7 @@ const BarbershopSection = () => {
             <H3 marginBottom="15rem">{t("barbershop.title")}</H3>
             <ContentWrapperResponsive alignItems="center" flexDirection="column">
                 <Text fontWeight="600" style={{ maxWidth: "75rem", width: "100%", textAlign: "center" }} >{t("barbershop.description")}</Text>
-                <LinkButton>{t("barbershop.link")}</LinkButton>
+                <LinkButton target="_blank" href="https://simplebarber.pl/">{t("barbershop.link")}</LinkButton>
             </ContentWrapperResponsive>
         </Section>
     );

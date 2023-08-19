@@ -49,6 +49,7 @@ export const LinkButton = styled.a<LinkButtonProps>`
     font-size: 2.7rem;
     padding: 2.6rem 5.8rem;
     font-weight: 500;
+    text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
     transition: all .5s;
