@@ -51,7 +51,8 @@ export const Footer = () => {
                         <LogoImage src={AcademyLogo} alt="simple academy logo" />
                     </ContactsContainer>
                 </FlexLayout>
-                <MapIframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.8439710850994!2d16.88505231580336!3d52.40950397979346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704452d7295cfaf%3A0x433fc023d049866d!2sSIMPLE%20Barbershop!5e0!3m2!1sru!2spl!4v1645479330364!5m2!1sru!2spl" loading="lazy"/>
+                
+                <MapIframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.17249269416!2d16.85871637640363!3d52.403549944844976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470444e48993ac09%3A0x56de424c74035d6b!2s%C5%9Awierzawska%204%2C%2060-321%20Pozna%C5%84!5e0!3m2!1sen!2spl!4v1692459198823!5m2!1sen!2spl" loading="lazy"/>
             </ContentWrapper>
         </FooterElement>
     );
