@@ -15,15 +15,15 @@ export default Menu;
 const MenuContainer = styled.div`
     width: 100%;
     height: 100%;
-    top: 80px;
+    top: 70px;
     bottom: 0;
     right: 0;
     left: 0;
     position: fixed;
     pointer-events: auto;
     overflow: hidden;
-    background-color: ${COLORS.black}eb;
+    background-color: ${COLORS.black}fc;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
 `;
