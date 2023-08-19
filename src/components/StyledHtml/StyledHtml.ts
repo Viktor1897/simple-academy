@@ -60,6 +60,35 @@ export const LinkButton = styled.a<LinkButtonProps>`
     }
 `;
 
+export const CallUsBtn = styled.a`
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    bottom: 4rem;
+    left: 4rem;
+    background: ${COLORS.gold2};
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 2;
+    &:before,:after {
+        content: " ";
+        display: block;
+        position: absolute;
+        border: 1px solid ${COLORS.gold2};
+        border-radius: 50%;
+        left: -15px;
+        right: -15px;
+        top: -15px;
+        bottom: -15px;
+        animation: animate 1.5s linear infinite;
+    };
+    &:after {
+        animation-delay: .5s;
+    }
+`;
+
 type SectionProps = {
     padding?: string;
     backgroundColor?: string;
