@@ -67,7 +67,7 @@ i18n.use(initReactI18next).init({
                 "footer.contactForm.button": "Отправить",
                 "footer.contacts.text1": "Если у тебя есть какие-либо вопросы, ты хочешь о чём-то поговорить или что-то спросить, добро пожаловать. Заполни форму и мы свяжемся с тобой в течении одного часа. Мы всегда рады ответить на все ваши вопросы.",
                 "footer.contacts.text2": "Вы также можете связаться с нами самостоятельно, позвонить по номеру телефона указанному ниже.",
-                "footer.contacts.address": "Мы расположены по адресу: Poznań, ul. Swierzawska 4",
+                "footer.contacts.address": "Poznań, ul. Swierzawska 4",
                 "copyright.rights": "ВСЕ ПРАВА ЗАЩИЩЕНЫ.",
             }
         },
@@ -130,7 +130,7 @@ i18n.use(initReactI18next).init({
                 "footer.contactForm.button": "WYSŁAĆ",
                 "footer.contacts.text1": "Jeśli masz jakieś pytania, chcesz o coś porozmawiać lub o coś zapytać, zapraszamy. Wypełnij formularz, a my skontaktujemy się z tobą w ciągu godziny. Jesteśmy zawsze chętni odpowiedzieć na wszystkie pytania.",
                 "footer.contacts.text2": "Możesz również skontaktować się z nami przez telefon.",
-                "footer.contacts.address": "Mieścimy się pod adresem: Poznań, ul. Swierzawska 4",
+                "footer.contacts.address": "Poznań, ul. Swierzawska 4",
                 "copyright.rights": "ALL RIGHTS RESERVED.",
             }
         }

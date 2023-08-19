@@ -139,6 +139,9 @@ const ContactLink = styled.a`
 const LogoImage = styled.img`
     width: 28.5rem;
     opacity: 0.6;
+    @media (max-width: 670px) {
+        align-self: center;
+    }
 `;
 
 const MapIframe = styled.iframe`
