@@ -1,3 +1,5 @@
+import "react-photo-view/dist/react-photo-view.css";
+
 import styled from "@emotion/styled";
 import IMG_1 from "assets/gallery/IMG_1.jpg";
 import IMG_2 from "assets/gallery/IMG_2.jpg";
@@ -8,31 +10,46 @@ import IMG_6 from "assets/gallery/IMG_6.jpg";
 import { ContentWrapper, H3, LinkButton, Section, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
 import { COLORS, LINKS } from "consts";
 import { useTranslation } from "react-i18next";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const GraduatesSection = () => {
     const { t } = useTranslation();
     
     return (
-        <Section id={LINKS.GRADUATES} padding="6rem 0 7.5rem 0">
-            <ContentWrapper flexDirection="column" alignItems="center">
-                <H3 color={COLORS.black}>{t("graduates.title")}</H3>
-                <FlexContainer>
-                    <VerticalFlexContainer gap="2.5rem">
-                        <PhotoSm style={{ background: `80% 85% url(${IMG_1})`,  backgroundSize: "cover" }} />
-                        <PhotoLg style={{ background: `80% 0 url(${IMG_2})`,  backgroundSize: "cover" }} />
-                    </VerticalFlexContainer>
-                    <VerticalFlexContainer gap="2.5rem">
-                        <PhotoLg style={{ background: `80% 0 url(${IMG_3})`, backgroundSize: "cover" }} />
-                        <PhotoSm style={{ background: `80% 45% url(${IMG_4})`, backgroundSize: "cover" }} />
-                    </VerticalFlexContainer>
-                    <VerticalFlexContainer gap="2.5rem">
-                        <PhotoSm style={{ background: `80% 45% url(${IMG_5})`, backgroundSize: "cover" }} />
-                        <PhotoLg style={{ background: `80% 0 url(${IMG_6})`, backgroundSize: "cover" }} />
-                    </VerticalFlexContainer>
-                </FlexContainer>
-                <LinkButton variant="outlined" target="_blank" href="https://www.instagram.com/simple_academy_poznan/">{t("graduates.link")}</LinkButton>
-            </ContentWrapper>
-        </Section>
+        <PhotoProvider>
+            <Section id={LINKS.GRADUATES} padding="6rem 0 7.5rem 0">
+                <ContentWrapper flexDirection="column" alignItems="center">
+                    <H3 color={COLORS.black}>{t("graduates.title")}</H3>
+                    <FlexContainer>
+                        <VerticalFlexContainer gap="2.5rem">
+                            <PhotoView src={IMG_1}>
+                                <PhotoSm style={{ background: `80% 85% url(${IMG_1})`,  backgroundSize: "cover" }} />
+                            </PhotoView>
+                            <PhotoView src={IMG_2}>
+                                <PhotoLg style={{ background: `80% 0 url(${IMG_2})`,  backgroundSize: "cover" }} />
+                            </PhotoView>
+                        </VerticalFlexContainer>
+                        <VerticalFlexContainer gap="2.5rem">
+                            <PhotoView src={IMG_3}>
+                                <PhotoLg style={{ background: `80% 0 url(${IMG_3})`, backgroundSize: "cover" }} />
+                            </PhotoView>
+                            <PhotoView src={IMG_4}>
+                                <PhotoSm style={{ background: `80% 45% url(${IMG_4})`, backgroundSize: "cover" }} />
+                            </PhotoView>
+                        </VerticalFlexContainer>
+                        <VerticalFlexContainer gap="2.5rem">
+                            <PhotoView src={IMG_5}>
+                                <PhotoSm style={{ background: `80% 45% url(${IMG_5})`, backgroundSize: "cover" }} />
+                            </PhotoView>
+                            <PhotoView src={IMG_6}>
+                                <PhotoLg style={{ background: `80% 0 url(${IMG_6})`, backgroundSize: "cover" }} />
+                            </PhotoView>
+                        </VerticalFlexContainer>
+                    </FlexContainer>
+                    <LinkButton variant="outlined" target="_blank" href="https://www.instagram.com/simple_academy_poznan/">{t("graduates.link")}</LinkButton>
+                </ContentWrapper>
+            </Section>
+        </PhotoProvider>
     );
 };
 
@@ -63,6 +80,7 @@ const PhotoSm = styled.div`
     width: 100%;
     height: 30%;
     min-width: 260px;
+    cursor: pointer;
     @media (max-width: 1000px) {
         height: 70%;
         background-position: center;
@@ -74,6 +92,7 @@ const PhotoLg = styled.div`
     width: 100%;
     height: 70%;
     min-width: 260px;
+    cursor: pointer;
     @media (max-width: 1000px) {
         height: 70%;
         background-position: center;
