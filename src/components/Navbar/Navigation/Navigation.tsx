@@ -44,7 +44,7 @@ export default Navigation;
 
 const Nav = styled.nav<NavigationProps>`
     width: 100%;
-    max-width: ${props => props.variant !== "mobile" && "55rem"};
+    max-width: ${props => props.variant !== "mobile" && "65rem"};
     padding: 0 2rem;
     padding-top: ${props => props.variant === "mobile" && "5rem"};
 `;
