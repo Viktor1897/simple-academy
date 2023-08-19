@@ -29,7 +29,7 @@ export const Footer = () => {
 
     return (
         <FooterElement id={LINKS.CONTACT} backgroundColor={COLORS.bgDark} padding="8rem 0">
-            <ContentWrapper gap="9.5rem" flexDirection="column">
+            <ContentWrapper gap="6rem" flexDirection="column">
                 <H3 color={COLORS.white}>{t("footer.contactForm.title")}</H3>
                 <FlexLayout>
                     <FeedbackForm ref={form} onSubmit={sendEmail}>

@@ -10,7 +10,7 @@ const TutorsSection = () => {
 
     return (
         <Section id={LINKS.TUTORS} padding="6rem 0 10rem 0" backgroundColor={COLORS.bgGray}>
-            <H3 marginBottom="10rem">{t("tutors.title")}</H3>
+            <H3 marginBottom="8rem">{t("tutors.title")}</H3>
             <ContentWrapperResponsive gap="4rem" flexDirection="row" alignItems="center">
                 <VerticalFlexContainer gap="initial">
                     <Photo src={Anton} />
