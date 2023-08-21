@@ -19,7 +19,7 @@ export const Footer = () => {
     const sendEmail: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
   
-        form.current && emailjs.sendForm("service_kwj9xcf", "template_03cj5r3", form.current, "d05s9DHz_SqrcB64Z")
+        form.current && emailjs.sendForm("service_3z5ilpi", "template_b5tqopc", form.current, "d91Ioirjz-pzc7rin")
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
@@ -43,33 +43,35 @@ export const Footer = () => {
                         <Text marginBottom="2rem" fontSize="1.5rem" color={COLORS.textGray}>
                             {t("footer.contacts.text2")}
                         </Text>
-                        <Contacts>
-                            <li>
-                                <ContactLink target="_blank" href="https://goo.gl/maps/6S7ZXY7TtGXkbbhk6">
-                                    <ContactsIcon src={Location} />
-                                    <Text fontSize="1.3rem" color={COLORS.white}>
-                                        {t("footer.contacts.address")}
-                                    </Text>
-                                </ContactLink>
-                            </li>
-                            <li>
-                                <ContactLink href="tel: +48 786-677-659">
-                                    <ContactsIcon src={Phone} />
-                                    <Text fontSize="1.3rem" color={COLORS.white}>
+                        <FlexWrapper>
+                            <Contacts>
+                                <li>
+                                    <ContactLink target="_blank" href="https://goo.gl/maps/6S7ZXY7TtGXkbbhk6">
+                                        <ContactsIcon src={Location} />
+                                        <Text fontSize="1.3rem" color={COLORS.white}>
+                                            {t("footer.contacts.address")}
+                                        </Text>
+                                    </ContactLink>
+                                </li>
+                                <li>
+                                    <ContactLink href="tel: +48 786-677-659">
+                                        <ContactsIcon src={Phone} />
+                                        <Text fontSize="1.3rem" color={COLORS.white}>
                                     +48 786 677 659
-                                    </Text>
-                                </ContactLink>
-                            </li>
-                            <li>
-                                <ContactLink target="_blank" href="https://www.instagram.com/simple_academy_poznan/">
-                                    <ContactsIcon src={Instagram} />
-                                    <Text fontSize="1.3rem" color={COLORS.white}>
+                                        </Text>
+                                    </ContactLink>
+                                </li>
+                                <li>
+                                    <ContactLink target="_blank" href="https://www.instagram.com/simple_academy_poznan/">
+                                        <ContactsIcon src={Instagram} />
+                                        <Text fontSize="1.3rem" color={COLORS.white}>
                                     @simple_academy_poznan
-                                    </Text>
-                                </ContactLink>
-                            </li>
-                        </Contacts>
-                        <LogoImage src={AcademyLogo} alt="simple academy logo" />
+                                        </Text>
+                                    </ContactLink>
+                                </li>
+                            </Contacts>
+                            <LogoImage src={AcademyLogo} alt="simple academy logo" />
+                        </FlexWrapper>
                     </ContactsContainer>
                 </FlexLayout>
                 
@@ -89,6 +91,15 @@ const FeedbackForm = styled.form`
     max-width: 47rem;
     @media (max-width: 670px) {
         max-width: none;
+    }
+`;
+
+const FlexWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 670px) {
+        flex-direction: row;
+        justify-content: space-between;
     }
 `;
 
@@ -140,7 +151,7 @@ const LogoImage = styled.img`
     width: 28.5rem;
     opacity: 0.6;
     @media (max-width: 670px) {
-        align-self: center;
+        width: 23rem;
     }
 `;
 
