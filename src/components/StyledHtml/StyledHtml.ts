@@ -47,7 +47,8 @@ export const LinkButton = styled.a<LinkButtonProps>`
     border: ${COLORS.black} solid 1px;
     border-radius: 1rem;
     font-size: 2.7rem;
-    padding: 2.6rem 4.5rem;
+    padding: 2.6rem 3rem;
+    text-align: center;
     font-weight: 500;
     text-decoration: none;
     text-transform: uppercase;

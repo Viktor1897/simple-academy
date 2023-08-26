@@ -54,6 +54,7 @@ i18n.use(initReactI18next).init({
                 "tutor2.description": "Являюсь частью коллектива SIMPLE Barbershop в качестве барбера и преподавателя. Постоянно слежу за новыми тенденциями в индустрии и развиваю свои навыки.",
 
                 "graduates.title": "ВЫПУСКНИКИ",
+                "graduates.morePhotos": "Больше фото",
                 "graduates.link": "БОЛЬШЕ ФОТО В ИНСТАГРАММ",
 
                 "barbershop.title": "SIMPLE BARBERSHOP",
@@ -117,6 +118,7 @@ i18n.use(initReactI18next).init({
                 "tutor2.description": "Jako barber oraz edukator jestem częścią zespołu SIMPLE Barbershop. Nieustannie śledzę nowe trendy w branży i rozwijam swój warsztat.",
 
                 "graduates.title": "ABSOLWENCI",
+                "graduates.morePhotos": "Więcej zdjęć",
                 "graduates.link": "więcej zdjęć na instagramie",
 
                 "barbershop.title": "SIMPLE BARBERSHOP",
