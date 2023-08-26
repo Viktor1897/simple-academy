@@ -52,6 +52,8 @@ i18n.use(initReactI18next).init({
                 "tutor1.description": "Меня зовут Антон. Я являюсь одним из первых барберов в городе Минск (Беларусь). Барбер и преподаватель с 2016 года.",
                 "tutor2.name": "АНАСТАСИЯ",
                 "tutor2.description": "Являюсь частью коллектива SIMPLE Barbershop в качестве барбера и преподавателя. Постоянно слежу за новыми тенденциями в индустрии и развиваю свои навыки.",
+                "tutor3.name": "Женя",
+                "tutor3.description": "В сфере более 5 лет. Поделюсь своим опытом и с удовольствием научу всему, чему научился за годы работы.",
 
                 "graduates.title": "ВЫПУСКНИКИ",
                 "graduates.morePhotos": "Больше фото",
@@ -116,6 +118,8 @@ i18n.use(initReactI18next).init({
                 "tutor1.description": "Mam imię Anton, jestem jednym z pierwszych barberów w mieście Mińsk (Białoruś). Barber i edukator od 2016 roku.",
                 "tutor2.name": "ANASTAZJA",
                 "tutor2.description": "Jako barber oraz edukator jestem częścią zespołu SIMPLE Barbershop. Nieustannie śledzę nowe trendy w branży i rozwijam swój warsztat.",
+                "tutor3.name": "ŻENIA",
+                "tutor3.description": "W branży barberskiej od ponad 5 lat. Podzielę się swoim doświadczeniem i z przyjemnością nauczę wszystkiego, czego nauczyłem się przez wszystkie lata pracy.",
 
                 "graduates.title": "ABSOLWENCI",
                 "graduates.morePhotos": "Więcej zdjęć",
