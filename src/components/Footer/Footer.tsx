@@ -1,27 +1,35 @@
 import emailjs from "@emailjs/browser";
 import styled from "@emotion/styled";
 import Instagram from "assets/instagram.svg";
+import Loading from "assets/Loading.svg";
 import Location from "assets/location.svg";
 import AcademyLogo from "assets/logo.svg";
 import Phone from "assets/phone.svg";
 import { Button, H3, Section, Text } from "components/StyledHtml/StyledHtml";
 import { ContentWrapper } from "components/StyledHtml/StyledHtml";
 import { COLORS, LINKS } from "consts";
-import { FormEventHandler, useRef } from "react";
+import { FormEventHandler, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const serviceKey = import.meta.env.VITE_EMAILJS_SERVICE;
+const emailTemplateKey = import.meta.env.VITE_EMAILJS_TEMPLATE;
 
 export const Footer = () => {
 
     const { t } = useTranslation();
+
+    const [isLoading, setIsLoading] = useState(false);
     
     const form = useRef<HTMLFormElement>(null);
 
     const sendEmail: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
-  
-        form.current && emailjs.sendForm("service_3z5ilpi", "template_b5tqopc", form.current, "d91Ioirjz-pzc7rin")
+        setIsLoading(true);
+        form.current && emailjs.sendForm(serviceKey, emailTemplateKey, form.current, publicKey)
             .then((result) => {
                 console.log(result.text);
+                setIsLoading(false);
+                form.current && form.current.reset();
             }, (error) => {
                 console.log(error.text);
             });
@@ -33,10 +41,13 @@ export const Footer = () => {
                 <H3 color={COLORS.white}>{t("footer.contactForm.title")}</H3>
                 <FlexLayout>
                     <FeedbackForm ref={form} onSubmit={sendEmail}>
-                        <Input type="text" placeholder={t("footer.contactForm.name")} name="user_name" />
-                        <Input type="text" placeholder={t("footer.contactForm.phone")} name="user_phone" />
-                        <Textarea placeholder={t("footer.contactForm.message")} rows={3} name="message" />
-                        <Button type="submit">{t("footer.contactForm.button")}</Button>
+                        <Input required type="text" placeholder={t("footer.contactForm.name")} name="user_name" />
+                        <Input required type="tel" placeholder={t("footer.contactForm.phone")} name="user_phone" />
+                        <Textarea required placeholder={t("footer.contactForm.message")} rows={3} name="message" />
+                        <Button style={{ position: "relative" }} disabled={isLoading} type="submit">
+                            {t("footer.contactForm.button")}
+                            {isLoading && <LoadingIcon src={Loading} alt="loading"/>}
+                        </Button>
                     </FeedbackForm>
                     <ContactsContainer>
                         <Text marginBottom="2rem" fontSize="1.5rem" color={COLORS.textGray}>{t("footer.contacts.text1")}</Text>
@@ -175,3 +186,10 @@ const Input = styled.input`
 `;
 
 const Textarea = Input.withComponent("textarea");
+
+const LoadingIcon = styled.img`
+    position: absolute;
+    width: 5rem;
+    top: 13%;
+    animation: rotating 1.5s linear infinite;
+`;

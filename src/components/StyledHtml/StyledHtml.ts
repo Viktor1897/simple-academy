@@ -31,6 +31,9 @@ export const Button = styled.button<ButtonProps>`
         opacity: 0.8;
         background-color: ${COLORS.gold2};
      }
+     &:disabled {
+        background-color: ${COLORS.textGray};
+     }
 `;
 
 type LinkButtonProps = {
