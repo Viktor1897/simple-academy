@@ -53,7 +53,7 @@ i18n.use(initReactI18next).init({
                 "tutor2.name": "АНАСТАСИЯ",
                 "tutor2.description": "Являюсь частью коллектива SIMPLE Barbershop в качестве барбера и преподавателя. Постоянно слежу за новыми тенденциями в индустрии и развиваю свои навыки.",
                 "tutor3.name": "Женя",
-                "tutor3.description": "В сфере более 5 лет. Поделюсь своим опытом и с удовольствием научу всему, чему научился за годы работы.",
+                "tutor3.description": "Работаю в сфере барберинга более 5 лет. Поделюсь своим опытом и с удовольствием научу всему, чему сам научился за долгие года работы.",
 
                 "graduates.title": "ВЫПУСКНИКИ",
                 "graduates.morePhotos": "Больше фото",
@@ -119,7 +119,7 @@ i18n.use(initReactI18next).init({
                 "tutor2.name": "ANASTAZJA",
                 "tutor2.description": "Jako barber oraz edukator jestem częścią zespołu SIMPLE Barbershop. Nieustannie śledzę nowe trendy w branży i rozwijam swój warsztat.",
                 "tutor3.name": "ŻENIA",
-                "tutor3.description": "W branży barberskiej od ponad 5 lat. Podzielę się swoim doświadczeniem i z przyjemnością nauczę wszystkiego, czego nauczyłem się przez wszystkie lata pracy.",
+                "tutor3.description": "W branży barberskiej jestem ponad 5 lat. Podzielę się swoim doświadczeniem i z przyjemnością nauczę wszystkiego, czego nauczyłem się przez wszystkie lata pracy.",
 
                 "graduates.title": "ABSOLWENCI",
                 "graduates.morePhotos": "Więcej zdjęć",
