@@ -12,7 +12,7 @@ const TutorsSection = () => {
     return (
         <Section id={LINKS.TUTORS} padding="6rem 0 10rem 0" backgroundColor={COLORS.bgGray}>
             <H3 marginBottom="7rem">{t("tutors.title")}</H3>
-            <ContentWrapper gap="4rem" flexDirection="row" alignItems="center" flexWrap="wrap">
+            <ContentWrapper gap="4rem" flexDirection="row" alignItems="start" flexWrap="wrap">
                 <VerticalFlexContainer gap="initial">
                     <Photo src={Anton} />
                     <Text marginBottom="1.5rem" fontWeight="700">{t("tutor1.name")}</Text>
