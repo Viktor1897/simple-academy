@@ -41,6 +41,7 @@ const MenuBtn = styled.button`
     border: none;
     cursor: pointer;
     width: 7rem;
+    padding: 2rem 0;
 `;
 
 const MenuIcon = styled.div<MenuIconProps>`
