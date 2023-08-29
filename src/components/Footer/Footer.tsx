@@ -25,7 +25,7 @@ export const Footer = () => {
     const sendEmail: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
         setIsLoading(true);
-        form.current && emailjs.sendForm(serviceKey, emailTemplateKey, form.current, publicKey)
+        form.current && emailjs.sendForm("service_3z5ilpi", "template_b5tqopc", form.current, "d91Ioirjz-pzc7rin")
             .then((result) => {
                 console.log(result.text);
                 setIsLoading(false);
