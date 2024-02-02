@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Anastazja from "assets/ANASTAZJA.jpg";
+import ALEX from "assets/ALEX.jpg";
 import Anton from "assets/ANTON.jpg";
 import Zenia from "assets/ZENIA.jpg";
 import { ContentWrapper, H3, Section, Text, VerticalFlexContainer } from "components/StyledHtml/StyledHtml";
@@ -19,7 +19,7 @@ const TutorsSection = () => {
                     <Text fontSize="1.9rem" style={{ maxWidth: "32rem" }}>{t("tutor1.description")}</Text>
                 </VerticalFlexContainer>
                 <VerticalFlexContainer gap="initial">
-                    <Photo src={Anastazja} />
+                    <Photo src={ALEX} />
                     <Text marginBottom="1.5rem" fontWeight="700">{t("tutor2.name")}</Text>
                     <Text fontSize="1.9rem" style={{ maxWidth: "32rem" }}>{t("tutor2.description")}</Text>
                 </VerticalFlexContainer>
