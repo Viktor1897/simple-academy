@@ -1,4 +1,3 @@
-import emailjs from "@emailjs/browser";
 import styled from "@emotion/styled";
 import Instagram from "assets/instagram.svg";
 import Loading from "assets/loading.svg";
@@ -8,8 +7,9 @@ import Phone from "assets/phone.svg";
 import { Button, H3, Section, Text } from "components/StyledHtml/StyledHtml";
 import { ContentWrapper } from "components/StyledHtml/StyledHtml";
 import { COLORS, LINKS } from "consts";
-import { FormEventHandler, useRef, useState } from "react";
+import { FormEventHandler, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { useSendEmail } from "./useSendEmail";
 const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const serviceKey = import.meta.env.VITE_EMAILJS_SERVICE;
 const emailTemplateKey = import.meta.env.VITE_EMAILJS_TEMPLATE;
@@ -17,22 +17,15 @@ const emailTemplateKey = import.meta.env.VITE_EMAILJS_TEMPLATE;
 export const Footer = () => {
 
     const { t } = useTranslation();
-
-    const [isLoading, setIsLoading] = useState(false);
+    const { putData, response, error, pending } = useSendEmail();
+    console.log("response", response);
+    console.log("error", error);
     
     const form = useRef<HTMLFormElement>(null);
 
     const sendEmail: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
-        setIsLoading(true);
-        form.current && emailjs.sendForm("service_3z5ilpi", "template_b5tqopc", form.current, "d91Ioirjz-pzc7rin")
-            .then((result) => {
-                console.log(result.text);
-                setIsLoading(false);
-                form.current && form.current.reset();
-            }, (error) => {
-                console.log(error.text);
-            });
+        putData(form);
     };
 
     return (
@@ -44,9 +37,9 @@ export const Footer = () => {
                         <Input required type="text" placeholder={t("footer.contactForm.name")} name="user_name" />
                         <Input required type="tel" placeholder={t("footer.contactForm.phone")} name="user_phone" />
                         <Textarea required placeholder={t("footer.contactForm.message")} rows={3} name="message" />
-                        <Button style={{ position: "relative" }} disabled={isLoading} type="submit">
+                        <Button style={{ position: "relative" }} disabled={pending} type="submit">
                             {t("footer.contactForm.button")}
-                            {isLoading && <LoadingIcon src={Loading} alt="loading"/>}
+                            {pending && <LoadingIcon src={Loading} alt="loading"/>}
                         </Button>
                     </FeedbackForm>
                     <ContactsContainer>
