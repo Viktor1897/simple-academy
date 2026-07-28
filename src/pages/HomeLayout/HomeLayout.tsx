@@ -1,37 +1,41 @@
-import Phone from "assets/phone.svg";
 import AboutUsSection from "components/AboutUsSection/AboutUsSection";
 import BarbershopSection from "components/BarbershopSection/BarbershopSection";
-import CopyrightSection from "components/CopyrightSection/CopyrightSection";
 import CoursesSection from "components/CoursesSection/CoursesSection";
+import FaqSection from "components/FaqSection/FaqSection";
+import FloatingCallBtn from "components/FloatingCallBtn/FloatingCallBtn";
 import { Footer } from "components/Footer/Footer";
-import GraduatesSection from "components/GraduatesSection/GraduatesSection";
-import InfoIconsSection from "components/InfoIconsSection/InfoIconsSection";
-import { CallUsBtn } from "components/StyledHtml/StyledHtml";
+import GallerySection from "components/GallerySection/GallerySection";
+import Header from "components/Header/Header";
+import HeroSection from "components/HeroSection/HeroSection";
+import IntroSection from "components/IntroSection/IntroSection";
+import MethodSection from "components/MethodSection/MethodSection";
+import { SiteShell } from "components/StyledHtml/StyledHtml";
 import TutorsSection from "components/TutorsSection/TutorsSection";
-import { useMediaQuery } from "hooks/useMediaQuery";
 
-import Header from "../../components/Header/Header";
-
+const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+};
 
 function HomeLayout() {
-    const matches = useMediaQuery("(max-width: 850px)");
-
+    const goTo = (id: string) => {
+        scrollTo(id);
+    };
 
     return (
-        <>
-            <Header />
-            <InfoIconsSection />
+        <SiteShell>
+            <Header onNavigate={goTo} />
+            <HeroSection onNavigate={goTo} />
+            <IntroSection />
+            <CoursesSection onNavigate={goTo} />
+            <GallerySection />
             <AboutUsSection />
-            <CoursesSection />
+            <MethodSection />
             <TutorsSection />
-            <GraduatesSection />
-            <BarbershopSection />   
+            <BarbershopSection />
+            <FaqSection />
             <Footer />
-            <CopyrightSection />
-            {matches && <CallUsBtn href="tel: +48 786-677-659">
-                <img src={Phone} alt="call us" style={{ width: "6rem" }} />
-            </CallUsBtn>}
-        </>
+            <FloatingCallBtn />
+        </SiteShell>
     );
 }
 

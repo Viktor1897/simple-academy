@@ -2,25 +2,17 @@ import styled from "@emotion/styled";
 import Instagram from "assets/instagram.svg";
 import Loading from "assets/loading.svg";
 import Location from "assets/location.svg";
-import AcademyLogo from "assets/logo.svg";
+import logo from "assets/logo.svg";
 import Phone from "assets/phone.svg";
-import { Button, H3, Section, Text } from "components/StyledHtml/StyledHtml";
-import { ContentWrapper } from "components/StyledHtml/StyledHtml";
-import { COLORS, LINKS } from "consts";
+import { MarkerButton, ScribbleLabel } from "components/StyledHtml/StyledHtml";
 import { FormEventHandler, useRef } from "react";
 import { useTranslation } from "react-i18next";
+
 import { useSendEmail } from "./useSendEmail";
-const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-const serviceKey = import.meta.env.VITE_EMAILJS_SERVICE;
-const emailTemplateKey = import.meta.env.VITE_EMAILJS_TEMPLATE;
 
 export const Footer = () => {
-
     const { t } = useTranslation();
     const { putData, response, error, pending } = useSendEmail();
-    console.log("response", response);
-    console.log("error", error);
-    
     const form = useRef<HTMLFormElement>(null);
 
     const sendEmail: FormEventHandler<HTMLFormElement> = (event) => {
@@ -29,160 +21,235 @@ export const Footer = () => {
     };
 
     return (
-        <FooterElement id={LINKS.CONTACT} backgroundColor={COLORS.bgDark} padding="8rem 0">
-            <ContentWrapper gap="6rem" flexDirection="column">
-                <H3 color={COLORS.white}>{t("footer.contactForm.title")}</H3>
-                <FlexLayout>
-                    <FeedbackForm ref={form} onSubmit={sendEmail}>
-                        <Input required type="text" placeholder={t("footer.contactForm.name")} name="user_name" />
-                        <Input required type="tel" placeholder={t("footer.contactForm.phone")} name="user_phone" />
-                        <Textarea required placeholder={t("footer.contactForm.message")} rows={3} name="message" />
-                        <Button style={{ position: "relative" }} disabled={pending} type="submit">
-                            {t("footer.contactForm.button")}
-                            {pending && <LoadingIcon src={Loading} alt="loading"/>}
-                        </Button>
-                    </FeedbackForm>
-                    <ContactsContainer>
-                        <Text marginBottom="2rem" fontSize="1.5rem" color={COLORS.textGray}>{t("footer.contacts.text1")}</Text>
-                        <Text marginBottom="2rem" fontSize="1.5rem" color={COLORS.textGray}>
-                            {t("footer.contacts.text2")}
-                        </Text>
-                        <FlexWrapper>
-                            <Contacts>
-                                <li>
-                                    <ContactLink target="_blank" href="https://goo.gl/maps/6S7ZXY7TtGXkbbhk6">
-                                        <ContactsIcon src={Location} />
-                                        <Text fontSize="1.3rem" color={COLORS.white}>
-                                            {t("footer.contacts.address")}
-                                        </Text>
-                                    </ContactLink>
-                                </li>
-                                <li>
-                                    <ContactLink href="tel: +48 786-677-659">
-                                        <ContactsIcon src={Phone} />
-                                        <Text fontSize="1.3rem" color={COLORS.white}>
-                                    +48 786 677 659
-                                        </Text>
-                                    </ContactLink>
-                                </li>
-                                <li>
-                                    <ContactLink target="_blank" href="https://www.instagram.com/simple_academy_poznan/">
-                                        <ContactsIcon src={Instagram} />
-                                        <Text fontSize="1.3rem" color={COLORS.white}>
-                                    @simple_academy_poznan
-                                        </Text>
-                                    </ContactLink>
-                                </li>
-                            </Contacts>
-                            <LogoImage src={AcademyLogo} alt="simple academy logo" />
-                        </FlexWrapper>
-                    </ContactsContainer>
-                </FlexLayout>
-                
-                <MapIframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.1726717255287!2d16.861291299999998!3d52.4035467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704452762247389%3A0xb2a426a74db81f52!2sSIMPLE%20Barbershop%20-%20Marcelin!5e0!3m2!1sru!2spl!4v1693049030387!5m2!1sru!2spl" loading="lazy"/>
-            </ContentWrapper>
-        </FooterElement>
+        <FooterContainer id="contact">
+            <FooterIntro>
+                <ScribbleLabel>06 / {t("labels.contact")}</ScribbleLabel>
+                <h2>{t("footer.contactForm.title")} <mark>{t("footer.contactForm.highlight")}</mark></h2>
+                <p>{t("footer.contactForm.lead")}</p>
+            </FooterIntro>
+
+            <FooterContent>
+                <FeedbackForm ref={form} onSubmit={sendEmail}>
+                    <label>
+                        <span>01</span>
+                        <input required type="text" placeholder={t("footer.contactForm.name")} name="user_name" />
+                    </label>
+                    <label>
+                        <span>02</span>
+                        <input required type="tel" placeholder={t("footer.contactForm.phone")} name="user_phone" />
+                    </label>
+                    <label>
+                        <span>03</span>
+                        <textarea required placeholder={t("footer.contactForm.message")} rows={3} name="message" />
+                    </label>
+                    <MarkerButton variant="coral" disabled={pending} type="submit">
+                        {pending ? <LoadingImg src={Loading} alt="" /> : t("footer.contactForm.button")}
+                    </MarkerButton>
+                    {response && <FormStatus isSuccess>{t("footer.contactForm.success")}</FormStatus>}
+                    {error && <FormStatus>{t("footer.contactForm.error")}</FormStatus>}
+                </FeedbackForm>
+
+                <FooterContacts>
+                    <p>{t("footer.contacts.text")}</p>
+                    <ul>
+                        <li>
+                            <a target="_blank" rel="noreferrer" href="https://goo.gl/maps/6S7ZXY7TtGXkbbhk6">
+                                <img src={Location} alt="" />
+                                <span>{t("footer.contacts.address")}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+48786677659">
+                                <img src={Phone} alt="" />
+                                <span>+48 786 677 659</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/simple_academy_poznan/">
+                                <img src={Instagram} alt="" />
+                                <span>@simple_academy_poznan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </FooterContacts>
+            </FooterContent>
+
+            <FooterBottom>
+                <img src={logo} alt="Simple Academy" />
+                <span>© {new Date().getFullYear()} SIMPLE ACADEMY</span>
+                <span>{t("copyright.rights")}</span>
+            </FooterBottom>
+        </FooterContainer>
     );
 };
 
-const FooterElement = Section.withComponent("footer");
+const FooterContainer = styled.footer`
+  position: relative;
+  padding: 160px max(28px, calc((100vw - var(--content, 1180px)) / 2)) 80px;
+  color: #fff;
+  background: var(--ink, #161616);
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 4;
+    left: -2%;
+    width: 104%;
+    height: 42px;
+    background: var(--paper, #f4f2ed);
+    clip-path: polygon(0 50%, 4% 25%, 8% 59%, 13% 18%, 18% 56%, 24% 29%, 29% 70%, 36% 24%, 42% 57%, 49% 19%, 56% 64%, 62% 28%, 68% 72%, 74% 21%, 80% 58%, 87% 26%, 94% 67%, 100% 36%, 100% 100%, 0 100%);
+    top: -1px;
+    transform: rotate(180deg);
+  }
+`;
+
+const FooterIntro = styled.div`
+  max-width: 780px;
+  margin-bottom: 70px;
+
+  & h2 {
+    margin-bottom: 24px;
+    font-size: clamp(38px, 5vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.065em;
+    line-height: 0.94;
+    text-transform: uppercase;
+
+    & mark {
+      color: #fff;
+      background: var(--coral, #ff5b4d);
+      box-shadow: 8px 0 0 var(--coral, #ff5b4d), -8px 0 0 var(--coral, #ff5b4d);
+    }
+  }
+
+  & p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 17px;
+  }
+`;
+
+const FooterContent = styled.div`
+  max-width: var(--content, 1180px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 80px;
+  margin-bottom: 120px;
+
+  @media (max-width: 920px) {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+`;
 
 const FeedbackForm = styled.form`
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  & label {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
+  & label span {
+    color: var(--coral, #ff5b4d);
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  & input,
+  & textarea {
     width: 100%;
-    max-width: 47rem;
-    @media (max-width: 670px) {
-        max-width: none;
-    }
+    color: #fff;
+    background: transparent;
+    border: 0;
+    font-size: 16px;
+  }
+
+  & input::placeholder,
+  & textarea::placeholder {
+    color: rgba(255, 255, 255, 0.42);
+  }
+
+  & textarea {
+    resize: vertical;
+  }
 `;
 
-const FlexWrapper = styled.div`
+type FormStatusProps = {
+  isSuccess?: boolean;
+};
+
+const FormStatus = styled.p<FormStatusProps>`
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: ${props => props.isSuccess ? "#5edb93" : "var(--coral, #ff5b4d)"};
+`;
+
+const FooterContacts = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & > p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 16px;
+  }
+
+  & ul {
     display: flex;
     flex-direction: column;
-    @media (max-width: 670px) {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-`;
-
-const ContactsContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 47rem;
-    @media (max-width: 670px) {
-        max-width: none;
-    }
-`;
-
-const FlexLayout = styled.div`
-    width: 100%;
-    display: flex;
-    column-gap: 8rem;
-    justify-content: space-between;
-    @media (max-width: 670px) {
-        flex-wrap: wrap;
-        row-gap: 8rem;
-    }
-`;
-
-const Contacts = styled.ul`
-    display: flex;
-    flex-direction: column;
+    gap: 22px;
     list-style: none;
-    color: ${COLORS.white};
-    margin-bottom: 2.5rem;
-        & img {
-            margin-right: 1rem;
-        }
-`;
+  }
 
-const ContactsIcon = styled.img`
-    width: 3.2rem;
-`;
-
-const ContactLink = styled.a`
-    text-decoration: none;
-    color: ${COLORS.white};
+  & a {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    gap: 16px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  & img {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
-const LogoImage = styled.img`
-    width: 28.5rem;
-    opacity: 0.6;
-    @media (max-width: 670px) {
-        width: 23rem;
-    }
+const FooterBottom = styled.div`
+  max-width: var(--content, 1180px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  & img {
+    width: 140px;
+  }
+
+  @media (max-width: 920px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
-const MapIframe = styled.iframe`
-    width: 100%;
-    height: 46.5rem;
-    border-radius: 0.4rem;
-    border: none;
-`;
-
-const Input = styled.input`
-    font-size: 2.2rem;
-    color: ${COLORS.white};
-    border: 1px solid ${COLORS.textGray};
-    border-radius: 1rem;
-    padding: 1.1rem 3.2rem;
-    background-color: transparent;
-        &::placeholder {
-            color: ${COLORS.textGray};
-        }
-`;
-
-const Textarea = Input.withComponent("textarea");
-
-const LoadingIcon = styled.img`
-    position: absolute;
-    width: 5rem;
-    top: 13%;
-    animation: rotating 1.5s linear infinite;
+const LoadingImg = styled.img`
+  width: 24px;
+  height: 24px;
+  animation: rotating 1.5s linear infinite;
 `;
