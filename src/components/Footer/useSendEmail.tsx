@@ -1,5 +1,5 @@
-import { RefObject, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { RefObject, useState } from "react";
 
 
 /**
@@ -16,13 +16,13 @@ export const useSendEmail = () => {
         setResponse("");
 
         form.current && emailjs.sendForm("service_3z5ilpi", "template_b5tqopc", form.current, "d91Ioirjz-pzc7rin")
-        .then((result) => {
-            setResponse(result.text);
-            form.current?.reset();
-        }, (error) => {
-            setError(error.text);
-        }).finally(() => setPending(false));
+            .then((result) => {
+                setResponse(result.text);
+                form.current?.reset();
+            }, (error) => {
+                setError(error.text);
+            }).finally(() => setPending(false));
     };
   
     return { putData, response, error, pending };
-  };
+};
