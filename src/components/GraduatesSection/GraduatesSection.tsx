@@ -1,27 +1,17 @@
 import "react-photo-view/dist/react-photo-view.css";
 
 import styled from "@emotion/styled";
-import IMG_1 from "assets/gallery/IMG_1.jpg";
-import IMG_2 from "assets/gallery/IMG_2.jpg";
-import IMG_3 from "assets/gallery/IMG_3.jpg";
-import IMG_4 from "assets/gallery/IMG_4.jpg";
-import IMG_5 from "assets/gallery/IMG_5.jpg";
-import IMG_6 from "assets/gallery/IMG_6.jpg";
+import { GRADUATE_PHOTOS } from "assets/galleryImages";
 import Reveal from "components/Reveal/Reveal";
 import SectionHead from "components/SectionHead/SectionHead";
+import Slider from "components/Slider/Slider";
 import { LinkButton, Polaroid, Section } from "components/StyledHtml/StyledHtml";
 import { CONTACTS, LINKS, MAX_CONTENT_WIDTH } from "consts";
 import { useTranslation } from "react-i18next";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 
-const PHOTOS = [
-    { src: IMG_1, position: "80% 85%", rotate: "-2deg" },
-    { src: IMG_2, position: "70% 20%", rotate: "1.6deg" },
-    { src: IMG_3, position: "80% 15%", rotate: "-1.2deg" },
-    { src: IMG_4, position: "80% 45%", rotate: "2deg" },
-    { src: IMG_5, position: "80% 45%", rotate: "-1.8deg" },
-    { src: IMG_6, position: "80% 15%", rotate: "1.2deg" },
-];
+/** a fixed tilt per position, so the row looks hand-laid instead of random */
+const TILTS = ["-2.4deg", "1.6deg", "-1.2deg", "2.2deg", "-1.8deg", "1.2deg"];
 
 const GraduatesSection = () => {
     const { t } = useTranslation();
@@ -38,22 +28,22 @@ const GraduatesSection = () => {
                         />
                     </Reveal>
 
-                    <Gallery>
-                        {PHOTOS.map((photo, index) => (
-                            <Reveal key={photo.src} delay={(index % 3) * 100}>
-                                <PhotoView src={photo.src}>
-                                    <Frame rotate={photo.rotate}>
-                                        <Tile
-                                            style={{
-                                                backgroundImage: `url(${photo.src})`,
-                                                backgroundPosition: photo.position,
-                                            }}
-                                        />
+                    <Reveal delay={120}>
+                        <Slider
+                            perView={3}
+                            gap="3rem"
+                            prevLabel={t("graduates.slider.prev")}
+                            nextLabel={t("graduates.slider.next")}
+                        >
+                            {GRADUATE_PHOTOS.map((photo, index) => (
+                                <PhotoView key={photo} src={photo}>
+                                    <Frame rotate={TILTS[index % TILTS.length]}>
+                                        <Photo src={photo} alt="" loading="lazy" />
                                     </Frame>
                                 </PhotoView>
-                            </Reveal>
-                        ))}
-                    </Gallery>
+                            ))}
+                        </Slider>
+                    </Reveal>
 
                     <Footer>
                         <LinkButton
@@ -81,27 +71,15 @@ const Inner = styled.div`
     gap: 5rem;
 `;
 
-const Gallery = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 3rem;
-    @media (max-width: 900px) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    @media (max-width: 560px) {
-        grid-template-columns: minmax(0, 1fr);
-    }
-`;
-
 const Frame = styled(Polaroid)`
     cursor: zoom-in;
 `;
 
-const Tile = styled.div`
+const Photo = styled.img`
+    display: block;
     width: 100%;
-    aspect-ratio: 4 / 4.6;
-    background-size: cover;
-    background-repeat: no-repeat;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
 `;
 
 const Footer = styled.div`

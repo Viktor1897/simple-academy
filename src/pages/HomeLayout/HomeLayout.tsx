@@ -5,6 +5,7 @@ import CopyrightSection from "components/CopyrightSection/CopyrightSection";
 import CoursesSection from "components/CoursesSection/CoursesSection";
 import FaqSection from "components/FaqSection/FaqSection";
 import { Footer } from "components/Footer/Footer";
+import GallerySection from "components/GallerySection/GallerySection";
 import GraduatesSection from "components/GraduatesSection/GraduatesSection";
 import InfoIconsSection from "components/InfoIconsSection/InfoIconsSection";
 import MarqueeSection from "components/MarqueeSection/MarqueeSection";
@@ -29,6 +30,7 @@ function HomeLayout() {
                 <InfoIconsSection />
                 <AboutUsSection />
                 <GraduatesSection />
+                <GallerySection />
                 <TutorsSection />
                 <BarbershopSection />
                 <FaqSection />

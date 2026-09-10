@@ -61,6 +61,23 @@ body {
   to   { transform: translateX(-50%); }
 }
 
+/*
+ * Shifting film grain. Every surface that paints PAPER_TEXTURE runs this, so
+ * the whole page breathes together — including the torn seams, which would
+ * otherwise sit as a still patch against moving neighbours.
+ */
+@keyframes grain {
+  0%    { background-position: 0 0; }
+  12.5% { background-position: -33px 12px; }
+  25%   { background-position: 22px -28px; }
+  37.5% { background-position: -18px -22px; }
+  50%   { background-position: 30px 18px; }
+  62.5% { background-position: -25px 25px; }
+  75%   { background-position: 15px 30px; }
+  87.5% { background-position: -30px -14px; }
+  100%  { background-position: 0 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }

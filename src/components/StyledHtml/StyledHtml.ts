@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { COLORS, MAX_CONTENT_WIDTH, PAPER_TEXTURE, RADIUS } from "consts";
+import { COLORS, GRAIN_ANIMATION, MAX_CONTENT_WIDTH, PAPER_TEXTURE, RADIUS } from "consts";
 
 /* ------------------------------------------------------------------ layout */
 
@@ -20,6 +20,7 @@ export const Section = styled.section<SectionProps>`
     background-color: ${props => props.backgroundColor || COLORS.paper};
     background-image: ${PAPER_TEXTURE};
     background-size: 220px 220px;
+    animation: ${GRAIN_ANIMATION};
     color: ${props => props.color || COLORS.ink};
     display: flex;
     flex-direction: column;

@@ -23,10 +23,6 @@ i18n.use(initReactI18next).init({
                 "hero.title": "Стань [барбером] за 30 дней и зарабатывай от 6000 zł/мес.",
                 "hero.subtitle": "Академия барберинга в Познани с авторской методикой обучения: много практики, модели и инструменты от нас, группы до 4 человек.",
                 "hero.primaryBtn": "Выбрать курс",
-                "hero.badge": "Международный сертификат после успешного окончания обучения",
-                "hero.stat.since": "в индустрии с 2016 года",
-                "hero.stat.days": "дней интенсивной практики",
-                "hero.stat.group": "человека в группе — максимум",
 
                 "marquee.item1": "Барбер с нуля",
                 "marquee.item2": "Практика на моделях",
@@ -86,9 +82,15 @@ i18n.use(initReactI18next).init({
                 "aboutUs.quote": "Все приходят за результатом — стать барбером",
 
                 "graduates.eyebrow": "Выпускники",
-                "graduates.title": "[Работы], которыми мы гордимся",
-                "graduates.description": "Это только часть работ, сделанных нашими студентами во время обучения. Больше — в нашем инстаграме.",
+                "graduates.title": "Наши [выпускники]",
+                "graduates.description": "Те, кто прошёл обучение и получил сертификат. Больше фото — в нашем инстаграме.",
                 "graduates.link": "Больше фото в инстаграм",
+                "graduates.slider.prev": "Предыдущее фото",
+                "graduates.slider.next": "Следующее фото",
+
+                "gallery.eyebrow": "Атмосфера",
+                "gallery.title": "Место, где всё [происходит]",
+                "gallery.description": "Наш зал, инструменты и работы, которые студенты делают во время обучения.",
 
                 "tutors.eyebrow": "Преподаватели",
                 "tutors.title": "Учат те, кто [каждый день стоит за креслом]",
@@ -151,10 +153,6 @@ i18n.use(initReactI18next).init({
                 "hero.title": "Zostań [barberem] w 30 dni i zarabiaj od 6000 zł/mies.",
                 "hero.subtitle": "Akademia barberska w Poznaniu z autorską metodyką nauczania: dużo praktyki, modele i narzędzia od nas, grupy do 4 osób.",
                 "hero.primaryBtn": "Wybierz szkolenie",
-                "hero.badge": "Międzynarodowe świadectwo ukończenia szkolenia",
-                "hero.stat.since": "w branży od 2016 roku",
-                "hero.stat.days": "dni intensywnej praktyki",
-                "hero.stat.group": "osoby w grupie — maksymalnie",
 
                 "marquee.item1": "Barber od zera",
                 "marquee.item2": "Praktyka na modelach",
@@ -214,9 +212,15 @@ i18n.use(initReactI18next).init({
                 "aboutUs.quote": "Każdy przychodzi po wynik — zostać barberem",
 
                 "graduates.eyebrow": "Absolwenci",
-                "graduates.title": "[Prace], z których jesteśmy dumni",
-                "graduates.description": "To tylko część prac wykonanych przez naszych studentów podczas szkoleń. Więcej znajdziesz na naszym Instagramie.",
+                "graduates.title": "Nasi [absolwenci]",
+                "graduates.description": "Ci, którzy ukończyli szkolenie i odebrali świadectwo. Więcej zdjęć znajdziesz na naszym Instagramie.",
                 "graduates.link": "Więcej zdjęć na instagramie",
+                "graduates.slider.prev": "Poprzednie zdjęcie",
+                "graduates.slider.next": "Następne zdjęcie",
+
+                "gallery.eyebrow": "Atmosfera",
+                "gallery.title": "Miejsce, w którym wszystko się [dzieje]",
+                "gallery.description": "Nasza sala, narzędzia i prace, które studenci wykonują podczas szkolenia.",
 
                 "tutors.eyebrow": "Wykładowcy",
                 "tutors.title": "Uczą ci, którzy [codziennie stoją za fotelem]",
