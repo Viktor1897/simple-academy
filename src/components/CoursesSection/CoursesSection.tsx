@@ -28,7 +28,6 @@ const courses: Course[] = [
             "course1.option2",
             "course1.option3",
             "course1.option4",
-            "course1.option5",
         ],
         price: { old: "course1.oldPrice", current: "course1.currentPrice" },
         featured: true,
@@ -42,7 +41,6 @@ const courses: Course[] = [
             "course2.option1",
             "course2.option2",
             "course2.option3",
-            "course2.option4",
         ],
         price: { old: "course2.oldPrice", current: "course2.currentPrice" },
         featured: false,
@@ -59,8 +57,10 @@ const courses: Course[] = [
             "course3.option2",
             "course3.option3",
             "course3.option4",
+            "course3.option5",
+            "course3.option6",
         ],
-        price: { old: null, current: "course3.currentPrice" },
+        price: { old: "course3.oldPrice", current: "course3.currentPrice" },
         featured: false,
     },
 ];
@@ -90,7 +90,7 @@ const CoursesSection = () => {
                             // no boxes — each course is a column ruled off at the top
                             <Course key={course.title} isFeatured={course.featured}>
                                 <CardTop>
-                                    <BlockLabel>{`${t("courses.block")} ${course.number}`}</BlockLabel>
+                                    <BlockLabel>{course.number}</BlockLabel>
                                     {course.chip && (
                                         <Tag background={COLORS.coral} color={COLORS.paper}>
                                             {t(course.chip)}
