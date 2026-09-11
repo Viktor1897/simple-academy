@@ -7,10 +7,10 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const QUESTIONS = [
-    { question: "faq.q1", answer: "faq.a1" },
-    { question: "faq.q2", answer: "faq.a2" },
-    { question: "faq.q3", answer: "faq.a3" },
-    { question: "faq.q4", answer: "faq.a4" },
+    { question: "faq.q1", answer: ["faq.a1"] },
+    { question: "faq.q2", answer: ["faq.a2"] },
+    { question: "faq.q3", answer: ["faq.a3"] },
+    { question: "faq.q4", answer: ["faq.a4_1", "faq.a4_2", "faq.a4_3"] },
 ];
 
 const FaqSection = () => {
@@ -40,7 +40,13 @@ const FaqSection = () => {
                                     </Question>
                                     <AnswerBox isOpen={isOpen}>
                                         <Text fontSize="1.8rem" color={COLORS.textGray} maxWidth="80rem">
-                                            {t(item.answer)}
+                                            {item.answer.map((answer: string, index: number) => (
+                                                <span key={index}>{t(answer)}{item.answer.length - 1 !== index && <>
+                                                    <br />
+                                                    <br />
+                                                </>
+                                                } </span>
+                                            ))}
                                         </Text>
                                     </AnswerBox>
                                 </Item>
