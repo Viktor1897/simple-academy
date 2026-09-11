@@ -1,8 +1,4 @@
 import styled from "@emotion/styled";
-import barber from "assets/barber.png";
-import handshake from "assets/handshake.png";
-import razor from "assets/razor.png";
-import recruitment from "assets/recruitment.png";
 import Reveal from "components/Reveal/Reveal";
 import SectionHead from "components/SectionHead/SectionHead";
 import { Grid, Section } from "components/StyledHtml/StyledHtml";
@@ -10,11 +6,13 @@ import TornEdge from "components/TornEdge/TornEdge";
 import { COLORS, MAX_CONTENT_WIDTH } from "consts";
 import { useTranslation } from "react-i18next";
 
+import { BarberPoleIcon, ClipperIcon, InstallmentsIcon, ScissorsIcon } from "./FeatureIcons";
+
 const FEATURES = [
-    { icon: barber, title: "feature.tutors.title", text: "infoIcon.experience" },
-    { icon: razor, title: "feature.equipment.title", text: "infoIcon.equipment" },
-    { icon: handshake, title: "feature.payments.title", text: "infoIcon.payments" },
-    { icon: recruitment, title: "feature.job.title", text: "infoIcon.recruitment" },
+    { Icon: ScissorsIcon, title: "feature.tutors.title", text: "infoIcon.experience" },
+    { Icon: ClipperIcon, title: "feature.equipment.title", text: "infoIcon.equipment" },
+    { Icon: InstallmentsIcon, title: "feature.payments.title", text: "infoIcon.payments" },
+    { Icon: BarberPoleIcon, title: "feature.job.title", text: "infoIcon.recruitment" },
 ];
 
 const InfoIconsSection = () => {
@@ -34,15 +32,18 @@ const InfoIconsSection = () => {
                 </Reveal>
 
                 <Grid columns={4} gap="3.5rem">
-                    {FEATURES.map((feature, index) => (
-                        <Reveal key={feature.title} delay={index * 90}>
+                    {FEATURES.map(({ Icon, title, text }, index) => (
+                        <Reveal key={title} delay={index * 90}>
                             {/* content sits straight on the colour block, no card around it */}
                             <Feature>
-                                <IconTile>
-                                    <IconImage src={feature.icon} alt="" />
-                                </IconTile>
-                                <FeatureTitle>{t(feature.title)}</FeatureTitle>
-                                <FeatureText>{t(feature.text)}</FeatureText>
+                                <Rule>
+                                    <Index>{String(index + 1).padStart(2, "0")}</Index>
+                                </Rule>
+                                <IconSlot>
+                                    <Icon />
+                                </IconSlot>
+                                <FeatureTitle>{t(title)}</FeatureTitle>
+                                <FeatureText>{t(text)}</FeatureText>
                             </Feature>
                         </Reveal>
                     ))}
@@ -72,24 +73,46 @@ const Feature = styled.div`
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-top: 2.4rem;
-    border-top: 2px solid rgba(245, 245, 244, .45);
+    &:hover svg {
+        transform: translateY(-0.4rem) rotate(-4deg);
+    }
 `;
 
-const IconTile = styled.div`
-    width: 6.4rem;
-    height: 6.4rem;
+/* the coral number leads the hairline, like a label pinned to the rule */
+const Rule = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 2.4rem;
-    background: ${COLORS.paper};
+    gap: 1.4rem;
+    margin-bottom: 3.2rem;
+    &::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(245, 245, 244, .45);
+    }
 `;
 
-const IconImage = styled.img`
-    width: 3.4rem;
-    height: 3.4rem;
-    object-fit: contain;
+const Index = styled.span`
+    background: ${COLORS.coral};
+    color: ${COLORS.paper};
+    padding: 0.7rem 1.1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1;
+`;
+
+const IconSlot = styled.div`
+    width: 5.6rem;
+    height: 5.6rem;
+    margin-bottom: 2.6rem;
+    color: ${COLORS.paper};
+    & > svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        transition: transform .3s cubic-bezier(.16,.84,.44,1);
+    }
 `;
 
 const FeatureTitle = styled.h3`
