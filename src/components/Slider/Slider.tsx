@@ -136,16 +136,25 @@ const Wrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    /* the track carries its own vertical padding now, so this can be tighter */
+    gap: 1.5rem;
 `;
 
 const Track = styled.div<{ gap: string }>`
     display: flex;
     column-gap: ${props => props.gap};
     overflow-x: auto;
+    /*
+     * Explicitly hidden: with only overflow-x set, the other axis computes to
+     * auto, so the tilted frames' few pixels of overflow turned the track into
+     * a vertical scroller that swallowed the page's wheel scroll.
+     */
+    overflow-y: hidden;
+    /* ...which means the tilt and the frame shadow need room inside the box */
+    padding: 2rem 0 3rem;
+    /* don't chain a horizontal overscroll to the page either */
+    overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
-    /* room for the focus ring and the top rules not to be clipped */
-    padding-bottom: 0.5rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
     &::-webkit-scrollbar {
