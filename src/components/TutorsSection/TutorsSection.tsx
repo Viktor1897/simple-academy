@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import ALEX from "assets/ALEX.jpg";
 import Anton from "assets/ANTON.jpg";
+import Wladek from "assets/WLADEK.jpg";
 import Zenia from "assets/ZENIA.jpg";
 import Reveal from "components/Reveal/Reveal";
 import SectionHead from "components/SectionHead/SectionHead";
@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 
 const TUTORS = [
     { photo: Anton, name: "tutor1.name", role: "tutor1.role", description: "tutor1.description", rotate: "-2deg" },
-    { photo: ALEX, name: "tutor2.name", role: "tutor2.role", description: "tutor2.description", rotate: "1.4deg" },
+    { photo: Wladek, name: "tutor2.name", role: "tutor2.role", description: "tutor2.description", rotate: "1.4deg" },
     { photo: Zenia, name: "tutor3.name", role: "tutor3.role", description: "tutor3.description", rotate: "-1.2deg" },
 ];
 
