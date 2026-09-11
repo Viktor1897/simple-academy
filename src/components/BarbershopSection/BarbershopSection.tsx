@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import barbershop from "assets/barbershop.png";
+import storefront from "assets/IMG_2849.jpg";
 import Reveal from "components/Reveal/Reveal";
-import { H2, LinkButton, Section, SectionLabel, Text } from "components/StyledHtml/StyledHtml";
+import { H2, LinkButton, Polaroid, Section, SectionLabel, Text } from "components/StyledHtml/StyledHtml";
 import TornEdge from "components/TornEdge/TornEdge";
 import { COLORS, CONTACTS, LINKS, MAX_CONTENT_WIDTH } from "consts";
 import { useTranslation } from "react-i18next";
@@ -15,7 +15,6 @@ const BarbershopSection = () => {
 
             <Inner>
                 <Reveal>
-                    {/* a full-width colour block, not a rounded banner sitting on the page */}
                     <Layout>
                         <Copy>
                             <SectionLabel>{t("barbershop.eyebrow")}</SectionLabel>
@@ -37,7 +36,9 @@ const BarbershopSection = () => {
                                 {t("barbershop.link")}
                             </LinkButton>
                         </Copy>
-                        <Visual aria-hidden="true" />
+                        <PhotoFrame rotate="2.4deg">
+                            <Photo src={storefront} alt={t("barbershop.title")} loading="lazy" />
+                        </PhotoFrame>
                     </Layout>
                 </Reveal>
             </Inner>
@@ -60,8 +61,8 @@ const Inner = styled.div`
 
 const Layout = styled.div`
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-    gap: 4rem;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 5rem;
     align-items: center;
     @media (max-width: 850px) {
         grid-template-columns: minmax(0, 1fr);
@@ -75,12 +76,20 @@ const Copy = styled.div`
     gap: 2rem;
 `;
 
-const Visual = styled.div`
-    height: 26rem;
-    background: center / contain no-repeat url(${barbershop});
-    filter: invert(1) brightness(2) contrast(0.9);
-    opacity: 0.9;
+const PhotoFrame = styled(Polaroid)`
+    width: 100%;
+    max-width: 52rem;
+    justify-self: end;
     @media (max-width: 850px) {
-        height: 14rem;
+        justify-self: center;
+        max-width: 46rem;
     }
+`;
+
+const Photo = styled.img`
+    display: block;
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    object-position: center 30%;
 `;
