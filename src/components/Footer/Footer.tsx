@@ -117,7 +117,7 @@ export const Footer = () => {
 
                             <MapIframe
                                 title="SIMPLE Academy"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.1726717255287!2d16.861291299999998!3d52.4035467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704452762247389%3A0xb2a426a74db81f52!2sSIMPLE%20Barbershop%20-%20Marcelin!5e0!3m2!1sru!2spl!4v1693049030387!5m2!1sru!2spl"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d152.15900709400253!2d16.96318751257821!3d52.39681421754572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045b10e48f9a29%3A0xf75d31324428c27a!2sSIMPLE%20Barbershop%20-%20Katowicka!5e0!3m2!1sru!2spl!4v1789158973024!5m2!1sru!2spl"
                                 loading="lazy"
                             />
 
