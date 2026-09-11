@@ -11,7 +11,8 @@ import LanguageSelect from "./LanguageSelect/LanguageSelect";
 import Navigation from "./Navigation/Navigation";
 
 const Navbar = () => {
-    const isDesktop = useMediaQuery("(min-width: 1080px)");
+    // below this the six links crowd the logo, so the MENU badge takes over
+    const isDesktop = useMediaQuery("(min-width: 1200px)");
     const { t } = useTranslation();
     const [isScrolled, setScrolled] = useState(false);
     const [isMenuOpen, setMenuOpen] = useState(false);
@@ -132,6 +133,7 @@ const RightSide = styled.div`
 `;
 
 const SignUpButton = styled(Button)`
+    white-space: nowrap;
     @media (max-width: 760px) {
         display: none;
     }
