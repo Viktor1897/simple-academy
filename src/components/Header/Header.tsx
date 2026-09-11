@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import portrait from "assets/IMG_2362.png";
 import { Button, Display, LinkButton, Mark, Text } from "components/StyledHtml/StyledHtml";
 import TornEdge from "components/TornEdge/TornEdge";
-import { COLORS, CONTACTS, GRAIN_ANIMATION, LINKS, PAPER_TEXTURE } from "consts";
+import { COLORS, CONTACTS, LINKS, PAPER_TEXTURE } from "consts";
 import { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { goTo } from "utils/goTo";
@@ -54,7 +54,6 @@ const HeroSection = styled.header`
     background-color: ${COLORS.blue};
     background-image: ${PAPER_TEXTURE};
     background-size: 220px 220px;
-    animation: ${GRAIN_ANIMATION};
     /*
      * Tablet keeps the split instead of stacking the photo under the copy —
      * the stacked version read as a separate block. The copy just gets more
@@ -77,7 +76,6 @@ const LeftPane = styled.div`
     background-color: ${COLORS.paper};
     background-image: ${PAPER_TEXTURE};
     background-size: 220px 220px;
-    animation: ${GRAIN_ANIMATION};
     @media (max-width: 700px) {
         display: none;
     }

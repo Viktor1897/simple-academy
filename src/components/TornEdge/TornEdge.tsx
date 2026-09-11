@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { GRAIN_ANIMATION, PAPER_TEXTURE, TORN_EDGE_HEIGHT } from "consts";
+import { PAPER_TEXTURE, TORN_EDGE_HEIGHT } from "consts";
 
 /** length of one repeat along the seam */
 const TILE_RUN = 460;
@@ -91,7 +91,6 @@ const Edge = styled.div<TornEdgeProps>`
     background-color: ${props => props.color};
     background-image: ${PAPER_TEXTURE};
     background-size: 220px 220px;
-    animation: ${GRAIN_ANIMATION};
 
     ${props => (isVertical(props.position)
         ? `

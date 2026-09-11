@@ -33,8 +33,11 @@ const MarqueeSection = () => {
             if (!unit) return;
 
             const needed = Math.max(1, Math.ceil(strip.offsetWidth / unit));
+            const total = unit * needed;
+            // only touch state on a real change: a re-render mid-flight would
+            // rewrite animation-duration and make the strip jump
             setRepeats(previous => (previous === needed ? previous : needed));
-            setGroupWidth(unit * needed);
+            setGroupWidth(previous => (previous === total ? previous : total));
         };
 
         measure();
@@ -57,11 +60,14 @@ const MarqueeSection = () => {
     }, []);
 
     const half = Array.from({ length: repeats }).flatMap(() => line);
-    const duration = groupWidth ? groupWidth / SPEED : 26;
+    const isMeasured = groupWidth > 0;
+    const duration = isMeasured ? groupWidth / SPEED : 0;
 
     return (
         <Strip ref={stripRef}>
-            <Track style={{ animationDuration: `${duration}s` }}>
+            {/* held still until measured, otherwise the first frames run at a
+                placeholder speed and visibly snap once the real width lands */}
+            <Track isMeasured={isMeasured} style={{ animationDuration: `${duration}s` }}>
                 <Group ref={groupRef}>
                     {half.map((item, index) => (
                         <Item key={`a-${index}-${item}`}>
@@ -92,14 +98,18 @@ const Strip = styled.div`
     padding: 1.8rem 0;
 `;
 
-const Track = styled.div`
+const Track = styled.div<{ isMeasured: boolean }>`
     display: flex;
     width: max-content;
     animation: marquee linear infinite;
-    will-change: transform;
-    &:hover {
-        animation-play-state: paused;
-    }
+    animation-play-state: ${props => (props.isMeasured ? "running" : "paused")};
+    /*
+     * No will-change here on purpose: Safari re-rasterises a will-change layer
+     * this wide and flickers. The 3d transform in the keyframes is enough to
+     * promote it, and hiding the back face stops the flash on repaint.
+     */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     @media (prefers-reduced-motion: reduce) {
         animation: none;
     }

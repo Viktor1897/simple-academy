@@ -44,13 +44,6 @@ export const RADIUS = {
  */
 export const PAPER_TEXTURE = "url(\"data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23t)' opacity='0.06'/%3E%3C/svg%3E\")";
 
-/**
- * Keeps the grain moving, the way the reference runs an animated noise layer
- * over the whole page. Pair it with PAPER_TEXTURE on every textured surface —
- * the keyframes live in App.css.
- */
-export const GRAIN_ANIMATION = "grain 0.72s steps(1, end) infinite";
-
 /** height of the torn seam between two sections */
 export const TORN_EDGE_HEIGHT = 34;
 
