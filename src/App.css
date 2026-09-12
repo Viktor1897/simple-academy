@@ -25,12 +25,13 @@ html {
   html { font-size: 8.8px; }
 }
 
+/*
+ * Phones step back UP on purpose: the ladder above shrinks type with the
+ * viewport, but a small screen is held closer and needs bigger text, not
+ * smaller. Below 760px the scale grows instead of shrinking.
+ */
 @media screen and (max-width: 760px) {
-  html { font-size: 8.2px; }
-}
-
-@media screen and (max-width: 480px) {
-  html { font-size: 7.6px; }
+  html { font-size: 9.2px; }
 }
 
 body {

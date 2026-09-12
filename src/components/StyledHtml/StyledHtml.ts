@@ -269,6 +269,10 @@ const control = (props: ButtonProps) => `
     border: 1px solid ${borderColor(props.variant)};
     border-radius: ${RADIUS.control};
     font-size: ${props.fontSize || "1.5rem"};
+    /* button text is small even for its own scale, so give it a floor on phones */
+    @media (max-width: 760px) {
+        font-size: 1.6rem;
+    }
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;

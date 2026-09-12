@@ -186,6 +186,9 @@ const Field = styled.div`
 
 const Label = styled.label`
     font-size: 1.3rem;
+    @media (max-width: 760px) {
+        font-size: 1.4rem;
+    }
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -194,6 +197,10 @@ const Label = styled.label`
 
 const Input = styled.input`
     font-size: 1.7rem;
+    /* iOS Safari zooms the page when a focused field sits under 16px */
+    @media (max-width: 760px) {
+        font-size: 1.75rem;
+    }
     font-weight: 500;
     color: ${COLORS.paper};
     border: 1px solid rgba(255, 255, 255, .18);
