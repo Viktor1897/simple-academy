@@ -175,7 +175,7 @@ const Overlay = styled.div<{ isOpen: boolean }>`
     inset: 0;
     z-index: 25;
     /* paper at 60%, so the page reads through without the links losing contrast */
-    background: ${COLORS.paper}4D;
+    background: ${COLORS.paper}CC;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     display: flex;
