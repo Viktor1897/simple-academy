@@ -180,7 +180,11 @@ const Overlay = styled.div<{ isOpen: boolean }>`
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
-    padding: 12rem 2rem 4rem;
+    /* the last row must clear the home indicator on a gesture-bar phone */
+    padding: 12rem 2rem calc(3rem + env(safe-area-inset-bottom, 0px));
+    @media (max-height: 720px) {
+        padding-top: 9rem;
+    }
     overflow-y: auto;
     opacity: ${props => (props.isOpen ? 1 : 0)};
     visibility: ${props => (props.isOpen ? "visible" : "hidden")};
@@ -194,7 +198,8 @@ const OverlayInner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 6rem;
+    /* the ruled list already closes with a hairline, so no gap is needed here */
+    gap: 0;
 `;
 
 const OverlayFooter = styled.div`
@@ -203,7 +208,9 @@ const OverlayFooter = styled.div`
     align-items: flex-start;
     gap: 1.4rem;
     padding-top: 3rem;
-    border-top: 1px solid ${COLORS.line};
+    @media (max-height: 720px) {
+        padding-top: 2rem;
+    }
 `;
 
 const OverlayLink = styled.a`
