@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import aboutUs from "assets/simple_forest.jpg";
+import aboutUs from "assets/IMG_2844.jpg";
 import Reveal from "components/Reveal/Reveal";
 import SectionHead from "components/SectionHead/SectionHead";
 import { Polaroid, Section, Text } from "components/StyledHtml/StyledHtml";
@@ -29,7 +29,7 @@ const AboutUsSection = () => {
                         </Paragraphs>
 
                         <PhotoFrame rotate="2deg">
-                            <Photo role="img" aria-label={t("aboutUs.title")} />
+                            <Photo src={aboutUs} alt="" loading="lazy" />
                         </PhotoFrame>
                     </Body>
                 </Reveal>
@@ -82,13 +82,15 @@ const PhotoFrame = styled(Polaroid)`
     max-width: 44rem;
 `;
 
-const Photo = styled.div`
+/* the shot is square, so the 1:1 frame needs no hand-tuned crop */
+const Photo = styled.img`
+    display: block;
     width: 100%;
     aspect-ratio: 1 / 1;
-    background: 78% 10% / 150% no-repeat url(${aboutUs});
+    object-fit: cover;
     @media (max-width: 950px) {
         aspect-ratio: 16 / 11;
-        background-size: cover;
-        background-position: center;
+        /* the landscape crop sits high, to keep the heads and the clipper in */
+        object-position: center 35%;
     }
 `;
