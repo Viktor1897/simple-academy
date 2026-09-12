@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import storefront from "assets/IMG_2849.jpg";
+import InstagramReel from "components/InstagramReel/InstagramReel";
 import Reveal from "components/Reveal/Reveal";
 import { H2, LinkButton, Polaroid, Section, SectionLabel, Text } from "components/StyledHtml/StyledHtml";
 import TornEdge from "components/TornEdge/TornEdge";
@@ -40,6 +41,20 @@ const BarbershopSection = () => {
                             <Photo src={storefront} alt={t("barbershop.title")} loading="lazy" />
                         </PhotoFrame>
                     </Layout>
+                </Reveal>
+
+                {/* demo of the Instagram embed route — drop this block to remove it */}
+                <Reveal>
+                    <ReelBlock>
+                        <ReelLabel>{t("barbershop.reelTitle")}</ReelLabel>
+                        <ReelFrame rotate="-1.8deg">
+                            <InstagramReel
+                                shortcode="DdEjIUYCVM8"
+                                title={t("barbershop.reelTitle")}
+                                linkLabel={t("barbershop.reelLink")}
+                            />
+                        </ReelFrame>
+                    </ReelBlock>
                 </Reveal>
             </Inner>
 
@@ -84,6 +99,26 @@ const PhotoFrame = styled(Polaroid)`
         justify-self: center;
         max-width: 46rem;
     }
+`;
+
+const ReelBlock = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.6rem;
+    margin-top: 8rem;
+    color: ${COLORS.paper};
+`;
+
+const ReelLabel = styled(SectionLabel)`
+    margin: 0;
+`;
+
+const ReelFrame = styled(Polaroid)`
+    width: 100%;
+    max-width: 44rem;
+    /* the frame is white, so the reel's fallback link can't stay paper-coloured */
+    color: ${COLORS.ink};
 `;
 
 const Photo = styled.img`

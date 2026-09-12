@@ -112,6 +112,8 @@ i18n.use(initReactI18next).init({
                 "barbershop.title": "SIMPLE Barbershop",
                 "barbershop.description": "Хочешь записаться на визит к нашим барберам? Сделай это на странице SIMPLE BARBERSHOP!",
                 "barbershop.link": "Перейти на сайт",
+                "barbershop.reelTitle": "Свежее из Instagram",
+                "barbershop.reelLink": "Смотреть в Instagram",
 
                 "faq.eyebrow": "Вопросы",
                 "faq.title": "Отвечаем на [частые вопросы]",
@@ -247,6 +249,8 @@ i18n.use(initReactI18next).init({
                 "barbershop.title": "SIMPLE Barbershop",
                 "barbershop.description": "Chcesz umówić się na wizytę do naszych barberów? Zrób to na stronie SIMPLE BARBERSHOP!",
                 "barbershop.link": "Przejdź na stronę",
+                "barbershop.reelTitle": "Świeżo z Instagrama",
+                "barbershop.reelLink": "Zobacz na Instagramie",
 
                 "faq.eyebrow": "Pytania",
                 "faq.title": "Odpowiadamy na [częste pytania]",
