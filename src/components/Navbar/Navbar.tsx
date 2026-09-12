@@ -108,6 +108,9 @@ const Inner = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
+    @media (max-width: 760px) {
+        gap: 1.2rem;
+    }
 `;
 
 const LogoButton = styled.button`
@@ -121,6 +124,10 @@ const LogoButton = styled.button`
 
 const LogoImage = styled.img`
     width: 17rem;
+    /* the bar's contents must fit a 390px phone, and the logo is the widest item */
+    @media (max-width: 760px) {
+        width: 12.5rem;
+    }
     max-width: 40vw;
     /* the logo asset is white, the header sits on light paper */
     filter: invert(1);
@@ -130,6 +137,9 @@ const RightSide = styled.div`
     display: flex;
     align-items: center;
     gap: 1.2rem;
+    @media (max-width: 760px) {
+        gap: 0.8rem;
+    }
 `;
 
 const SignUpButton = styled(Button)`
@@ -144,6 +154,9 @@ const MenuBadge = styled.button<{ isOpen: boolean }>`
     cursor: pointer;
     border-radius: 0;
     padding: 1.5rem 2.4rem;
+    @media (max-width: 760px) {
+        padding: 1.4rem 1.6rem;
+    }
     line-height: 1;
     font-size: 1.4rem;
     font-weight: 700;

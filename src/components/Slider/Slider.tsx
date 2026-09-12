@@ -178,11 +178,20 @@ const Controls = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
+    /* a long dot row must wrap instead of widening the page */
+    flex-wrap: wrap;
+    @media (max-width: 760px) {
+        gap: 1.5rem;
+    }
 `;
 
 const Dots = styled.div`
     display: flex;
     gap: 0.8rem;
+    /* one dot per slide, so this row has to give way on a phone */
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    min-width: 0;
 `;
 
 const Dot = styled.button<{ isActive: boolean }>`
