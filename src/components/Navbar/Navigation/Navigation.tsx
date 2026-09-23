@@ -51,8 +51,8 @@ export default Navigation;
 
 const Nav = styled.nav<NavigationProps>`
     display: flex;
-    /* inside the sheet the list owns every pixel between the bar and the contacts */
-    ${props => (props.variant === "mobile" ? "flex: 1;" : "")}
+    /* in the sheet the ruled rows have to run the full width */
+    ${props => (props.variant === "mobile" ? "flex-direction: column;" : "")}
 `;
 
 const RULE = "1px solid rgba(43, 42, 40, .14)";
@@ -68,11 +68,7 @@ const Ul = styled.ul<NavigationProps>`
         list-style-type: none;
     }
     ${props => props.variant === "mobile" && `
-        flex: 1;
-        /* ruled rows share the spare height, so a tall phone gets generous
-           tap targets instead of a hole under the last link */
         & li {
-            flex: 1 1 auto;
             display: flex;
             border-bottom: ${RULE};
         }
@@ -134,10 +130,9 @@ const NavLink = styled.a<NavigationProps>`
         /* baseline alignment pushed the whole row's text against the top rule */
         align-items: center;
         -webkit-tap-highlight-color: transparent;
-        padding: 1.5rem 0;
-        /* a short phone can't afford the airy rows — fall back to a tight list */
+        padding: 1rem 0;
         @media (max-height: 720px) {
-            padding: 0.8rem 0;
+            padding: 0.6rem 0;
         }
         /* the arrow is the last child only in this variant */
         &:hover > span:last-child,

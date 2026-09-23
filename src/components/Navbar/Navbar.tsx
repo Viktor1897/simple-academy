@@ -64,18 +64,21 @@ const Navbar = () => {
                 </Inner>
             </HeaderBar>
 
-            <Overlay isOpen={isMenuOpen}>
-                <OverlayInner>
-                    <Navigation variant="mobile" onNavigationClick={() => setMenuOpen(false)} />
-                    <OverlayFooter>
-                        <OverlayLink href={CONTACTS.phoneHref}>{CONTACTS.phone}</OverlayLink>
-                        <OverlayLink target="_blank" rel="noreferrer" href={CONTACTS.instagram}>
-                            {CONTACTS.instagramLabel}
-                        </OverlayLink>
-                        <Button width="100%" onClick={signUp}>{t("menu.signUp")}</Button>
-                    </OverlayFooter>
-                </OverlayInner>
-            </Overlay>
+            {/* a tap anywhere below the sheet closes it */}
+            <Scrim isOpen={isMenuOpen} onClick={() => setMenuOpen(false)}>
+                <Sheet isOpen={isMenuOpen} onClick={event => event.stopPropagation()}>
+                    <SheetInner>
+                        <Navigation variant="mobile" onNavigationClick={() => setMenuOpen(false)} />
+                        <SheetFooter>
+                            <SheetLink href={CONTACTS.phoneHref}>{CONTACTS.phone}</SheetLink>
+                            <SheetLink target="_blank" rel="noreferrer" href={CONTACTS.instagram}>
+                                {CONTACTS.instagramLabel}
+                            </SheetLink>
+                            <Button width="100%" onClick={signUp}>{t("menu.signUp")}</Button>
+                        </SheetFooter>
+                    </SheetInner>
+                </Sheet>
+            </Scrim>
         </>
     );
 };
@@ -170,50 +173,49 @@ const MenuBadge = styled.button<{ isOpen: boolean }>`
     }
 `;
 
-const Overlay = styled.div<{ isOpen: boolean }>`
+const Scrim = styled.div<{ isOpen: boolean }>`
     position: fixed;
     inset: 0;
     z-index: 25;
-    /* paper at 60%, so the page reads through without the links losing contrast */
+    background: rgba(43, 42, 40, .3);
+    opacity: ${props => (props.isOpen ? 1 : 0)};
+    visibility: ${props => (props.isOpen ? "visible" : "hidden")};
+    transition: opacity .3s ease, visibility .3s ease;
+`;
+
+/* only as tall as its content — the page stays visible under it */
+const Sheet = styled.div<{ isOpen: boolean }>`
+    display: flex;
+    justify-content: center;
+    /* top padding clears the fixed bar the sheet slides out from under */
+    padding: 8rem 2rem 2.4rem;
+    max-height: 100%;
+    overflow-y: auto;
     background: ${COLORS.paper}CC;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    /* the last row must clear the home indicator on a gesture-bar phone */
-    padding: 12rem 2rem calc(3rem + env(safe-area-inset-bottom, 0px));
-    @media (max-height: 720px) {
-        padding-top: 9rem;
-    }
-    overflow-y: auto;
-    opacity: ${props => (props.isOpen ? 1 : 0)};
-    visibility: ${props => (props.isOpen ? "visible" : "hidden")};
+    border-bottom: 1px solid ${COLORS.line};
+    box-shadow: 0 1.2rem 3rem rgba(43, 42, 40, .14);
     transform: translateY(${props => (props.isOpen ? "0" : "-1.5rem")});
-    transition: opacity .35s ease, transform .35s ease, visibility .35s ease;
+    transition: transform .35s ease;
 `;
 
-const OverlayInner = styled.div`
+const SheetInner = styled.div`
     width: 100%;
     max-width: ${MAX_CONTENT_WIDTH};
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    /* the ruled list already closes with a hairline, so no gap is needed here */
-    gap: 0;
 `;
 
-const OverlayFooter = styled.div`
+const SheetFooter = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.4rem;
-    padding-top: 3rem;
-    @media (max-height: 720px) {
-        padding-top: 2rem;
-    }
+    gap: 1.2rem;
+    padding-top: 2rem;
 `;
 
-const OverlayLink = styled.a`
+const SheetLink = styled.a`
     color: ${COLORS.ink};
     text-decoration: none;
     font-size: 2rem;
