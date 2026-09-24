@@ -56,9 +56,14 @@ const Navbar = () => {
                             {t("menu.signUp")}
                         </SignUpButton>
                         {!isDesktop && (
-                            <MenuBadge isOpen={isMenuOpen} onClick={() => setMenuOpen(prev => !prev)}>
-                                {isMenuOpen ? t("menu.close") : t("menu.menu")}
-                            </MenuBadge>
+                            <MenuToggle
+                                isOpen={isMenuOpen}
+                                aria-label={isMenuOpen ? t("menu.close") : t("menu.menu")}
+                                aria-expanded={isMenuOpen}
+                                onClick={() => setMenuOpen(prev => !prev)}
+                            >
+                                <span />
+                            </MenuToggle>
                         )}
                     </RightSide>
                 </Inner>
@@ -74,7 +79,7 @@ const Navbar = () => {
                             <SheetLink target="_blank" rel="noreferrer" href={CONTACTS.instagram}>
                                 {CONTACTS.instagramLabel}
                             </SheetLink>
-                            <Button width="100%" onClick={signUp}>{t("menu.signUp")}</Button>
+                            <SheetButton onClick={signUp}>{t("menu.signUp")}</SheetButton>
                         </SheetFooter>
                     </SheetInner>
                 </Sheet>
@@ -152,24 +157,47 @@ const SignUpButton = styled(Button)`
     }
 `;
 
-const MenuBadge = styled.button<{ isOpen: boolean }>`
+/* three bars that fold into a cross while the sheet is open */
+const MenuToggle = styled.button<{ isOpen: boolean }>`
+    position: relative;
+    width: 4.4rem;
+    height: 4.4rem;
+    flex-shrink: 0;
     border: none;
+    background: none;
     cursor: pointer;
-    border-radius: 0;
-    padding: 1.5rem 2.4rem;
-    @media (max-width: 760px) {
-        padding: 1.4rem 1.6rem;
+    color: ${COLORS.ink};
+    -webkit-tap-highlight-color: transparent;
+    & > span,
+    & > span::before,
+    & > span::after {
+        position: absolute;
+        left: 50%;
+        width: 2.8rem;
+        height: 2px;
+        margin-left: -1.4rem;
+        background: currentColor;
+        transition: transform .3s ease, background-color .3s ease;
     }
-    line-height: 1;
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: ${COLORS.paper};
-    background: ${props => (props.isOpen ? COLORS.blue : COLORS.ink)};
-    transition: background-color .25s ease;
+    & > span {
+        top: 50%;
+        margin-top: -1px;
+        background: ${props => (props.isOpen ? "transparent" : "currentColor")};
+    }
+    & > span::before,
+    & > span::after {
+        content: "";
+        left: 0;
+        margin-left: 0;
+    }
+    & > span::before {
+        transform: ${props => (props.isOpen ? "rotate(45deg)" : "translateY(-0.9rem)")};
+    }
+    & > span::after {
+        transform: ${props => (props.isOpen ? "rotate(-45deg)" : "translateY(0.9rem)")};
+    }
     &:hover {
-        background: ${COLORS.blue};
+        color: ${COLORS.blue};
     }
 `;
 
@@ -188,7 +216,7 @@ const Sheet = styled.div<{ isOpen: boolean }>`
     display: flex;
     justify-content: center;
     /* top padding clears the fixed bar the sheet slides out from under */
-    padding: 8rem 2rem 2.4rem;
+    padding: 9rem 2rem 2.8rem;
     max-height: 100%;
     overflow-y: auto;
     background: ${COLORS.paper}CC;
@@ -211,16 +239,30 @@ const SheetFooter = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.2rem;
-    padding-top: 2rem;
+    gap: 1.6rem;
+    padding-top: 3.2rem;
 `;
 
 const SheetLink = styled.a`
     color: ${COLORS.ink};
     text-decoration: none;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1.9rem;
+    font-weight: 400;
+    line-height: 1.3;
     &:hover {
         color: ${COLORS.blue};
+    }
+`;
+
+/* a compact pill in sentence case, not the full-width capitals used elsewhere */
+const SheetButton = styled(Button)`
+    margin-top: 0.4rem;
+    padding: 1.3rem 2.2rem;
+    border-radius: 0.8rem;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 500;
+    @media (max-width: 760px) {
+        font-size: 1.7rem;
     }
 `;

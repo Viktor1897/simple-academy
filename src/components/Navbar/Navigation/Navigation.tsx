@@ -3,7 +3,6 @@ import { COLORS, LINKS } from "consts";
 import { useTranslation } from "react-i18next";
 import { goTo } from "utils/goTo";
 
-import { AboutIcon, BarbershopIcon, ContactIcon, CoursesIcon, TutorsIcon, WorksIcon } from "./MenuIcons";
 
 type NavigationProps = {
     /**
@@ -14,12 +13,12 @@ type NavigationProps = {
 };
 
 const ITEMS = [
-    { href: LINKS.ABOUT_US, label: "menu.about", Icon: AboutIcon },
-    { href: LINKS.COURSES, label: "menu.courses", Icon: CoursesIcon },
-    { href: LINKS.GRADUATES, label: "menu.graduates", Icon: WorksIcon },
-    { href: LINKS.TUTORS, label: "menu.tutors", Icon: TutorsIcon },
-    { href: LINKS.BARBERSHOP, label: "menu.barbershop", Icon: BarbershopIcon },
-    { href: LINKS.CONTACT, label: "menu.contacts", Icon: ContactIcon },
+    { href: LINKS.ABOUT_US, label: "menu.about" },
+    { href: LINKS.COURSES, label: "menu.courses" },
+    { href: LINKS.GRADUATES, label: "menu.graduates" },
+    { href: LINKS.TUTORS, label: "menu.tutors" },
+    { href: LINKS.BARBERSHOP, label: "menu.barbershop" },
+    { href: LINKS.CONTACT, label: "menu.contacts" },
 ];
 
 const Navigation = ({ variant = "desktop", onNavigationClick }: NavigationProps) => {
@@ -33,12 +32,10 @@ const Navigation = ({ variant = "desktop", onNavigationClick }: NavigationProps)
     return (
         <Nav variant={variant}>
             <Ul variant={variant}>
-                {ITEMS.map(({ href, label, Icon }) => (
+                {ITEMS.map(({ href, label }) => (
                     <li key={href}>
                         <NavLink variant={variant} onClick={() => goToAnchor(href)}>
-                            {variant === "mobile" && <Mark><Icon /></Mark>}
-                            {t(label)}
-                            {variant === "mobile" && <Arrow aria-hidden="true" />}
+                            {variant === "mobile" ? <Label>{t(label)}</Label> : t(label)}
                         </NavLink>
                     </li>
                 ))}
@@ -51,59 +48,28 @@ export default Navigation;
 
 const Nav = styled.nav<NavigationProps>`
     display: flex;
-    /* in the sheet the ruled rows have to run the full width */
     ${props => (props.variant === "mobile" ? "flex-direction: column;" : "")}
 `;
-
-const RULE = "1px solid rgba(43, 42, 40, .14)";
 
 const Ul = styled.ul<NavigationProps>`
     display: flex;
     flex-direction: ${props => (props.variant === "mobile" ? "column" : "row")};
-    align-items: ${props => (props.variant === "mobile" ? "stretch" : "center")};
+    align-items: ${props => (props.variant === "mobile" ? "flex-start" : "center")};
     gap: ${props => (props.variant === "mobile" ? "0" : "3rem")};
     margin: 0;
     padding: 0;
     & li {
         list-style-type: none;
     }
-    ${props => props.variant === "mobile" && `
-        & li {
-            display: flex;
-            border-bottom: ${RULE};
-        }
-        & li:first-of-type {
-            border-top: ${RULE};
-        }
-    `}
 `;
 
-const Mark = styled.span`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* a fixed box keeps every label starting on the same vertical line */
-    width: 3.2rem;
-    flex-shrink: 0;
-    margin-right: 1.8rem;
-    color: ${COLORS.blue};
-    transition: transform .25s ease;
-    & svg {
-        width: 100%;
-        height: auto;
+/* the labels are stored in capitals for the desktop bar; the sheet reads them in sentence case */
+const Label = styled.span`
+    display: inline-block;
+    text-transform: lowercase;
+    &::first-letter {
+        text-transform: uppercase;
     }
-`;
-
-const Arrow = styled.span`
-    margin-left: auto;
-    align-self: center;
-    width: 1rem;
-    height: 1rem;
-    flex-shrink: 0;
-    border-top: 2px solid ${COLORS.textMuted};
-    border-right: 2px solid ${COLORS.textMuted};
-    transform: translateX(0) rotate(45deg);
-    transition: transform .25s ease, border-color .25s ease;
 `;
 
 const NavLink = styled.a<NavigationProps>`
@@ -116,30 +82,22 @@ const NavLink = styled.a<NavigationProps>`
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
-    font-weight: ${props => (props.variant === "mobile" ? 800 : 600)};
-    letter-spacing: ${props => (props.variant === "mobile" ? "-0.02em" : "0.04em")};
-    font-size: ${props => (props.variant === "mobile" ? "clamp(3.2rem, 9vw, 5.4rem)" : "1.5rem")};
-    line-height: ${props => (props.variant === "mobile" ? 1.1 : 1)};
-    transition: color .25s ease, transform .25s ease;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: color .25s ease;
     &:hover {
         color: ${COLORS.blue};
     }
     ${props => props.variant === "mobile" && `
-        flex: 1;
-        display: flex;
-        /* baseline alignment pushed the whole row's text against the top rule */
-        align-items: center;
-        -webkit-tap-highlight-color: transparent;
+        text-transform: none;
+        font-weight: 400;
+        letter-spacing: 0;
+        font-size: 1.9rem;
+        line-height: 1.3;
         padding: 1rem 0;
-        @media (max-height: 720px) {
-            padding: 0.6rem 0;
-        }
-        /* the arrow is the last child only in this variant */
-        &:hover > span:last-child,
-        &:active > span:last-child {
-            transform: translateX(0.5rem) rotate(45deg);
-            border-color: ${COLORS.blue};
-        }
+        -webkit-tap-highlight-color: transparent;
         &:active {
             color: ${COLORS.blue};
         }
