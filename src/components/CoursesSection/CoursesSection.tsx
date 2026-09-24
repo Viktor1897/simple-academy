@@ -119,7 +119,7 @@ const CoursesSection = () => {
                                         <CurrentPrice>{t(course.price.current)}</CurrentPrice>
                                     </PriceRow>
                                     <Button
-                                        variant={course.featured ? "blue" : "black"}
+                                        variant="blue"
                                         width="100%"
                                         onClick={() => goTo(LINKS.CONTACT)}
                                     >
