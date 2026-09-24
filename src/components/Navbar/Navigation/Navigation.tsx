@@ -35,7 +35,7 @@ const Navigation = ({ variant = "desktop", onNavigationClick }: NavigationProps)
                 {ITEMS.map(({ href, label }) => (
                     <li key={href}>
                         <NavLink variant={variant} onClick={() => goToAnchor(href)}>
-                            {variant === "mobile" ? <Label>{t(label)}</Label> : t(label)}
+                            {t(label)}
                         </NavLink>
                     </li>
                 ))}
@@ -63,15 +63,6 @@ const Ul = styled.ul<NavigationProps>`
     }
 `;
 
-/* the labels are stored in capitals for the desktop bar; the sheet reads them in sentence case */
-const Label = styled.span`
-    display: inline-block;
-    text-transform: lowercase;
-    &::first-letter {
-        text-transform: uppercase;
-    }
-`;
-
 const NavLink = styled.a<NavigationProps>`
     display: inline-flex;
     align-items: baseline;
@@ -91,9 +82,8 @@ const NavLink = styled.a<NavigationProps>`
         color: ${COLORS.blue};
     }
     ${props => props.variant === "mobile" && `
-        text-transform: none;
-        font-weight: 400;
-        letter-spacing: 0;
+        font-weight: 500;
+        letter-spacing: 0.02em;
         font-size: 1.9rem;
         line-height: 1.3;
         padding: 1rem 0;
