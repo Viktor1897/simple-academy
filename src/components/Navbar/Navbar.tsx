@@ -79,7 +79,7 @@ const Navbar = () => {
                             <SheetLink target="_blank" rel="noreferrer" href={CONTACTS.instagram}>
                                 {CONTACTS.instagramLabel}
                             </SheetLink>
-                            <SheetButton onClick={signUp}>{t("menu.signUp")}</SheetButton>
+                            <Button onClick={signUp}>{t("menu.signUp")}</Button>
                         </SheetFooter>
                     </SheetInner>
                 </Sheet>
@@ -251,18 +251,5 @@ const SheetLink = styled.a`
     line-height: 1.3;
     &:hover {
         color: ${COLORS.blue};
-    }
-`;
-
-/* a compact pill in sentence case, not the full-width capitals used elsewhere */
-const SheetButton = styled(Button)`
-    margin-top: 0.4rem;
-    padding: 1.3rem 2.2rem;
-    border-radius: 0.8rem;
-    text-transform: none;
-    letter-spacing: 0;
-    font-weight: 500;
-    @media (max-width: 760px) {
-        font-size: 1.7rem;
     }
 `;
