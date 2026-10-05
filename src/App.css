@@ -1,54 +1,69 @@
+:root {
+  --paper: #F5F5F4;
+  --ink: #2B2A28;
+  --blue: #1270CF;
+}
+
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
+  font-family: 'Onest', 'Manrope', 'Montserrat', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
-  font-size: 9px;
+  font-size: 10px;
+  scroll-behavior: smooth;
 }
 
-@media screen and (max-width: 1200px) {
-  html {
-    font-size: 8px;
-  }
+@media screen and (max-width: 1280px) {
+  html { font-size: 9.4px; }
 }
 
 @media screen and (max-width: 1000px) {
-  html {
-    font-size: 7px;
-  }
+  html { font-size: 8.8px; }
 }
 
-@media screen and (max-width: 800px) {
-  html {
-    font-size: 6px;
-  }
+/*
+ * Phones step back UP on purpose: the ladder above shrinks type with the
+ * viewport, but a small screen is held closer and needs bigger text, not
+ * smaller. Below 760px the scale grows instead of shrinking.
+ */
+@media screen and (max-width: 760px) {
+  html { font-size: 9.2px; }
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  /* sections paint the paper grain themselves (see PAPER_TEXTURE in consts) */
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--blue);
+  color: #fff;
 }
 
 @keyframes animate {
-  0%
-  {
-      transform: scale(0.5);
-      opacity: 0;
-  }
-  50%
-  {
-      opacity: 1;
-  }
-  100%
-  {
-      transform: scale(1.2);
-      opacity: 0;
-  }
+  0%   { transform: scale(0.5); opacity: 0; }
+  50%  { opacity: 1; }
+  100% { transform: scale(1.2); opacity: 0; }
 }
 
 @keyframes rotating {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes marquee {
+  /* 3d transforms keep the strip on its own compositor layer in Safari */
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }

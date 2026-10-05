@@ -1,36 +1,123 @@
 import styled from "@emotion/styled";
-import headerBg from "assets/header_bg.jpg";
-import NavbarMobile from "components/Navbar/NavbarMobile/NavbarMobile";
-import { Button, ContentWrapper, H2 } from "components/StyledHtml/StyledHtml";
-import { COLORS, LINKS } from "consts";
-import { useMediaQuery } from "hooks/useMediaQuery";
+import portrait from "assets/IMG_2362.png";
+import { Button, Display, LinkButton, Mark, Text } from "components/StyledHtml/StyledHtml";
+import TornEdge from "components/TornEdge/TornEdge";
+import { COLORS, CONTACTS, LINKS, PAPER_TEXTURE } from "consts";
+import { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { goTo } from "utils/goTo";
+import { withHighlight } from "utils/highlight";
 
-import NavbarDesktop from "../Navbar/NavbarDesktop/NavbarDesktop";
+const HeroMark = ({ children }: { children: ReactNode }) => <Mark tone="coral">{children}</Mark>;
 
 const Header = () => {
-    const matches = useMediaQuery("(min-width: 850px)");
     const { t } = useTranslation();
+
     return (
-        <HeaderElement>
-            <ContentWrapper gap="none" flexDirection="column" alignItems="center">
-                {matches ? <NavbarDesktop/> : <NavbarMobile />}
-                <H2 marginBottom="6.7rem" color={COLORS.white} style={{ marginTop: matches ? "18.6rem" : "32rem", textShadow: "#000 0 0 2px" }}>{t("header.title")}</H2>
-                <Button onClick={() => goTo(LINKS.CONTACT)} maxWidth="42.2rem" padding="2.3rem 0" fontSize="3.5rem">{t("header.contactBtn")}</Button>
-            </ContentWrapper>
-        </HeaderElement>
+        <HeroSection>
+            {/* heading first for reading order; the grid puts the pane on the left */}
+            <Copy>
+                <Display color={COLORS.paper} marginBottom="3rem">
+                    {withHighlight(t("hero.title"), HeroMark)}
+                </Display>
+                <Text fontSize="1.9rem" color="rgba(245,245,244,.84)" maxWidth="46rem" marginBottom="4rem">
+                    {t("hero.subtitle")}
+                </Text>
+                <Actions>
+                    <Button variant="black" onClick={() => goTo(LINKS.COURSES)}>{t("hero.primaryBtn")}</Button>
+                    <LinkButton variant="outlinedLight" href={CONTACTS.phoneHref}>{CONTACTS.phone}</LinkButton>
+                </Actions>
+            </Copy>
+
+            <LeftPane>
+                {/* the cut-out stands across the seam, over both colours */}
+                <Figure src={portrait} alt="" />
+                <TornEdge color={COLORS.paper} position="right" />
+            </LeftPane>
+
+            <TornEdge color={COLORS.paper} position="bottom" />
+        </HeroSection>
     );
 };
 
 export default Header;
 
-const HeaderElement = styled.header`
-    background: no-repeat center top url(${headerBg});
-    background-size: cover;
+const HeroSection = styled.header`
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: grid;
+    /* the section splits vertically: paper on the left, blue on the right */
+    grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+    /* taller pane lets the cut-out grow, so it fills the left half on wide screens */
+    min-height: 84rem;
+    background-color: ${COLORS.blue};
+    background-image: ${PAPER_TEXTURE};
+    background-size: 220px 220px;
+    /*
+     * Tablet keeps the split instead of stacking the photo under the copy —
+     * the stacked version read as a separate block. The copy just gets more
+     * of the width.
+     */
+    @media (max-width: 1000px) {
+        grid-template-columns: minmax(0, 40fr) minmax(0, 60fr);
+        min-height: 64rem;
+    }
+    /* phones: the photo goes, the hero is just the blue block with the copy */
+    @media (max-width: 700px) {
+        grid-template-columns: minmax(0, 1fr);
+        min-height: 0;
+    }
+`;
+
+const LeftPane = styled.div`
+    position: relative;
+    order: 1;
+    background-color: ${COLORS.paper};
+    background-image: ${PAPER_TEXTURE};
+    background-size: 220px 220px;
+    @media (max-width: 700px) {
+        display: none;
+    }
+`;
+
+/*
+ * Sized off the pane's height and pinned to the seam. When the pane gets narrow
+ * the figure keeps its full height and the far shoulder simply runs off the
+ * left edge of the screen — sizing it off the pane's width instead made it
+ * shrink and float with empty paper above it.
+ */
+const Figure = styled.img`
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: auto;
+    max-width: none;
+    z-index: 3;
+`;
+
+const Copy = styled.div`
+    order: 2;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-    padding-bottom: 31.7rem;
-    padding-right:7%;
-    padding-left: 7%;
+    /* keeps the headline off the right edge of a wide monitor */
+    max-width: 72rem;
+    padding: 17rem 5rem 13rem 7rem;
+    @media (max-width: 1000px) {
+        padding: 14rem 3rem 11rem 4.5rem;
+    }
+    @media (max-width: 700px) {
+        max-width: none;
+        /* bottom room so the buttons don't sit on the torn edge */
+        padding: 12rem 2rem 10rem;
+    }
+`;
+
+const Actions = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
 `;

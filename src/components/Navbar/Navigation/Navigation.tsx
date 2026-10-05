@@ -3,16 +3,26 @@ import { COLORS, LINKS } from "consts";
 import { useTranslation } from "react-i18next";
 import { goTo } from "utils/goTo";
 
+import { AboutIcon, BarbershopIcon, ContactIcon, CoursesIcon, TutorsIcon, WorksIcon } from "./MenuIcons";
+
 type NavigationProps = {
     /**
      * @default "desktop"
      */
     variant?: "desktop" | "mobile";
     onNavigationClick?: () => void;
-}
+};
 
-const Navigation = ({ variant, onNavigationClick }: NavigationProps) => {
+const ITEMS = [
+    { href: LINKS.ABOUT_US, label: "menu.about", Icon: AboutIcon },
+    { href: LINKS.COURSES, label: "menu.courses", Icon: CoursesIcon },
+    { href: LINKS.GRADUATES, label: "menu.graduates", Icon: WorksIcon },
+    { href: LINKS.TUTORS, label: "menu.tutors", Icon: TutorsIcon },
+    { href: LINKS.BARBERSHOP, label: "menu.barbershop", Icon: BarbershopIcon },
+    { href: LINKS.CONTACT, label: "menu.contacts", Icon: ContactIcon },
+];
 
+const Navigation = ({ variant = "desktop", onNavigationClick }: NavigationProps) => {
     const { t } = useTranslation();
 
     const goToAnchor = (href: string) => {
@@ -23,18 +33,14 @@ const Navigation = ({ variant, onNavigationClick }: NavigationProps) => {
     return (
         <Nav variant={variant}>
             <Ul variant={variant}>
-                <li>
-                    <a onClick={() => goToAnchor(LINKS.ABOUT_US)}>{t("menu.about")}</a>
-                </li>
-                <li>
-                    <a onClick={() => goToAnchor(LINKS.COURSES)}>{t("menu.courses")}</a>
-                </li>
-                <li>
-                    <a  onClick={() => goToAnchor(LINKS.BARBERSHOP)}>{t("menu.barbershop")}</a>
-                </li>
-                <li>
-                    <a  onClick={() => goToAnchor(LINKS.CONTACT)}>{t("menu.contacts")}</a>
-                </li>
+                {ITEMS.map(({ href, label, Icon }) => (
+                    <li key={href}>
+                        <NavLink variant={variant} onClick={() => goToAnchor(href)}>
+                            {variant === "mobile" && <Mark><Icon /></Mark>}
+                            {t(label)}
+                        </NavLink>
+                    </li>
+                ))}
             </Ul>
         </Nav>
     );
@@ -43,35 +49,78 @@ const Navigation = ({ variant, onNavigationClick }: NavigationProps) => {
 export default Navigation;
 
 const Nav = styled.nav<NavigationProps>`
-    width: 100%;
-    max-width: ${props => props.variant !== "mobile" && "65rem"};
-    padding: 0 2rem;
-    padding-bottom: ${props => props.variant === "mobile" && "20rem"};
+    display: flex;
+    ${props => (props.variant === "mobile" ? "flex-direction: column;" : "")}
 `;
 
+const RULE = "1px solid rgba(43, 42, 40, .14)";
+
 const Ul = styled.ul<NavigationProps>`
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
     display: flex;
-    flex-direction: ${props => props.variant === "mobile" ? "column" : "row"};
+    flex-direction: ${props => (props.variant === "mobile" ? "column" : "row")};
+    align-items: ${props => (props.variant === "mobile" ? "stretch" : "center")};
+    gap: ${props => (props.variant === "mobile" ? "0" : "3rem")};
     margin: 0;
     padding: 0;
-     & li {
+    & li {
         list-style-type: none;
-        & a {
-            display: block;
-            text-align: center;
-            padding: 1rem 0;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: ${props => props.variant === "mobile" ? "5rem" : "2.2rem"};
-            color: ${COLORS.white};
-            &:hover {
-                color: ${COLORS.gold};
-                background-color: ${props => props.variant === "mobile" && (COLORS.black + "95")};
-            };
-         }
-     }
+    }
+    ${props => props.variant === "mobile" && `
+        & li {
+            display: flex;
+            border-bottom: ${RULE};
+        }
+        & li:first-of-type {
+            border-top: ${RULE};
+        }
+    `}
+`;
+
+const Mark = styled.span`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* a fixed box keeps every label starting on the same vertical line */
+    width: 2.4rem;
+    flex-shrink: 0;
+    margin-right: 1.6rem;
+    color: ${COLORS.blue};
+    & svg {
+        width: 100%;
+        height: auto;
+    }
+`;
+
+const NavLink = styled.a<NavigationProps>`
+    display: inline-flex;
+    align-items: baseline;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: ${COLORS.ink};
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: color .25s ease;
+    &:hover {
+        color: ${COLORS.blue};
+    }
+    ${props => props.variant === "mobile" && `
+        flex: 1;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        font-size: 1.9rem;
+        line-height: 1.3;
+        padding: 1.3rem 0;
+        -webkit-tap-highlight-color: transparent;
+        &:active {
+            color: ${COLORS.blue};
+        }
+    `}
 `;
