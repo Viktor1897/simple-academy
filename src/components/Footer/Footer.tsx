@@ -81,10 +81,28 @@ export const Footer = () => {
                                         {t("footer.contactForm.button")}
                                         {pending && <LoadingIcon src={Loading} alt="" />}
                                     </SubmitButton>
-                                    <Note>{t("footer.contactForm.note")}</Note>
+                                    {!response && <Note>{t("footer.contactForm.note")}</Note>}
                                 </SubmitRow>
 
-                                {response && <StatusMessage isError={false}>{t("footer.contactForm.success")}</StatusMessage>}
+                                {response && (
+                                    <SuccessMessage role="status">
+                                        <SuccessIcon viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                                            <circle cx="16" cy="16" r="16" fill="#83d6a6" />
+                                            <path
+                                                d="M9 16l5 5 9-10"
+                                                fill="none"
+                                                stroke="#173e2b"
+                                                strokeWidth="2.5"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </SuccessIcon>
+                                        <div>
+                                            <SuccessTitle>{t("footer.contactForm.successTitle")}</SuccessTitle>
+                                            <p>{t("footer.contactForm.success")}</p>
+                                        </div>
+                                    </SuccessMessage>
+                                )}
                                 {error && <StatusMessage isError>{t("footer.contactForm.error")}</StatusMessage>}
                             </FeedbackForm>
                         </FormColumn>
@@ -244,6 +262,32 @@ const StatusMessage = styled.p<{ isError: boolean }>`
     font-size: 1.6rem;
     font-weight: 600;
     color: ${props => (props.isError ? COLORS.coral : COLORS.blueTint)};
+`;
+
+const SuccessMessage = styled.div`
+    display: flex;
+    align-items: flex-start;
+    gap: 1.4rem;
+    padding: 2rem;
+    border: 1px solid #83d6a6;
+    background-color: #173e2b;
+    color: ${COLORS.paper};
+    font-size: 1.7rem;
+    line-height: 1.5;
+`;
+
+const SuccessIcon = styled.svg`
+    display: block;
+    flex-shrink: 0;
+    width: 3.2rem;
+    height: 3.2rem;
+`;
+
+const SuccessTitle = styled.strong`
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 2.2rem;
+    line-height: 1.3;
 `;
 
 const Contacts = styled.ul`
